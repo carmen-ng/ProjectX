@@ -19,9 +19,10 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	font-size: 50%;
 	font: inherit;
 	vertical-align: baseline;
+	font-family: 'Century Gothic', sans-serif
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -50,7 +51,10 @@ table {
 
 
 
-*{font-family: 'Century Gothic', sans-serif;}
+*{
+	font-family: 'Century Gothic', sans-serif;
+}
+
 .container{width: 1273px;}
 
 a,
@@ -71,11 +75,11 @@ label,
 .middle,
 .right,
 .submit-btn input,
-.cbp-spmenu h3{background-color: #052860;}
+.cbp-spmenu h3, 
+.cbp-spmenu{background-color: #008a91;}
 
 .body,
-.form-name,
-.cbp-spmenu{background-color: #6f7e98;}
+.form-name{background-color: #66b9bd;}
 
 .mi,
 .ln,
@@ -92,7 +96,7 @@ li,
 .middle,
 .right,
 input,
-label{float: left;}
+label{float: left; font-size:95%;}
 
 
 .nav {height: 70px;}
@@ -177,7 +181,7 @@ a {text-decoration: none;}
 	margin-right: 13px;
 	margin-left: 3px;
 }
-.state-license{margin-bottom: 10px;}
+.state-license{margin-bottom: 10px; width:50px;}
 .hs-ged{margin: 0 10px;}
 .grad-year{margin: 0 5px 0 80px;}
 
@@ -233,17 +237,18 @@ a {text-decoration: none;}
 /* General styles for all menus */
 .cbp-spmenu {position: fixed;}
 .cbp-spmenu h3 {
-	font-size: 1.9em;
+	font-size: 1.2em;
 	padding: 20px;
 	margin: 0;
 	font-weight: 300;}
 .cbp-spmenu a {
+	margin-left: 15px;
 	display: block;
-	font-size: 1.1em;
+	font-size: 1em;
 	font-weight: 300;}
-.cbp-spmenu a:hover {background: #76ab2e;}
-.cbp-spmenu a:active {
-	background: #afdefa;
+.cbp-spmenu a:hover {background: #66b9bd;}
+.active {
+	background: #66b9bd;
 	color: #47a3da;}
 /* Orientation-dependent styles for the content of the menu */
 .cbp-spmenu-vertical {
@@ -251,8 +256,7 @@ a {text-decoration: none;}
 	height: 100%;
 	top: 0;
 	z-index: 1000;}
-.cbp-spmenu-vertical a {
-	border-bottom: 1px solid #fff;
+.cbp-spmenu-vertical a {;
 	padding: 1em;}
 .cbp-spmenu-horizontal {
 	width: 100%;
@@ -267,8 +271,7 @@ a {text-decoration: none;}
 .cbp-spmenu-horizontal a {
 	float: left;
 	width: 20%;
-	padding: 0.8em;
-	border-left: 1px solid #258ecd;}
+	padding: 0.8em;}
 /* Vertical menu that slides from the left or right */
 .cbp-spmenu-left {left: -240px;}
 .cbp-spmenu-right {right: -240px;}

@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>Recruit</title>
+	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="stylesheet.css">
+</head>
+<body class="cbp-spmenu-push">
+	<div class="container">
+		<div class="header">
+			<div class="nav">
+				<div class="nav-left">
+					<li><a href="#"><img class="ham" id="showLeft"src="images/ham.png" alt=""></a></li>
+					<li><a href="#"><img class="face" src="images/face.png" alt=""></a></li>
+					<li><a href="#"><h1>Asc Name</h1></a></li>
+					<li><a href="#"><h1>Position</h1></a></li>
+					<li><a href="#"><h1>Writing #</h1></a></li>
+					<!-- codrop nav -->
+					
+					<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+						<h3>Human Resources</h3>
+						<a href="#">Calender</a>
+						<a href="#">Menu2</a>
+						<a href="#">Menu3</a>
+						<a href="#">Menu Item</a>
+					</nav>
+					<!-- end codrop -->
+					<!-- end .nav-left -->
+				</div>
+				<div class="nav-right">
+					<li><a href="#"><img class="nav-logo" src="images/re-home.png" alt=""></a></li>
+					<li><a href="#"><img class="nav-logo" src="images/re-cal.png" alt=""></a></li>
+					<li><a href="#"><img class="nav-logo" src="images/re-rec.png" alt=""></a></li>
+					<li><a href="#"><img class="nav-logo" src="images/re-hr.png" alt=""></a></li>
+					<li><a href="#"><img class="nav-logo" src="images/re-lead.png" alt=""></a></li>
+					<li><a href="#"><img class="nav-logo" src="images/re-sales.png" alt=""></a></li>
+					<li><a href="#"><img class="nav-logo" src="images/re-acc.png" alt=""></a></li>
+					<li><a href="#"><img class="nav-logo logo-last" src="images/logo.png" alt=""></a></li>
+					<!-- end .nav-right -->
+				</div>
+				<!-- end .nav -->
+			</div>
+			<!-- end header -->
+		</div>
+
+		<div class="body">
+            <!--begin buttons-->
+			<div id="divone">
+                <p>Booking</p>
+			</div>
+
+			<div id="divtwo">
+			    <p>1st Interview</p>
+			</div>	
+
+			<div id="divthree">
+			    <p>2nd Interview</p>
+			</div>
+
+            <div id="divfour">
+			    <p>Pre-Licensing</p>
+			</div>
+
+			<div id="divfive">
+			    <p>Contract Offer</p>
+			</div>
+            <!--end buttons>
+		<!-- end container -->
+
+            <!--table begins-->
+            <table border="1" style="width:100%">
+                <!--begin header of table-->  
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th> 
+                    <th>Source</th>
+                    <th>Process</th>
+                    <th>E-mail Address</th>
+                    <th>Number</th>
+                    <th>Interview</th>
+                    <th>Interviewer</th>
+                    <th>Resume</th>
+                    <th>Grade</th>          
+                  </tr>
+                <!--end header-->
+                <!--begin first row-->
+                  <tr>
+                      <td>John Smith</td>
+                      <td> Business Consultant</td>
+                      <td>Russell Stanberry</td>
+                      <td>1st Interview</td>
+                      <td>johnsmith@gmail.com</td>
+                      <td>(555) 555-5555</td>
+                      <td>03/03/16 12:00PM</td>
+                      <td>Joe Crilly</td>
+                      <td>View</td>
+                      <td>B/Survive</td>
+                  </tr>
+                <!--end first row-->
+                <!--begin second row-->
+                  <tr>
+                      <td>Jane Doe</td>
+                      <td>Broker Consultant</td>
+                      <td>Monster.com</td>
+                      <td>2st Interview</td>
+                      <td>janedoe@gmail.com</td>
+                      <td>(555) 555-5555</td>
+                      <td>03/03/16 12:00PM</td>
+                      <td>Joe Crilly</td>
+                      <td>View</td>
+                      <td>B</td>
+                  </tr>
+                <!--end second row-->
+             </table>
+
+	</div>
+
+
+
+	<script src="js/classie.js"></script>
+	<script src="js/modernizr.custom.js"></script>
+	<script>
+	    var menuLeft = document.getElementById('cbp-spmenu-s1'),
+            showLeftPush = document.getElementById('showLeftPush'),
+            body = document.body;
+	    showLeft.onclick = function () {
+	        classie.toggle(this, 'active');
+	        classie.toggle(menuLeft, 'cbp-spmenu-open');
+	        disableOther('showLeft');
+	    };
+	    function disableOther(button) {
+	        if (button !== 'showLeft') {
+	            classie.toggle(showLeft, 'disabled');
+	        }
+	    }
+		</script>
+</body>
+</html>

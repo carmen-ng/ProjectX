@@ -3,19 +3,7 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html, body {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -246,39 +234,6 @@ a {text-decoration: none;}
 .middle{margin:0 34px;}
 
 
-.license-text{
-	margin-right: 13px;
-	margin-left: 3px;
-}
-.state-license{margin-bottom: 10px; width:50px;}
-.hs-ged{margin: 0 10px;}
-.grad-year{margin: 0 5px 0 80px;}
-
-.label-higher-ed{margin-right: 10px;}
-.higher-ed{margin: 0 5px;}
-
-
-.dates-worked-p{
-	display: inline-block;
-	right: 156px;
-}
-.worked-to{left: 15px;}
-.co-title,
-.co-form{bottom: 16px;}
-.co-form{left: 10px;}
-
-.submit-btn{
-	display: table;
-	margin: 0 auto;
-}
-.form-name,
-.submit-btn input{border:none;}
-
-.submit-btn input{
-	margin: 10px;
-	width: 150px;
-	height: 30px;
-}
 @media only screen and (max-width: 1078px){
 	.body{height: 1900px;}
 	.nav{background-color: red;}	

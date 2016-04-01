@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+﻿/* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -19,10 +19,9 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 50%;
+	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	font-family: 'Century Gothic', sans-serif
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -47,6 +46,14 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+body {
+  font-family: 'Century Gothic', sans-serif;
+}
+    
+*{font-family: 'Century Gothic', sans-serif;}
+.container{width: 1273px;}
+
 
 
 #divone, #divtwo, #divthree, #divfour, #divfive{
@@ -84,41 +91,33 @@ table {
     margin-right: 20px;
 }
 
-.revBody p {
+p {
     text-align: center;
     padding: 25px 10px 10px 10px;
 }
 
-.revTable table {
+table {
     width: 100%;
 }
 
-.revTable table, th, td {
+table, th, td {
     border: 1px solid #66b9bd;
     padding: 10px;
     text-align: center;
     
 }
-.revTable th{
+th{
     background-color: #008a91;
     padding: 11px;
     color: #c1ebed;
     font-weight: bold;
 }
-.revTable td {
+td {
     background-color: #c1ebed;
     padding: 15px;
     font-size: 90%;
     border: 1px solid #66b9bd;
 }
-
-
-
-*{
-	font-family: 'Century Gothic', sans-serif;
-}
-
-.container{width: 1273px;}
 
 a,
 p,
@@ -159,7 +158,7 @@ li,
 .middle,
 .right,
 input,
-label{float: left; font-size:95%;}
+label{float: left;}
 
 
 .nav {height: 70px;}
@@ -244,7 +243,7 @@ a {text-decoration: none;}
 	margin-right: 13px;
 	margin-left: 3px;
 }
-.state-license{margin-bottom: 10px; width:50px;}
+.state-license{margin-bottom: 10px;}
 .hs-ged{margin: 0 10px;}
 .grad-year{margin: 0 5px 0 80px;}
 
@@ -300,18 +299,17 @@ a {text-decoration: none;}
 /* General styles for all menus */
 .cbp-spmenu {position: fixed;}
 .cbp-spmenu h3 {
-	font-size: 1.2em;
+	font-size: 1.9em;
 	padding: 20px;
 	margin: 0;
 	font-weight: 300;}
 .cbp-spmenu a {
-	margin-left: 15px;
 	display: block;
-	font-size: 1em;
+	font-size: 1.1em;
 	font-weight: 300;}
-.cbp-spmenu a:hover {background: #66b9bd;}
-.active {
-	background: #66b9bd;
+.cbp-spmenu a:hover {background: #76ab2e;}
+.cbp-spmenu a:active {
+	background: #afdefa;
 	color: #47a3da;}
 /* Orientation-dependent styles for the content of the menu */
 .cbp-spmenu-vertical {
@@ -319,7 +317,8 @@ a {text-decoration: none;}
 	height: 100%;
 	top: 0;
 	z-index: 1000;}
-.cbp-spmenu-vertical a {;
+.cbp-spmenu-vertical a {
+	border-bottom: 1px solid #fff;
 	padding: 1em;}
 .cbp-spmenu-horizontal {
 	width: 100%;
@@ -334,7 +333,8 @@ a {text-decoration: none;}
 .cbp-spmenu-horizontal a {
 	float: left;
 	width: 20%;
-	padding: 0.8em;}
+	padding: 0.8em;
+	border-left: 1px solid #258ecd;}
 /* Vertical menu that slides from the left or right */
 .cbp-spmenu-left {left: -240px;}
 .cbp-spmenu-right {right: -240px;}

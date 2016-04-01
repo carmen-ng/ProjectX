@@ -31,7 +31,10 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	height: 100%;
+	width: 100%;
 }
+
 ol, ul {
 	list-style: none;
 }
@@ -87,6 +90,9 @@ table {
 .revBody p {
     text-align: center;
     padding: 25px 10px 10px 10px;
+    margin: 0;
+    height: 100%;
+    width: 100%;
 }
 
 .revTable table {
@@ -118,7 +124,7 @@ table {
 	font-family: 'Century Gothic', sans-serif;
 }
 
-.container{width: 1273px;}
+.container{width: 100%;}
 
 a,
 p,
@@ -187,7 +193,7 @@ a {text-decoration: none;}
 	width: 500px;
 }
 .body {
-	height: 591px;
+	height: 88.5vh;
 	padding: 20px;}
 .body h1{
 	margin: 0;
@@ -197,7 +203,7 @@ a {text-decoration: none;}
 .middle,
 .right {
 	width: 31%;
-	height: 500px;
+	height: 85%;
 }
 .left-form,
 .middle-form{padding: 5px;}

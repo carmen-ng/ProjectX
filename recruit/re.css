@@ -186,17 +186,23 @@ a {text-decoration: none;}
 .body h1{
 	margin: 0;
 	margin-bottom: 10px;
+	font-size: 140%;
+	font-weight: 600;
 }	
 .left,
 .middle,
 .right {
-	width: 31%;
-	height: 85%;
+	width: 31.5%;
+	height:85%;
+	margin-bottom: 35px;
 }
 .left-form,
-.middle-form{padding: 5px;}
+.middle-form{width: 90%; padding: 15px; }
+.left-form label, .middle-form label {
+	padding-right: 10px;
+}
 .mi{
-	width: 25px;
+	width: 8%;
 	margin: 0 14px;
 	bottom: 16px;
 }
@@ -211,19 +217,18 @@ a {text-decoration: none;}
 .s-1,
 .s-2{
 	margin-bottom: 10px;
-	width: 245px;
+	width: 70%;
 }
-.fn,.ln{width: 150px;}
+.fn,.ln{width: 42.5%;}
 
 
 .city,
-.state{margin-right: 10px;}
+.state, .zip{margin-right: 10px;}
 .city{width: 120px;}
 .state{width: 45px;}
 .zip{width: 80px;}
 
-.label-phone-1,
-.label-phone-2{margin-right: 24px;}
+
 .label-phone-1{margin-top: 10px;}
 .phone-1{
 	width: 176px;
@@ -234,6 +239,42 @@ a {text-decoration: none;}
 .middle{margin:0 34px;}
 
 
+<<<<<<< HEAD
+.license-text{
+	margin-right: 13px;
+	margin-left: 3px;
+}
+.state-license{margin-bottom: 10px; width:50px;}
+.hs-ged{margin: 0 10px;}
+.grad-year{margin: 0 5px 0 80px;}
+
+.label-higher-ed{margin-right: 10px;}
+.higher-ed{margin: 0 5px;}
+
+
+.dates-worked-p{
+	display: inline-block;
+	right: 156px;
+}
+.worked-to{left: 15px;}
+.co-title,
+.co-form{bottom: 16px;}
+.co-form{left: 10px;}
+
+.submit-btn{
+	display: table;
+	margin: 0 auto;
+}
+.form-name,
+.submit-btn input{border:none;}
+
+.submit-btn input{
+	margin: 5px;
+	width: 150px;
+	height: 40px;
+}
+=======
+>>>>>>> a02794245583cc14bd1ab974a79021a46fb50d0d
 @media only screen and (max-width: 1078px){
 	.body{height: 1900px;}
 	.nav{background-color: red;}	

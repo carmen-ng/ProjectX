@@ -3,19 +3,7 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html, body {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -31,7 +19,10 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	height: 100%;
+	width: 100%;
 }
+
 ol, ul {
 	list-style: none;
 }
@@ -87,6 +78,9 @@ table {
 .revBody p {
     text-align: center;
     padding: 25px 10px 10px 10px;
+    margin: 0;
+    height: 100%;
+    width: 100%;
 }
 
 .revTable table {
@@ -118,7 +112,7 @@ table {
 	font-family: 'Century Gothic', sans-serif;
 }
 
-.container{width: 1273px;}
+.container{width: 100%;}
 
 a,
 p,
@@ -185,22 +179,28 @@ a {text-decoration: none;}
 .nav-right {float: right;}
 .nav-right li {padding-left: 30px;}
 .body {
-	height: 591px;
+	height: 88.5vh;
 	padding: 20px;}
 .body h1{
 	margin: 0;
 	margin-bottom: 10px;
+	font-size: 140%;
+	font-weight: 600;
 }	
 .left,
 .middle,
 .right {
-	width: 31%;
-	height: 500px;
+	width: 31.5%;
+	height:85%;
+	margin-bottom: 35px;
 }
 .left-form,
-.middle-form{padding: 5px;}
+.middle-form{width: 90%; padding: 15px; }
+.left-form label, .middle-form label {
+	padding-right: 10px;
+}
 .mi{
-	width: 25px;
+	width: 8%;
 	margin: 0 14px;
 	bottom: 16px;
 }
@@ -215,19 +215,18 @@ a {text-decoration: none;}
 .s-1,
 .s-2{
 	margin-bottom: 10px;
-	width: 245px;
+	width: 70%;
 }
-.fn,.ln{width: 150px;}
+.fn,.ln{width: 42.5%;}
 
 
 .city,
-.state{margin-right: 10px;}
+.state, .zip{margin-right: 10px;}
 .city{width: 120px;}
 .state{width: 45px;}
 .zip{width: 80px;}
 
-.label-phone-1,
-.label-phone-2{margin-right: 24px;}
+
 .label-phone-1{margin-top: 10px;}
 .phone-1{
 	width: 176px;
@@ -238,6 +237,7 @@ a {text-decoration: none;}
 .middle{margin:0 34px;}
 
 
+<<<<<<< HEAD
 .license-text{
 	margin-right: 13px;
 	margin-left: 3px;
@@ -267,10 +267,12 @@ a {text-decoration: none;}
 .submit-btn input{border:none;}
 
 .submit-btn input{
-	margin: 10px;
+	margin: 5px;
 	width: 150px;
-	height: 30px;
+	height: 40px;
 }
+=======
+>>>>>>> a02794245583cc14bd1ab974a79021a46fb50d0d
 @media only screen and (max-width: 1078px){
 	.body{height: 1900px;}
 	.nav{background-color: red;}	

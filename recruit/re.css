@@ -317,7 +317,7 @@ a {text-decoration: none;}
 .cbp-spmenu-vertical {
 	width: 240px;
 	height: 100%;
-	top: 0;
+	top: 70px;
 	z-index: 1000;}
 .cbp-spmenu-vertical a {;
 	padding: 1em;}

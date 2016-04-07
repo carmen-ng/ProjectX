@@ -6,6 +6,7 @@
 	<title>Recruit</title>
 	<link rel="stylesheet" href="normalize.css">
 	<link rel="stylesheet" href="re.css">
+	<script type="text/javascript">var hide_awf_Form = true;</script>
 </head>
 <body class="cbp-spmenu-push">
 	<div class="container">
@@ -66,8 +67,50 @@
 			<div id="divfive">
 			    <p>Contract Offer</p>
 			</div>
+
+			<!--Search Bar-->	
+			<form>
+			  <input type="text" name="search" placeholder="Search..">
+			</form>
+			 
+		
+
+			<button onclick="document.getElementById('lightbox').style.display='inline';">
+			Show lightbox
+			</button>
+
+
+<!-- LIGHTBOX CODE BEGIN -->
+
+			<div id="lightbox" class="lightbox" style="display:none"
+
+			      onclick="document.getElementById('lightbox').style.display='none';">
+			   <table class="lightbox_table">
+			   <tr>
+			   <td class="lightbox_table_cell" align="center">
+			      <div id="lightbox_content" style=
+			            "width:300px; 
+			            background-color:#008080; 
+			            border:5px solid black; 
+			            margin-left:700px;">
+			         <p>Search results appear here.</p>
+			         <p><a href="SearchLeads.html">
+						Click for further results.
+						</a></p>
+
+			      </div>
+
+			   </td>
+			   </tr>
+			   </table>
+			</div>
+
+<!-- LIGHTBOX CODE END -->
+
             <!--end buttons>
 		<!-- end container -->
+
+
 
             <!--table begins-->
             <table border="1" style="width:100%" class="revTable">

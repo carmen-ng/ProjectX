@@ -39,9 +39,80 @@ table {
 	border-spacing: 0;
 }
 
+input[type=text] {
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 0px 0px; 
+    background-repeat: no-repeat;
+    padding-left: 40px;
+    margin-top: 44px;
+}
+
+.black_overlay{
+			display: none;
+			position: absolute;
+			top: 0%;
+			left: 0%;
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			z-index:1001;
+			-moz-opacity: 0.8;
+			opacity:.80;
+			filter: alpha(opacity=80);
+		}
+		.white_content {
+			display: none;
+			position: absolute;
+			top: 25%;
+			left: 25%;
+			width: 50%;
+			height: 50%;
+			padding: 16px;
+			border: 16px solid orange;
+			background-color: white;
+			z-index:1002;
+			overflow: auto;
+}
+
+
+
+.lightbox {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0, 0, 0, .8);
+
+}
+
+.lightbox_table {
+    width:100%;
+    height:100%;
+    position:middle;
+    left: 50%;
+
+}
+
+.lightbox_table_cell {
+    vertical-align:middle;
+    left: 500px;
+
+}
+
+.lightbox_content {
+	left: 300px;
+	width:200px; 
+	background-color:#008080; 
+	border:5px solid black;
+}
+
+
+
 
 #divone, #divtwo, #divthree, #divfour, #divfive{
-    width: 18%;
+    width: 269px;
     height: 75px;
     border-width: 1px;
     border-color: #008a91;
@@ -176,31 +247,27 @@ a {text-decoration: none;}
 	width: 50px;
 	padding-top: 18%;
 	padding-right: 19%;}
-.nav-right {float: right;}
-.nav-right li {padding-left: 30px;}
+.nav-right {
+	float: right;
+	width: 500px;
+}
 .body {
 	height: 88.5vh;
 	padding: 20px;}
 .body h1{
 	margin: 0;
 	margin-bottom: 10px;
-	font-size: 140%;
-	font-weight: 600;
 }	
 .left,
 .middle,
 .right {
-	width: 31.5%;
-	height:85%;
-	margin-bottom: 35px;
+	width: 31%;
+	height: 85%;
 }
 .left-form,
-.middle-form{width: 90%; padding: 15px; }
-.left-form label, .middle-form label {
-	padding-right: 10px;
-}
+.middle-form{padding: 5px;}
 .mi{
-	width: 8%;
+	width: 25px;
 	margin: 0 14px;
 	bottom: 16px;
 }
@@ -215,18 +282,19 @@ a {text-decoration: none;}
 .s-1,
 .s-2{
 	margin-bottom: 10px;
-	width: 70%;
+	width: 245px;
 }
-.fn,.ln{width: 42.5%;}
+.fn,.ln{width: 150px;}
 
 
 .city,
-.state, .zip{margin-right: 10px;}
+.state{margin-right: 10px;}
 .city{width: 120px;}
 .state{width: 45px;}
 .zip{width: 80px;}
 
-
+.label-phone-1,
+.label-phone-2{margin-right: 24px;}
 .label-phone-1{margin-top: 10px;}
 .phone-1{
 	width: 176px;
@@ -237,42 +305,6 @@ a {text-decoration: none;}
 .middle{margin:0 34px;}
 
 
-<<<<<<< HEAD
-.license-text{
-	margin-right: 13px;
-	margin-left: 3px;
-}
-.state-license{margin-bottom: 10px; width:50px;}
-.hs-ged{margin: 0 10px;}
-.grad-year{margin: 0 5px 0 80px;}
-
-.label-higher-ed{margin-right: 10px;}
-.higher-ed{margin: 0 5px;}
-
-
-.dates-worked-p{
-	display: inline-block;
-	right: 156px;
-}
-.worked-to{left: 15px;}
-.co-title,
-.co-form{bottom: 16px;}
-.co-form{left: 10px;}
-
-.submit-btn{
-	display: table;
-	margin: 0 auto;
-}
-.form-name,
-.submit-btn input{border:none;}
-
-.submit-btn input{
-	margin: 5px;
-	width: 150px;
-	height: 40px;
-}
-=======
->>>>>>> a02794245583cc14bd1ab974a79021a46fb50d0d
 @media only screen and (max-width: 1078px){
 	.body{height: 1900px;}
 	.nav{background-color: red;}	
@@ -317,7 +349,7 @@ a {text-decoration: none;}
 .cbp-spmenu-vertical {
 	width: 240px;
 	height: 100%;
-	top: 70px;
+	top: 0;
 	z-index: 1000;}
 .cbp-spmenu-vertical a {;
 	padding: 1em;}
@@ -339,7 +371,7 @@ a {text-decoration: none;}
 .cbp-spmenu-left {left: -240px;}
 .cbp-spmenu-right {right: -240px;}
 .cbp-spmenu-left.cbp-spmenu-open {	
-	left: -14px;
+	left: 0px;
 	top: 70px;
 	}
 .cbp-spmenu-right.cbp-spmenu-open {right: 0px;}

@@ -39,13 +39,47 @@ table {
 	border-spacing: 0;
 }
 
-input[type=text] {
-    background-color: white;
+
+input[type=text], input[type=checkbox], select {
+    background-color: #c1ebed;
+    border: 1px solid #c1ebed;
+    margin: 3px;
+}
+
+
+input[name="search"] {
     background-image: url('searchicon.png');
-    background-position: 0px 0px; 
+    background-position: 0px 2.5px; 
     background-repeat: no-repeat;
     padding-left: 40px;
-    margin-top: 44px;
+    height: 30px;
+    width: 50%;
+    display: inline-block;
+    margin: 0px 5px 50px 5px;
+}
+
+input[name="searchbtn"]{
+	background-color: #66b9bd;
+	color: #fff;
+	border: 0;
+	height: 30px;
+	width: 25%;
+	margin: 0px 5px 50px 5px;
+    display: inline-block;
+}
+
+button[name="searchbtn1"]{
+	background-image: url('searchicon.png');
+	background-color: #66b9bd;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	height: 50px;
+	width: 50px;
+	border: none;
+}
+
+button[name="searchbtn1"] span {
+	display: none;
 }
 
 .black_overlay{
@@ -103,8 +137,9 @@ input[type=text] {
 
 .lightbox_content {
 	left: 300px;
+	height: 100%;
 	width:200px; 
-	background-color:#008080; 
+	background-color:#008a91; 
 	border:5px solid black;
 }
 

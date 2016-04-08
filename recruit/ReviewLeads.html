@@ -68,15 +68,12 @@
 			    <p>Contract Offer</p>
 			</div>
 
+			<br><br>
 			<!--Search Bar-->	
-			<form>
-			  <input type="text" name="search" placeholder="Search..">
-			</form>
-			 
-		
+			
 
-			<button onclick="document.getElementById('lightbox').style.display='inline';">
-			Show lightbox
+			<button name="searchbtn1" onclick="document.getElementById('lightbox').style.display='inline';">
+			<span>Search</span>
 			</button>
 
 
@@ -89,15 +86,16 @@
 			   <tr>
 			   <td class="lightbox_table_cell" align="center">
 			      <div id="lightbox_content" style=
-			            "width:300px; 
+			            "width:300px; height 300px;
 			            background-color:#008080; 
 			            border:5px solid black; 
 			            margin-left:700px;">
-			         <p>Search results appear here.</p>
-			         <p><a href="SearchLeads.html">
-						Click for further results.
-						</a></p>
-
+			            <p>
+			         		<form action="SearchLeads.html" method="get">
+				 			 <input type="text" name="search" placeholder="Search..">  
+				 			 <input type="submit" name="searchbtn" value="Search">
+							</form>
+						</p><br><br>
 			      </div>
 
 			   </td>

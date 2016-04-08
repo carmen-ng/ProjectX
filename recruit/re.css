@@ -362,9 +362,7 @@ a {text-decoration: none;}
 	font-size: 1em;
 	font-weight: 300;}
 .cbp-spmenu a:hover {background: #66b9bd;}
-.active {
-	background: #66b9bd;
-	color: #47a3da;}
+.active {color: #47a3da;}
 /* Orientation-dependent styles for the content of the menu */
 .cbp-spmenu-vertical {
 	width: 240px;

@@ -2,14 +2,14 @@ body, html{
 	margin: 0;
 	width: 100%;
 	height: 100%;
-	background-color: #6698b3;
+	background-color: #3a74a4;
 }
 
 *{
 	font-family: 'Century Gothic', sans-serif;
 }
 .nav {
-	background-color: #005480;
+	background-color: #063d6b;
 	height: 70px;
 	width: 100%;}
 .ham {margin: 22px 25px 17px 25px;}
@@ -38,19 +38,19 @@ a {
 	padding-top: 18%;
 	padding-right: 19%;}
 .nav-left {
-	width: 50%;
+	width: 48%;
 }
 .nav-right {
 	margin-right: 0px;
 	text-align: right;
 	float: right;
-	width: 50%;
+	width: 48%;
 }
 .nav-right li {
 	padding-left: 5%;
 }
 .body {
-	background-color: #6698b3;
+	background-color: #3a74a4;
 	height: 915px;
 	padding: 20px;}
 
@@ -69,7 +69,7 @@ a {
 }
 
 .left{
-	background-color: #9fc4d7;
+	background-color: #d8e5ef;
 	height: 100%;
 	float: left;
 	width: 20%;}
@@ -80,18 +80,18 @@ a {
 	margin-left: 1%;
 	height: 100%;}
 .calendar {
-	background-color: #9fc4d7;
-	color: #FFF;
+	background-color: #d8e5ef;
+	color: #000;
 	float: left;
 	height: 405px;
 	width: 99%;
 	margin-bottom: 2%;
-	border-top: 45px solid #005480;}
+	border-top: 45px solid #063d6b;}
 .cal_today{
 	width: 49%;
 	height: 95%;
 	float:left;
-	border-right: 2px solid #6698b3;
+	border-right: 2px solid #3a74a4;
 }
 .cal_tmr{
 	width:49%;
@@ -99,11 +99,11 @@ a {
 	float:right;
 }
 .logs {
-	background-color: #9fc4d7;
+	background-color: #d8e5ef;
 	height: 405px;
 	width: 99%;
 	float: left;
-	border-top: 45px solid #005480;}
+	border-top: 45px solid #063d6b;}
 .right {
 	float: left;
 	position: relative;
@@ -111,27 +111,27 @@ a {
 .right-left{
 	float: left;
 	width: 46%;
-	background-color: #9fc4d7;
+	background-color: #d8e5ef;
 	height: 350px;
 	margin-left: 3%;}
 .right-right {
 	float: left;
 	width: 46%;
-	background-color: #9fc4d7;
+	background-color: #d8e5ef;
 	height: 350px;
 	margin-left: 3%;}
 .right-top{
 	float: left;
 	width: 95.8%;
-	background-color: #9fc4d7;
+	background-color: #d8e5ef;
 	margin-top: 2%;
 	margin-left: 3%;;
 	height: 232px;
-	border-top: 45px solid #005480;}
+	border-top: 45px solid #063d6b;}
 .right-bottom{
 	float: left;
 	width: 95.8%;
-	background-color: #9fc4d7;
+	background-color: #d8e5ef;
 	margin-top: 2%;
 	margin-left: 3%;
 	height: 260px;}
@@ -209,10 +209,13 @@ a {
 	padding: 0.8em;
 	border-left: 1px solid #258ecd;}
 /* Vertical menu that slides from the left or right */
-.cbp-spmenu-left {left: -240px;}
+.cbp-spmenu-left {
+	left: -240px;
+	top: 70px;
+}
 .cbp-spmenu-right {right: -240px;}
 .cbp-spmenu-left.cbp-spmenu-open {	
-	left: 0px;
+	left: -14px;
 	top: 70px;
 	}
 .cbp-spmenu-right.cbp-spmenu-open {right: 0px;}

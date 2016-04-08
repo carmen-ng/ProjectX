@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>Recruit</title>
+	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="re.css">
+	<script type="text/javascript">var hide_awf_Form = true;</script>
+</head>
+<body class="cbp-spmenu-push">
+	<div class="container">
+		<div class="header">
+			<div class="nav">
+				<div class="nav-left">
+					<li><a href="#"><img class="ham" id="showLeft"src="images/ham.png" alt=""></a></li>
+					<li><a href="#"><img class="face" src="images/face.png" alt=""></a></li>
+					<li><a href="#"><h1>Asc Name</h1></a></li>
+					<li><a href="#"><h1>Position</h1></a></li>
+					<li><a href="#"><h1>Writing #</h1></a></li>
+					<!-- codrop nav -->
+					
+					<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+						<h3>Recruitment</h3>
+						<a href="createRec.html">Create a Lead Profile</a>
+						<a href="#">Search Recruit Leads</a>
+						<a href="ReviewLeads.html" class="active">View Recruit Leads</a>
+						<a href="#">Menu Item</a>
+					</nav>
+					<!-- end codrop -->
+					<!-- end .nav-left -->
+				</div>
+				<div class="nav-right">
+					<li><a href="../home.html"><img class="nav-logo" src="images/re-home.png" alt=""></a></li>
+					<li><a href="#"><img class="nav-logo" src="images/re-cal.png" alt=""></a></li>
+					<li><a href="dashRec.html"><img class="nav-logo" src="images/re-rec.png" alt=""></a></li>
+					<li><a href="#"><img class="nav-logo" src="images/re-hr.png" alt=""></a></li>
+					<li><a href="#"><img class="nav-logo" src="images/re-lead.png" alt=""></a></li>
+					<li><a href="#"><img class="nav-logo" src="images/re-sales.png" alt=""></a></li>
+					<li><a href="#"><img class="nav-logo" src="images/re-acc.png" alt=""></a></li>
+					<li><a href="#"><img class="nav-logo logo-last" src="images/logo.png" alt=""></a></li>
+					<!-- end .nav-right -->
+				</div>
+				<!-- end .nav -->
+			</div>
+			<!-- end header -->
+		</div>
+
+		<div class="body revBody">
+            <!--begin buttons-->
+			<header>
+			<h1>More Results</h1>
+			</header>
+
+		
+
+            <!--end buttons>
+		<!-- end container -->
+
+
+            <!--table begins-->
+            <table border="1" style="width:100%" class="revTable">
+                <!--begin header of table-->  
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th> 
+                    <th>Source</th>
+                    <th>Process</th>
+                    <th>E-mail Address</th>
+                    <th>Number</th>
+                    <th>Interview</th>
+                    <th>Interviewer</th>
+                    <th>Resume</th>
+                    <th>Grade</th>
+                    <th>More Results</th>          
+                  </tr>
+                <!--end header-->
+                <!--begin first row-->
+                  <tr>
+                      <td>John Smith</td>
+                      <td> Business Consultant</td>
+                      <td>Russell Stanberry</td>
+                      <td>1st Interview</td>
+                      <td>johnsmith@gmail.com</td>
+                      <td>(555) 555-5555</td>
+                      <td>03/03/16 12:00PM</td>
+                      <td>Joe Crilly</td>
+                      <td>View</td>
+                      <td>B/Survive</td>
+                      <td>
+						<button onclick="document.getElementById('lightbox1').style.display='inline';">
+						Show More
+						</button>
+					</td>
+                  </tr>
+                <!--end first row-->
+                <!--begin second row-->
+                  <tr>
+                      <td>Jane Doe</td>
+                      <td>Broker Consultant</td>
+                      <td>Monster.com</td>
+                      <td>2st Interview</td>
+                      <td>janedoe@gmail.com</td>
+                      <td>(555) 555-5555</td>
+                      <td>03/03/16 12:00PM</td>
+                      <td>Joe Crilly</td>
+                      <td>View</td>
+                      <td>B</td>
+                      <td>
+                      <button onclick="document.getElementById('lightbox2').style.display='inline';">
+						Show More
+						</button>
+						</td>
+                  </tr>
+                <!--end second row-->
+             </table>
+
+	</div>
+
+
+		<!-- LIGHTBOX1 CODE BEGIN -->
+
+			<div id="lightbox1" class="lightbox" style="display:none"
+
+			      onclick="document.getElementById('lightbox1').style.display='none';">
+			   <table class="lightbox_table">
+			   <tr>
+			   <td class="lightbox_table_cell" align="center">
+			      <div id="lightbox_content" style=
+			            "width:300px; 
+			            background-color:#008080; 
+			            border:5px solid black; 
+			            margin-left:700px;">
+			         <p>More results appear here.</p>
+			         
+			      </div>
+
+			   </td>
+			   </tr>
+			   </table>
+			</div>
+
+		<!-- LIGHTBOX1 CODE END -->
+
+		<!-- LIGHTBOX1 CODE BEGIN -->
+
+			<div id="lightbox2" class="lightbox" style="display:none"
+
+			      onclick="document.getElementById('lightbox2').style.display='none';">
+			   <table class="lightbox_table">
+			   <tr>
+			   <td class="lightbox_table_cell" align="center">
+			      <div id="lightbox_content" style=
+			            "width:300px; 
+			            background-color:#008080; 
+			            border:5px solid black; 
+			            margin-left:700px;">
+			         <p>More results appear here.</p>
+			         
+			      </div>
+
+			   </td>
+			   </tr>
+			   </table>
+			</div>
+
+		<!-- LIGHTBOX1 CODE END -->
+
+
+
+	<script src="js/classie.js"></script>
+	<script src="js/modernizr.custom.js"></script>
+	<script>
+	    var menuLeft = document.getElementById('cbp-spmenu-s1'),
+            showLeftPush = document.getElementById('showLeftPush'),
+            body = document.body;
+	    showLeft.onclick = function () {
+	        classie.toggle(this, 'active');
+	        classie.toggle(menuLeft, 'cbp-spmenu-open');
+	        disableOther('showLeft');
+	    };
+	    function disableOther(button) {
+	        if (button !== 'showLeft') {
+	            classie.toggle(showLeft, 'disabled');
+	        }
+	    }
+		</script>
+</body>
+</html>

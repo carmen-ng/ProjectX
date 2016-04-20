@@ -48,14 +48,15 @@ input[type=text], input[type=checkbox], select {
 
 
 input[name="search"] {
-    background-image: url('searchicon.png');
-    background-position: 0px 2.5px; 
+    background-image: url('../images/icon-search.png');
+    background-size: 25px;
+    background-position: 2.5px 2.5px; 
     background-repeat: no-repeat;
     padding-left: 40px;
     height: 30px;
     width: 50%;
     display: inline-block;
-    margin: 0px 5px 50px 5px;
+    margin: 0px 5px 50px 5%;
 }
 
 input[name="searchbtn"]{
@@ -68,18 +69,16 @@ input[name="searchbtn"]{
     display: inline-block;
 }
 
-button[name="searchbtn1"]{
-	background-image: url('searchicon.png');
-	background-color: #66b9bd;
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
+button[name="searchbtn1"] img{
 	height: 50px;
 	width: 50px;
-	border: none;
 }
 
-button[name="searchbtn1"] span {
-	display: none;
+button[name="searchbtn1"] {
+	height: 0px;
+	width: 0px;
+	border: none;
+	background: none;
 }
 
 .black_overlay{
@@ -139,8 +138,8 @@ button[name="searchbtn1"] span {
 	left: 300px;
 	height: 100%;
 	width:200px; 
-	background-color:#008a91; 
-	border:5px solid black;
+	background-color:#66b9bd; 
+	border:5px solid #66b9bd;
 }
 
 
@@ -266,7 +265,7 @@ label{float: left; font-size:95%;}
 .ham {margin: 22px 25px 17px 25px;}
 .face {
 	margin-top: 3px;
-	width: 73%;}
+	width: 70%;}
 .asc {margin: 42px 15px 39px 19px;}
 .everwell-logo {
 	width: 60%;
@@ -278,14 +277,39 @@ label{float: left; font-size:95%;}
 	margin: 22px 15px 18px 0px;}
 li {list-style-type: none;}
 a {text-decoration: none;}
+
 .nav-logo {
 	width: 50px;
-	padding-top: 18%;
-	padding-right: 19%;}
-.nav-right {
-	float: right;
-	width: 500px;
+	padding: 0;
+	margin: 10px 0 0 0;
 }
+.nav-left {
+	height: 70px;
+	margin-left: 0px;
+	float: left;
+}
+
+.nav-right {
+	margin-right: 0px;
+	text-align: right;
+	float: right;
+	width: 45%;
+}
+
+
+.nav-right li{
+	margin: 0 2% 0 2%;
+}
+
+.nav-right .nav-logo{
+	-webkit-mask-image:-webkit-linear-gradient(top, rgba(58,116,164, 0.5), rgba(58,116,164, 0.5));
+}
+
+.nav-right li a img:hover, .nav-right .active img, .nav-right .logo-last {
+	-webkit-mask-image: none;
+
+}
+
 .body {
 	height: 650px;
 	padding: 20px;}

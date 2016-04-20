@@ -5,18 +5,23 @@ body, html{
 	background-color: #3a74a4;
 }
 
+.nav{
+	width: 100%;
+	top: 0;
+	position: fixed;
+	color: #fff;
+	background-color: #063d6b;
+	height: 70px;
+}
+
 *{
 	font-family: 'Century Gothic', sans-serif;
 }
-.nav {
-	background-color: #063d6b;
-	height: 70px;
-	width: 100%;}
 .ham {margin: 22px 25px 17px 25px;}
 .face {
-	margin-top: 3px;
+	margin-top: 5px;
 	padding-left: 20px;
-	width: 65px;}
+	width: 60px;}
 .asc {margin: 42px 15px 39px 19px;}
 .everwell-logo {
 	width: 60%;
@@ -25,34 +30,53 @@ body, html{
 	padding-top: 5%;}
 .nav-left h1 {
 	font-size: 26px;
+	font-weight: 500;
 	padding-left: 20px;
 	margin: 22px 15px 18px 0px;}
 li {
+	list-style-type: none;
 	float: left;
-	list-style-type: none;}
+}
 a {
 	text-decoration: none;
 	color: #fff;}
+
 .nav-logo {
 	width: 50px;
-	padding-top: 18%;
-	padding-right: 19%;}
+	padding: 0;
+	margin: 10px 0 0 0;
+
+}
 .nav-left {
-	width: 48%;
+	height: 70px;
+	margin-left: 0px;
+	float: left;
+	background-color: #063d6b;
 }
 .nav-right {
-	margin-right: 0px;
+	right: -10px;
 	text-align: right;
-	float: right;
-	width: 48%;
+	position: fixed;
+	width: 40%;
+	background-color: #063d6b;
 }
-.nav-right li {
-	padding-left: 5%;
+.nav-right li{
+	margin: 0 2.5% 0 2.5%;
+}
+
+.nav-right .nav-logo{
+	-webkit-mask-image:-webkit-linear-gradient(top, rgba(58,116,164, 0.5), rgba(58,116,164, 0.5));
+}
+
+.nav-right li a img:hover, .nav-right .active img, .nav-right .logo-last {
+	-webkit-mask-image: none;
+
 }
 .body {
-	background-color: #3a74a4;
+	background-color: #698aa6;
 	height: 915px;
-	padding: 20px;}
+	padding: 20px;
+	margin-top: 70px;}
 
 .content{
 	margin: -38px 10px 10px 10px;
@@ -69,18 +93,17 @@ a {
 }
 
 .left{
-	background-color: #d8e5ef;
+	background-color: #c3d5e3;
 	height: 100%;
 	float: left;
 	width: 20%;}
 .middle {
 	float: left;
-	position: relative;
 	width: 40%;
 	margin-left: 1%;
 	height: 100%;}
 .calendar {
-	background-color: #d8e5ef;
+	background-color: #c3d5e3;
 	color: #000;
 	float: left;
 	height: 405px;
@@ -99,31 +122,30 @@ a {
 	float:right;
 }
 .logs {
-	background-color: #d8e5ef;
+	background-color: #c3d5e3;
 	height: 405px;
 	width: 99%;
 	float: left;
 	border-top: 45px solid #063d6b;}
 .right {
 	float: left;
-	position: relative;
 	width: 38%;}
 .right-left{
 	float: left;
 	width: 46%;
-	background-color: #d8e5ef;
+	background-color: #c3d5e3;
 	height: 350px;
 	margin-left: 3%;}
 .right-right {
 	float: left;
 	width: 46%;
-	background-color: #d8e5ef;
+	background-color: #c3d5e3;
 	height: 350px;
 	margin-left: 3%;}
 .right-top{
 	float: left;
 	width: 95.8%;
-	background-color: #d8e5ef;
+	background-color: #c3d5e3;
 	margin-top: 2%;
 	margin-left: 3%;;
 	height: 232px;
@@ -131,7 +153,7 @@ a {
 .right-bottom{
 	float: left;
 	width: 95.8%;
-	background-color: #d8e5ef;
+	background-color: #c3d5e3;
 	margin-top: 2%;
 	margin-left: 3%;
 	height: 260px;}

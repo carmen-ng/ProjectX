@@ -2,8 +2,8 @@ $(document).ready(function() {
   $(".animsition-overlay").animsition({
     inClass: 'overlay-slide-in-top',
     outClass: 'overlay-slide-out-top',
-    inDuration: 1500,
-    outDuration: 800,
+    inDuration: 400,
+    outDuration: 200,
     linkElement: '.animsition-link',
     // e.g. linkElement: 'a:not([target="_blank"]):not([href^=#])'
     loading: true,

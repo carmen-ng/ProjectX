@@ -62,53 +62,44 @@
             <table border="1" style="width:100%" class="revTable">
                 <!--begin header of table-->  
                 <tr>
-                    <th>Name</th>
-                    <th>Position</th> 
-                    <th>Source</th>
-                    <th>Process</th>
-                    <th>E-mail Address</th>
-                    <th>Number</th>
-                    <th>Interview</th>
-                    <th>Interviewer</th>
-                    <th>Resume</th>
-                    <th>Grade</th>
-                    <th>More Results</th>          
+                    <th>First Name</th>
+                    <th>Last Name</th> 
+                    <th>City</th>
+                    <th>Zip</th>
+                    <th>Primary Email</th>
+                    <th>Primary Phone</th>
+                    <th>Status</th>
+                    <th>More Results</th>    
                   </tr>
                 <!--end header-->
                 <!--begin first row-->
                   <tr>
-                      <td>John Smith</td>
-                      <td> Business Consultant</td>
-                      <td>Russell Stanberry</td>
-                      <td>1st Interview</td>
+                      <td>John</td>
+                      <td>Smith</td>
+                      <td>Pasadena</td>
+                      <td>91709</td>
                       <td>johnsmith@gmail.com</td>
-                      <td>(555) 555-5555</td>
-                      <td>03/03/16 12:00PM</td>
-                      <td>Joe Crilly</td>
-                      <td>View</td>
-                      <td>B/Survive</td>
+                      <td>(555)555-5555</td>
+                      <td>1st Interview</td>
                       <td>
 						<button onclick="document.getElementById('lightbox1').style.display='inline';">
-						Show More
+						<img src="searchicon.png">
 						</button>
 					</td>
                   </tr>
                 <!--end first row-->
                 <!--begin second row-->
                   <tr>
-                      <td>Jane Doe</td>
-                      <td>Broker Consultant</td>
-                      <td>Monster.com</td>
-                      <td>2st Interview</td>
+                      <td>Jane</td>
+                      <td>Doe</td>
+                      <td>Chino</td>
+                      <td>91710</td>
                       <td>janedoe@gmail.com</td>
-                      <td>(555) 555-5555</td>
-                      <td>03/03/16 12:00PM</td>
-                      <td>Joe Crilly</td>
-                      <td>View</td>
-                      <td>B</td>
+                      <td>(555)555-5555</td>
+                      <td>2nd Interview</td>
                       <td>
                       <button onclick="document.getElementById('lightbox2').style.display='inline';">
-						Show More
+                      <img src="searchicon.png">
 						</button>
 						</td>
                   </tr>
@@ -127,11 +118,51 @@
 			   <tr>
 			   <td class="lightbox_table_cell" align="center">
 			      <div id="lightbox_content" style=
-			            "width:300px; 
+			            "width:auto; 
 			            background-color:#008080; 
 			            border:5px solid black; 
-			            margin-left:700px;">
-			         <p>More results appear here.</p>
+			            margin-left:auto;">
+			         <p>
+
+			         	<!--Begin table within lightbox-->
+			         <table border="1" style="width:100%" class="revTable">
+			         	<h1>All Results</h1>
+			                <!--begin header of table in lightbox-->  
+			                <tr>
+			                    <th>First Name</th>
+			                    <th>Last Name</th> 
+			                    <th>City</th>
+			                    <th>Zip</th>
+			                    <th>Primary Email</th>
+			                    <th>Primary Phone</th>
+			                    <th>Status</th>
+			                  </tr>
+			                <!--end header-->
+			                <!--begin first row-->
+			                  <tr>
+			                      <td>John</td>
+			                      <td>Smith</td>
+			                      <td>Pasadena</td>
+			                      <td>91709</td>
+			                      <td>johnsmith@gmail.com</td>
+			                      <td>(555)555-5555</td>
+			                      <td>1st Interview</td>
+			                  </tr>
+			                <!--end first row-->
+			                <!--begin second row-->
+			                  <tr>
+			                      <td>Jane</td>
+			                      <td>Doe</td>
+			                      <td>Chino</td>
+			                      <td>91710</td>
+			                      <td>janedoe@gmail.com</td>
+			                      <td>(555)555-5555</td>
+			                      <td>2nd Interview</td>
+			                  </tr>
+			                <!--end second row-->
+             			</table>	
+
+			         </p>
 			         
 			      </div>
 
@@ -151,11 +182,51 @@
 			   <tr>
 			   <td class="lightbox_table_cell" align="center">
 			      <div id="lightbox_content" style=
-			            "width:300px; 
+			            "width:auto; 
 			            background-color:#008080; 
 			            border:5px solid black; 
-			            margin-left:700px;">
-			         <p>More results appear here.</p>
+			            margin-left:auto;">
+			         <p>
+			         	
+			         	<!--Begin table within lightbox-->
+			         <table border="1" style="width:100%" class="revTable">
+			         	<h1>All Results</h1>
+			                <!--begin header of table in lightbox-->  
+			                <tr>
+			                    <th>First Name</th>
+			                    <th>Last Name</th> 
+			                    <th>City</th>
+			                    <th>Zip</th>
+			                    <th>Primary Email</th>
+			                    <th>Primary Phone</th>
+			                    <th>Status</th>
+			                  </tr>
+			                <!--end header-->
+			                <!--begin first row-->
+			                  <tr>
+			                      <td>John</td>
+			                      <td>Smith</td>
+			                      <td>Pasadena</td>
+			                      <td>91709</td>
+			                      <td>johnsmith@gmail.com</td>
+			                      <td>(555)555-5555</td>
+			                      <td>1st Interview</td>
+			                  </tr>
+			                <!--end first row-->
+			                <!--begin second row-->
+			                  <tr>
+			                      <td>Jane</td>
+			                      <td>Doe</td>
+			                      <td>Chino</td>
+			                      <td>91710</td>
+			                      <td>janedoe@gmail.com</td>
+			                      <td>(555)555-5555</td>
+			                      <td>2nd Interview</td>
+			                  </tr>
+			                <!--end second row-->
+             			</table>
+
+			         </p>
 			         
 			      </div>
 

@@ -77,24 +77,37 @@
 			</button>
 
 
-<!-- LIGHTBOX CODE BEGIN -->
+			<!-- LIGHTBOX CODE BEGIN -->
 
 			<div id="lightbox" class="lightbox" style="display:none"
-
-			      onclick="document.getElementById('lightbox').style.display='none';">
+			    >
 			   <table class="lightbox_table">
 			   <tr>
 			   <td class="lightbox_table_cell" align="center">
 			      <div id="lightbox_content" style=
-			            "width:40%; height 500px;
+			            "width:700px; height 500px;
 			            background-color:#008a91; 
-			            border:5px solid #008a91; 
-			            margin-left:35%;">
+			            border:5px solid #008a91;
+			            margin:auto;">
 			            <p>
 			         		<form action="SearchLeads.html" method="get">
-				 			 <input type="text" name="search" placeholder="Search..">  
-				 			 <input type="submit" name="searchbtn" value="Search">
+				 			 <input type="text" name="search" placeholder="Search..">
+				 			</form>
+				 				<select>
+								  <option value="firstName">First Name</option>
+								  <option value="lastName">Last Name</option>
+								  <option value="city">City</option>
+								  <option value="zip">Zip</option>
+								  <option value="license">License</option>
+								  <option value="email">Email</option>
+								  <option value="contact">Contact</option>
+								</select>  
+				 			<form> 	
+				 			 
+				 			<input type="submit" name="searchbtn" value="Search"><a href="SearchLeads.html"> </a>
 							</form>
+
+							
 						</p><br><br>
 			      </div>
 

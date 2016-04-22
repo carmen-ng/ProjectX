@@ -22,9 +22,9 @@
 					<li><a href="#"><h1>Writing #</h1></a></li>
 					<!-- codrop nav -->
 					
-					<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+					<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left bounceInDown" id="cbp-spmenu-s1">
 						<h3>Recruitment</h3>
-						<a class="animsition-link" href="createRec.html" class="active">Create a Lead Profile</a>
+						<a class="animsition-link" href="slide.html" class="active">Create a Lead Profile</a>
 						<a class="animsition-link" href="#">Search Recruit Leads</a>
 						<a class="animsition-link" href="ReviewLeads.html">View Recruit Leads</a>
 						<a class="animsition-link" href="#">Menu Item</a>
@@ -33,14 +33,14 @@
 					<!-- end .navLeft -->
 				</div>
 				<div class="navRight">
-					<li><a href="../home.html"><img class="navLogo" src="images/re-home.png" alt=""></a></li>
-					<li><a href="#"><img class="navLogo" src="images/re-cal.png" alt=""></a></li>
-					<li><a href="dashRec.html"><img class="navLogo" src="images/re-rec.png" alt=""></a></li>
-					<li><a href="#"><img class="navLogo" src="images/re-hr.png" alt=""></a></li>
-					<li><a href="#"><img class="navLogo" src="images/re-lead.png" alt=""></a></li>
-					<li><a href="#"><img class="navLogo" src="images/re-sales.png" alt=""></a></li>
-					<li><a href="#"><img class="navLogo" src="images/re-acc.png" alt=""></a></li>
-					<li><a href="#"><img class="navLogo logoLast" src="images/logo.png" alt=""></a></li>
+					<li><a href="../home.html"><img class="navLogo" src="../images/icon-home.png" alt=""></a></li>
+					<li><a href="#"><img class="navLogo" src="../images/icon-cal.png" alt=""></a></li>
+					<li><a href="dashRec.html"><img class="navLogo" src="../images/icon-rec.png" alt=""></a></li>
+					<li><a href="#"><img class="navLogo" src="../images/icon-hr.png" alt=""></a></li>
+					<li><a href="#"><img class="navLogo" src="../images/icon-leads.png" alt=""></a></li>
+					<li><a href="#"><img class="navLogo" src="../images/icon-sales.png" alt=""></a></li>
+					<li><a href="#"><img class="navLogo" src="../images/icon-accounts-temp.png" alt=""></a></li>
+					<li><a href="#"><img class="navLogo logoLast" src="../images/logo.png" alt=""></a></li>
 					<!-- end .navRight -->
 				</div>
 
@@ -52,8 +52,11 @@
 	<div class="body">
 		
 	    <div class="section">
+	   <!--  <h1 class="main-text">Create a Recruit Profile</h1> -->
 			<div class="left slide">
+
 				<form class="leftForm">
+
 						  <label>First name:</label>
 						  <input type="text" name="first-name" class="fn formName">
 						  <br><br>
@@ -136,10 +139,10 @@
 						  <input type="text" name="phone-2" class="phone2 formName">
 						  <br><br>
 						  <label class="resume">Resume:</label>
-						  <input type="file" name="resume" accept="file_extension">
+						  <input type="file" name="resume" class="resumeBtn" accept="file_extension">
 						  <br><br>
 						  <label class="coverLetter">Cover Letter:</label>
-						  <input type="file" name="cover-letter" accept="file_extension">
+						  <input type="file" name="cover-letter" class="cvBtn" accept="file_extension">
 						  <br><br>
 						  <label class="labelLang1">Primary Spoken Language:</label>
 						  <input type="text" name="lang-1" class="lang1 formName">
@@ -581,7 +584,8 @@
 					       <input type="text" name="col-uni-degree" class="gradForm formName"><br><br>
 						   <label class="higherEd">Graduation Year:</label>
 					       <input type="text" name="col-uni-degree" class="gradForm formName">
-		  			</form>	 
+			     <!-- end middle form -->
+		  		</form>	 
 	    	</div>
 	    	<div class="right slide">
 	    		<form class="middleForm">
@@ -630,6 +634,10 @@
 		  			</form>
 	    	</div>
 	    	<!-- end section -->
+	    	    <form action="#" class="submitBtn">
+    	<input type="submit" name="submit" value="Submit">
+    	<!-- end submit button -->
+    </form>
 	    	</div>
 	    	<!-- end body -->
 	    </div>
@@ -637,7 +645,7 @@
     </div>
     <!-- end fullpage -->
 </div>
-<script src="js/animsition.js"></script>
+	<script src="js/animsition.js"></script>
 	<script src="js/gu-trans.js"></script>
 	<script src="js/classie.js"></script>
 	<script type="text/javascript">

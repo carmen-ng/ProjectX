@@ -21,6 +21,7 @@ body {
 	line-height: 1;
 	height: 100%;
 	width: 100%;
+	background-color: #66b9bd;
 }
 
 ol, ul {
@@ -37,15 +38,6 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}
-
-input[type=text] {
-    background-color: white;
-    background-image: url('searchicon.png');
-    background-position: 0px 0px; 
-    background-repeat: no-repeat;
-    padding-left: 40px;
-    margin-top: 44px;
 }
 
 .black_overlay{
@@ -103,9 +95,11 @@ input[type=text] {
 
 .lightbox_content {
 	left: 300px;
+	height: 100%;
 	width:200px; 
-	background-color:#008080; 
-	border:5px solid black;
+	background-color:#66b9bd; 
+	border:5px solid #66b9bd;
+	
 }
 
 
@@ -231,7 +225,7 @@ label{float: left; font-size:95%;}
 .ham {margin: 22px 25px 17px 25px;}
 .face {
 	margin-top: 3px;
-	width: 73%;}
+	width: 70%;}
 .asc {margin: 42px 15px 39px 19px;}
 .everwell-logo {
 	width: 60%;
@@ -243,16 +237,41 @@ label{float: left; font-size:95%;}
 	margin: 22px 15px 18px 0px;}
 li {list-style-type: none;}
 a {text-decoration: none;}
+
 .nav-logo {
 	width: 50px;
-	padding-top: 18%;
-	padding-right: 19%;}
-.nav-right {
-	float: right;
-	width: 500px;
+	padding: 0;
+	margin: 10px 0 0 0;
 }
+.nav-left {
+	height: 70px;
+	margin-left: 0px;
+	float: left;
+}
+
+.nav-right {
+	margin-right: 0px;
+	text-align: right;
+	float: right;
+	width: 45%;
+}
+
+
+.nav-right li{
+	margin: 0 2% 0 2%;
+}
+
+.nav-right .nav-logo{
+	-webkit-mask-image:-webkit-linear-gradient(top, rgba(58,116,164, 0.5), rgba(58,116,164, 0.5));
+}
+
+.nav-right li a img:hover, .nav-right .active img, .nav-right .logo-last {
+	-webkit-mask-image: none;
+
+}
+
 .body {
-	height: 88.5vh;
+	height: 650px;
 	padding: 20px;}
 .body h1{
 	margin: 0;
@@ -269,6 +288,7 @@ a {text-decoration: none;}
 .mi{
 	width: 25px;
 	margin: 0 14px;
+	position: relative;
 	bottom: 16px;
 }
 .ln{
@@ -286,28 +306,12 @@ a {text-decoration: none;}
 }
 .fn,.ln{width: 150px;}
 
-
-.city,
-.state{margin-right: 10px;}
-.city{width: 120px;}
-.state{width: 45px;}
-.zip{width: 80px;}
-
-.label-phone-1,
-.label-phone-2{margin-right: 24px;}
-.label-phone-1{margin-top: 10px;}
-.phone-1{
-	width: 176px;
-	margin-bottom: 10px;
-	margin-top: 10px;
-}
-
 .middle{margin:0 34px;}
 
 
 @media only screen and (max-width: 1078px){
 	.body{height: 1900px;}
-	.nav{background-color: red;}	
+	.nav{background-color: #008a91;}	
 	.nav-right{display: none;}
 	.left,
 	.middle,
@@ -342,9 +346,7 @@ a {text-decoration: none;}
 	font-size: 1em;
 	font-weight: 300;}
 .cbp-spmenu a:hover {background: #66b9bd;}
-.active {
-	background: #66b9bd;
-	color: #47a3da;}
+.active {color: #47a3da;}
 /* Orientation-dependent styles for the content of the menu */
 .cbp-spmenu-vertical {
 	width: 240px;
@@ -368,10 +370,13 @@ a {text-decoration: none;}
 	width: 20%;
 	padding: 0.8em;}
 /* Vertical menu that slides from the left or right */
-.cbp-spmenu-left {left: -240px;}
+.cbp-spmenu-left {
+	left: -240px;
+	top: 70px;
+}
 .cbp-spmenu-right {right: -240px;}
 .cbp-spmenu-left.cbp-spmenu-open {	
-	left: 0px;
+	left: -14px;
 	top: 70px;
 	}
 .cbp-spmenu-right.cbp-spmenu-open {right: 0px;}

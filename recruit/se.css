@@ -43,6 +43,11 @@ table {
 	border-spacing: 0;
 }
 
+span {
+	Color: white;
+	text-decoration: underline;
+}
+
 .black_overlay{
 			display: none;
 			position: absolute;

@@ -17,48 +17,93 @@ if (!$conn) {
 $user_first_name = $_POST['user_first_name'];
 $user_middle_initial = $_POST['user_middle_initial'];
 $user_last_name = $_POST['user_last_name'];
-$user_address = $_POST['user_address'];
-$user_address_unit = $_POST['user_address_unit'];
-$user_address_city = $_POST['user_address_city'];
-$user_address_state = $_POST['user_address_state'];
-$user_address_zip= $_POST['user_address_zip'];
-$user_address_phone = $_POST['user_address_phone'];
-$user_address_second_phone = $_POST['user_address_second_phone'];
-$user_contact_email = $_POST['user_contact_email'];
-$user_contact_second_email = $_POST['user_contact_second_email'];
-$user_contact_resume = $_POST['user_contact_resume'];
-$user_contact_coverletter = $_POST['user_contact_cover-letter'];
+
 $_POST[user_extra_language]
 $_POST[user_extra_ged]
-$_POST[user_extra_processid]
-$_POST[user_extra_districtid]
-$_POST[user_extra_sourceoflead]
-$_POST[user_extra_intern]
 $_POST[disqualified]
 $_POST[noNominator]*/
 
 
-$sql = "INSERT INTO rec (firstName, middleInitial, lastName, streetAddress,
-  unit, city, state, zip, phone,secondPhone, email, secondEmail, resume, coverLetter, firstLang, ged, sourceOfLead, intern,
-  disqualified, noNominator)
+$sql = "INSERT INTO rec (recID, firstName, middleInitial, lastName, streetAddress, streetAddress2,
+  city, zip, state, phone, secondPhone, firstLang, ged, sourceOfLead, noNominator, abc)
 
-VALUES ('$_POST[user_first_name]','$_POST[user_middle_initial]','$_POST[user_last_name]','$_POST[user_address]','$_POST[user_address_unit]','$_POST[user_address_city]','$_POST[user_address_state]','$_POST[user_address_zip]','$_POST[user_address_phone]','$_POST[user_address_second_phone]','$_POST[user_contact_email]','$_POST[user_contact_second_email]','$_POST[user_contact_resume]','$_POST[user_contact_coverletter]','$_POST[user_extra_language]','$_POST[user_extra_ged]','$_POST[user_extra_sourceoflead]','$_POST[user_extra_intern]','$_POST[disqualified]','$_POST[noNominator]');";
+VALUES (Null, '$_POST[firstName]','$_POST[middleInitial]','$_POST[lastName]','$_POST[streetAddress]','$_POST[streetAddress2]',
+	'$_POST[city]','$_POST[zip]','$_POST[recState]','$_POST[phone]',
+	'$_POST[phone2]',
+	'$_POST[lang]','$_POST[ged]',
+	'$_POST[sourceOfLead]','$_POST[noNominator]', '$_POST[abc]');";
 
-/*
-VALUES ('Lori', 'Kim', '200 Harbor', 'C12', 'Irvine',
- 'CA', '92603','9494568787', 'Lori@gmail.com',
-  'abcdefg', 'English', '1', '2', '1', 'Personal nomination',
-  '0', '0', '0')";
-  */
+$result = mysqli_query($conn, $sql);
+if (!$result) {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);  
+} 
 
-if (mysqli_query($conn, $sql)) {
+$recID= mysqli_insert_id($conn);
+
+//echo "New Record has id: " .mysqli_insert_id($conn);
+
+///////////////////////////////////////////////////////////////////
+//$recID = int sqlite_last_insert_rowid (  resource dbhandle);
+/*else {
     echo "New record created successfully";
+}*/
+
+///////////////////////////////////////////////////////////////////
+/*
+$recIDsql = "SELECT MAX(recID) FROM rec;";
+
+$recID1 = mysqli_query($conn, $recIDsql);
+
+if (mysqli_num_rows($recID1) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($recID1)) {
+        echo "id: " . $row["recID"]. "<br>";
+    }
 } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    echo "0 results";
 }
+/*
+//echo "$recID1";
+//echo $recIDsql;
+/////////////////////////////////////////////////
+/*$recIDsql = "SELECT sqlite_last_insert_rowid()
+from rec;";
+$recID = mysqli_query($conn, $recIDsql); */
+//echo "recID:" .$recID;
+/////////////////////////////////////////////////
+
+
+
+
+
+$sql2 = "INSERT INTO language (languageID, languageName)
+VALUES (Null, '$_POST[lang2]'); ";
+$result = mysqli_query($conn, $sql2);
+if (!$result) {
+	echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);  
+} 
+$langID= mysqli_insert_id($conn);
+//$langIDsql = "SELECT sqlite_last_insert_rowid()
+//from language;";
+//$langID = mysqli_query($conn, $langIDsql);
+
+
+
+
+$sql3 = "INSERT INTO reclanguage (recID, langID, proficiency)
+VALUES ('$recID', '$langID', '$_POST[proficiency2]'); ";
+$result = mysqli_query($conn, $sql3);
+if (!$result) {
+	echo "Error: " . $sql3 . "<br>" . mysqli_error($conn); 
+} 
+
+echo "New record created successfully";
 
 mysqli_close($conn);
 ?>
+
+
+
 
 
 

@@ -53,24 +53,25 @@
 		
 	    <div class="section">
 	   <!--  <h1 class="main-text">Create a Recruit Profile</h1> -->
+	   <form action="insert.php" method="post">
 			<div class="left slide">
 
-				<form class="leftForm">
+				<!-- <form class="leftForm"> -->
 
 						  <label>First name:</label>
-						  <input type="text" name="first-name" class="fn formName">
+						  <input type="text" name="firstName" class="fn formName">
 						  <br><br>
 						 <label class="labelMi">M.I:</label>
-						  <input type="text" name="middle-name" class="mi formName">
+						  <input type="text" name="middleInitial" class="mi formName">
 						  <br><br>
 						 <label class="labelLn">Last name:</label>
-						  <input type="text" name="last-name" class="ln formName">
+						  <input type="text" name="lastName" class="ln formName">
 							<br><br>
 						  <label>Street Address 1:</label>
-						  <input type="text" name="street-address-1" class="s1 formName">
+						  <input type="text" name="streetAddress" class="s1 formName">
 						  <br><br>
 						  <label>Street Address 2:</label>
-						  <input type="text" name="street-address-2" class="s2 formName">
+						  <input type="text" name="streetAddress2" class="s2 formName">
 							<br><br>
 						  <label class="labelCity">City:</label>
 						  <input type="text" name="city" class="city formName">
@@ -78,8 +79,8 @@
 						  <label class="labelZip">Zip:</label>
 						  <input type="text" name="zip" class="zip formName">
 							<br><br>
-						  <label class="labelState">State:</label>
-						  <select name="state" class="state">
+						 <label class="labelState">State:</label>
+						  <select name="recState" class="state">
 						    <option value="AL">Alabama</option>
 							<option value="AK">Alaska</option>
 							<option value="AZ">Arizona</option>
@@ -133,10 +134,10 @@
 							<option value="WY">Wyoming</option>
 						  </select><br>
 						  <label class="labelPhoneOne">Primary Phone Number:</label>
-						  <input type="text" name="phone-1" class="phone1 formName">
+						  <input type="text" name="phone" class="phone1 formName">
 						  <br><br>
 						  <label class="labelPhone2">Secondary Phone Number:</label>
-						  <input type="text" name="phone-2" class="phone2 formName">
+						  <input type="text" name="phone2" class="phone2 formName">
 						  <br><br>
 						  <label class="resume">Resume:</label>
 						  <input type="file" name="resume" class="resumeBtn" accept="file_extension">
@@ -145,7 +146,7 @@
 						  <input type="file" name="cover-letter" class="cvBtn" accept="file_extension">
 						  <br><br>
 						  <label class="labelLang1">Primary Spoken Language:</label>
-						  <input type="text" name="lang-1" class="lang1 formName">
+						  <input type="text" name="lang" class="lang1 formName">
 						  <br>
 						  <label class="labelLang1">Proficiency:</label>
 						  <select name="proficiency-1" class="proficiency1">
@@ -156,10 +157,10 @@
 						  </select>
 						  <br><br>
 						  <label class="labelLang2">Secondary Spoken Language:</label>
-						  <input type="text" name="lang-2" class="lang2 formName">
+						  <input type="text" name="lang2" class="lang2 formName">
 						  <br>
 						  <label class="labelLang2">Proficiency:</label>
-						  <select name="proficiency-2" class="proficiency2">
+						  <select name="proficiency2" class="proficiency2">
 						  	<option value="elementary">Elementary</option>
 						  	<option value="limited">Limited</option>
 						  	<option value="professional">Professional</option>
@@ -167,21 +168,22 @@
 						  </select>
 						  <br><br>
 						  <label class="labelLang3">Tertiary Spoken Language:</label>
-						  <input type="text" name="lang-3" class="lang3 formName">
+						  <input type="text" name="lang3" class="lang3 formName">
 						  <br>
 						  <label class="labelLang2">Proficiency:</label>	
-						  <select name="proficiency-3" class="proficiency3">
+						  <select name="proficiency3" class="proficiency3">
 						  	<option value="elementary">Elementary</option>
 						  	<option value="limited">Limited</option>
 						  	<option value="professional">Professional</option>
 						  	<option value="fluent">Fluent</option>
 						  </select>
-				</form> 
+				<!--</form> -->
 			</div>
 	    	<div class="middle slide"> 
-				<form class="middleForm">
+				<!--<form class="middleForm">-->
 						<label class="licenses">Licenses and State of Residency:</label><br><br><br>
-						  <input type="checkbox" class="licenseBox" name="license" value="p&c">
+						  <input type="hidden" class="licenseBox" name="license" value="0">
+						  <input type="checkbox" class="licenseBox" name="license" value="1">
 						  <label class="licenseText">P&C</label>
 						  <select name="state" class="stateLicense">
 						    <option value="AL">AL</option>
@@ -235,7 +237,9 @@
 							<option value="WI">WI</option>
 							<option value="WY">WY</option>
 						  </select><br>
-		  				  <input type="checkbox" class="licenseBox" name="license" value="series-12">
+
+		  				  <input type="hidden" class="licenseBox" name="license" value="0">
+		  				  <input type="checkbox" class="licenseBox" name="license" value="1">
 		  				  <label class="licenseText">Series 12</label>
 		  				  <select name="state" class="stateLicense">
 						    <option value="AL">AL</option>
@@ -289,7 +293,9 @@
 							<option value="WI">WI</option>
 							<option value="WY">WY</option>
 						  </select><br>
-		  				  <input type="checkbox" class="licenseBox" name="license" value="health">
+
+		  				  <input type="hidden" class="licenseBox" name="license" value="0">
+		  				  <input type="checkbox" class="licenseBox" name="license" value="1">
 		  				  <label class="licenseText">Health</label>
 		  				  <select name="state" class="stateLicense">
 						    <option value="AL">AL</option>
@@ -343,7 +349,8 @@
 							<option value="WI">WI</option>
 							<option value="WY">WY</option>
 						  </select><br>
-		  				  <input type="checkbox" class="licenseBox" name="license" value="life">
+						  <input type="hidden" class="licenseBox" name="license" value="0">
+		  				  <input type="checkbox" class="licenseBox" name="license" value="1">
 		  				  <label class="licenseText">Life</label>
 		  				  <select name="state" class="stateLicense">
 						    <option value="AL">AL</option>
@@ -397,7 +404,8 @@
 							<option value="WI">WI</option>
 							<option value="WY">WY</option>
 						  </select><br>
-		  				  <input type="checkbox" class="licenseBox" name="license" value="accident">
+		  				  <input type="hidden" class="licenseBox" name="license" value="0">
+		  				  <input type="checkbox" class="licenseBox" name="license" value="1">
 		  				  <label class="licenseText">Accident</label>
 		  				  <select name="state" class="stateLicense">
 						    <option value="AL">AL</option>
@@ -565,18 +573,22 @@
 						  </select><br><br>-->
 
 						   <label class="diploGed">High School Diploma or GED:</label><br><br>
-						   <input type="checkbox" name="ged" value="ged">
+						   <input type="hidden" name="ged" value="0">
+						   <input type="checkbox" name="ged" value="1">
 						   <label class="ged hsGed">GED:</label>
-						   <input type="checkbox" name="diploma" value="diploma">
+						   <input type="hidden" name="diploma" value="0">
+						   <input type="checkbox" name="diploma" value="1">
 						   <label class="highSchool  hsGed">High School:</label>
 						   <input type="text" name="high-school" class="hs formName"><br><br>
 						   <label class="gradYear">Year Graduated: </label>
 						   <input type="text" name="grad-year" class="gradForm formName"><br><br><br>
 
 						   <label class="labelHigherEd">Higher Education:</label> 
-						   <input type="checkbox" name="higher-ed" value="yes">
+						   <input type="hidden" name="higher-ed" value="0">
+						   <input type="checkbox" name="higher-ed" value="1">
 						   <label class="higherEd">Yes</label>
-						   <input type="checkbox" name="higher-ed" value="no">
+						   <input type="hidden" name="higher-ed" value="0">
+						   <input type="checkbox" name="higher-ed" value="1">
 						   <label class="higherEd">No</label><br><br>
 						   <label class="higherEd">College/University:</label>
 					       <input type="text" name="col-uni" class="gradForm formName"><br><br>
@@ -585,10 +597,10 @@
 						   <label class="higherEd">Graduation Year:</label>
 					       <input type="text" name="col-uni-degree" class="gradForm formName">
 			     <!-- end middle form -->
-		  		</form>	 
+		  		<!--</form>	 -->
 	    	</div>
 	    	<div class="right slide">
-	    		<form class="middleForm">
+	    		<!--<form class="middleForm">-->
 					  <label class="exp">Most Recent Work Experience:</label><br><br>
 					  <label class="expText">Company Name:</label><br>
 					  	<input type="text" name="company-name" class="formName">
@@ -616,26 +628,34 @@
 	  				  	<input type="date" class="workedTo" name="date-to">
 	  				  	<br><br><br>
 					 <label class="leadSource">Source of Lead:</label>
-	  				  	<input type="text" class="lead" name="lead-source">
+	  				  	<input type="text" class="lead" name="sourceOfLead">
 	  				  	<br><br>
 	  				 <label class="nom">Nominator:</label>
 	  				 	<br><br>
-	  				 	<input type="checkbox" name="no" value="no">
+	  				 	<input type="hidden" name="noNominator" value="0">
+	  				 	<input type="checkbox" name="noNominator" value="1">
 	  				 	<label class="noNom">No Nominator</label>
 	  				 	<br>
-	  				 	<input type="checkbox" name="yes" value="yes">
+	  				 	<input type="hidden" name="yesNominator" value="0">
+	  				 	<input type="checkbox" name="yesNominator" value="1">
 	  				 	<label class="yesNom">Yes</label>
-	  				 	<input type="text" class="yesNomName" name="nominator name">
-	  				 	<input type="checkbox" name="abc" value="abc">
+	  				 	<input type="text" class="yesNomName" name="nominatorName">
+	  				 	<input type="hidden" name="abc" value="0">
+	  				 	<input type="checkbox" name="abc" value="1">
 	  				 	<label>ABC</label>
 	  				 	<br><br>
 	  				 	<label>Assigned District:</label>
 	  				 	<input type="text" class="assDist" name="assigned district">
-		  			</form>
+	  				 	<div>
+	  				 		<input type="submit" name="submit" value="Submit">
+	  				 	</div>
+
+		  			<!--</form> -->
 	    	</div>
+
 	    	<!-- end section -->
-	    	    <form action="#" class="submitBtn">
-    	<input type="submit" name="submit" value="Submit">
+	    	    <!--<form action="#" class="submitBtn">-->
+    	<!--<input type="submit" name="submit" value="Submit">-->
     	<!-- end submit button -->
     </form>
 	    	</div>

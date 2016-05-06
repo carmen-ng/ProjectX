@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 	<title>NEW</title>
-	<link rel="stylesheet" href="beta.css">
-	<link rel="stylesheet" href="animsition.css">
+	<link rel="stylesheet" href="beta.css" type="text/css">
+	<link rel="stylesheet" href="animsition.css" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
 </head>
@@ -139,7 +139,8 @@
 							<option value="WV">West Virginia</option>
 							<option value="WI">Wisconsin</option>
 							<option value="WY">Wyoming</option>
-						  </select><br>
+						  </select><br><br>
+
 						 	<h2>CONTACT INFORMATION</h2>
   						  <label class="labelPhoneOne">Primary Phone Number:</label>
   						  <input type="text" name="phone" class="phone1 formName">
@@ -169,17 +170,8 @@
 		 					<td width="38%">
 		 						<input type="text" name="lang" class="lang1 formName">
 		 					</td>
-		 					<td width="10%">
-		 						<label class="labelLang1">Proficiency: </label>
-		 					</td>
-		 					<td width="25%">
-		  						  <select name="proficiency-1" class="proficiency1">
-		  						  	<option value="elementary">Elementary</option>
-		  						  	<option value="limited">Limited</option>
-		  						  	<option value="professional">Professional</option>
-		  						  	<option value="fluent">Fluent</option>
-		  						  </select>
-  						  	</td></table><br>
+		 					<td width=""><td>
+		 					</table><br>
  			  		<table width="85%">
  						<td width="27%">
   						  <label class="labelLang2">Secondary Spoken Language:</label>
@@ -246,11 +238,11 @@
  							</table><br><br>
  
  						   <h2>HIGHER EDUCATION</h2> 
- 						   <input type="hidden" name="higher-ed" value="0">
- 						   <input type="checkbox" name="higher-ed" value="1">
+ 						   <input type="hidden" name="higherEd" value="0">
+ 						   <input type="checkbox" name="higherEd" value="1">
  						   <label class="higherEd">Yes</label>
- 						   <input type="hidden" name="higher-ed" value="0">
- 						   <input type="checkbox" name="higher-ed" value="1">
+ 						   <input type="hidden" name="higherEd" value="0">
+ 						   <input type="checkbox" name="higherEd" value="1">
  						   <label class="higherEd">No</label><br><br>
  						   
  						   <label class="higherEd">College/University:</label>
@@ -270,9 +262,9 @@
  	  				  	<input type="text" name="title" class="coForm formName">
  							<br><br>
  	  				  <label class="expText datesWorked">Dates Worked:</label>
- 	  				  	<input type="date" class="workedFrom" name="date-from">
+ 	  				  	<input type="date" class="workedFrom" name="startDate">
  	  				  	<!-- <p class="datesWorkedP">-</p> -->
-	  				  	<input type="date" class="workedTo" name="date-to">
+	  				  	<input type="date" class="workedTo" name="endDate">
 	  				  	<br><br><br>
 	  				  <h2>2ND MOST RECENT WORK EXPERIENCE</h2>
 					  <label class="expText">Company Name:</label>
@@ -282,9 +274,9 @@
  	  				  	<input type="text" name="title2" class="coForm formName">
  							<br><br>
  	  				  <label class="expText datesWorked">Dates Worked:</label>
- 	  				  	<input type="date" class="workedFrom" name="date-from">
+ 	  				  	<input type="date" class="workedFrom" name="startDate">
  	  				  	<!-- <p class="datesWorkedP">-</p> -->
- 	  				  	<input type="date" class="workedTo" name="date-to">
+ 	  				  	<input type="date" class="workedTo" name="endDate">
  	  				  	<br><br><br>
  
  	  				  	<h2>LICENSES & STATE OF RESIDENCY</h2>
@@ -627,7 +619,7 @@
  	  				 	<label>Interviewer Name:</label>
  	  				 	<input type="text" class="interviewerName formName" name="interviewerName" placeholder=""><br><br><br>
  						<label class="lblInterviewTime">Interview Date/Time:</label>
- 	  				 	<input type="date" class="interviewDate" name="interview_date"><input type="time" class="interviewTime" name="interview_time"><br><br><br>
+ 	  				 	<input type="date" class="interviewDate" name="interviewDate"><input type="time" class="interviewTime" name="interviewTime"><br><br><br>
  
  
  		    		<h2>DOCUMENTS</H2>
@@ -638,10 +630,13 @@
  						  <label class="coverLetter">Cover Letter:</label>
  						  <input type="file" name="cover-letter" class="cvBtn" accept="file_extension">
  	    	</div>
- 	    	<br>
-     		<div class="submitBtn">
+ 	    	<div class="submit slide">
  		 		<input type="submit" name="submit" value="Submit">
  		 	</div>
+
+     		<!--<div class="submitBtn">
+ 		 		<input type="submit" name="submit" value="Submit">
+ 		 	</div>-->
 	    	<!-- end section -->
 	    	    <!--<form action="#" class="submitBtn">-->
     	<!--<input type="submit" name="submit" value="Submit">-->

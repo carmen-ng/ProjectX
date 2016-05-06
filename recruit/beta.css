@@ -7,7 +7,7 @@ html, body {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 50%;
+    font-size: 60%;
     font: inherit;
     vertical-align: baseline;
     font-family: 'Century Gothic', sans-serif
@@ -37,10 +37,11 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-input[type=text], input[type=checkbox], select {
+input[type=text], input[type=checkbox], input[type=date], input[type=time], select {
     background-color: #c1ebed;
     border: 1px solid #c1ebed;
     margin: 3px;
+    display: inline-block;
 }
 input[name="search"] {
     background-image: url('searchicon.png');
@@ -176,13 +177,17 @@ a,
 p,
 .cbp-spmenu h3,
 .cbp-spmenu a,
-.body h1,
+.body h1, .body h2,
 label,
 .submitBtn input{color:#fff;}
 .labelLang2{margin: 10px 0;}
 .lang1{width: 176px;}
 .lang2{margin: 10px 0;}
 .lang3{width: 176px;}
+
+.body h2{
+    margin-top: 0;
+}
 
 body,
 .container,
@@ -223,42 +228,92 @@ body,
     height: 70px;
     bottom: 682px;*/
 }
-input.formName,
+
+label {
+    display: inline-block;
+    margin-right: 15px;
+}
+.body .fp-slidesContainer .expText, .higherEd, .left label, .leadSource, .nom, .lblProcess{
+    width: 35%;
+    height: 30px;
+    font-size: 102%;
+    display: inline-block;
+}
+
+input .formName,
 select.state,
 .resumeBtn,
 .cvBtn,
 .proficiency1,
 input.assDist,
-input.yesNomName,
-input.lead{float: right;}
-input.fn.formName,
-input.mi.formName,
-input.ln.formName,
+input.lead,
 input.s1.formName,
 input.s2.formName,
 input.city.formName,
 input.zip.formName,
 input.phone1.formName,
 input.phone2.formName,
+input.email1.formName,
+input.email2.formName,
+input.gradForm,
+select.state,
+input.coForm.formName,
+input.disqualifyReason,
+input.interviewerName,
+input.lead{
+    float: right;
+    margin-right: 17%;
+    width: 42%;
+    display: inline-block;
+    height: 25px;
+}
+
+.licenseText{
+    width: 10%;
+}
+
+.left table, .left td, .middle table, .middle td, .middle table label, .rightright table, .rightright td{
+    text-align: left;
+    border: none;
+    padding-left: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.left table td input{
+    margin-right: 10px;
+}
+
 input.lang1.formName,
 input.lang2.formName,
 input.lang3.formName,
-select.state,
-.proficiency1,
-input.hs.formName,
-input.gradForm.formName,
-input.formName,
-input.coForm.formName,
-input.lead,
-input.yesNomName,
-input.assDist,
-input.lead{
-    margin-right: 600px;
-    width: 200px;
-    height: 15px;
+.proficiency1, .proficiency2, .proficiency3,
+input.hs,
+input.hsgradForm, input.yesNomName,
+input.fn.formName,
+input.mi.formName,
+input.ln.formName,.left table label {
+    width: 100%;
+    display: inline-block;
+    height: 25px;
 }
+
+.lblInterviewTime{
+    width: 38%;
+}
+
+.expText .datesWorked{
+    width: 60%;
+}
+
+.workedFrom, .workedTo, .interviewDate, .interviewTime{
+    width: 15%;
+    display: inline-block;
+    height: 25px;
+}
+
 .resumeBtn,
-.cvBtn{margin-right: 520px;}
+.cvBtn{display: inline-block; width: 40%; margin-right: 19%; }
 .ham {margin: 22px 25px 17px 25px;}
 .face {
     margin-top: 3px;
@@ -281,7 +336,7 @@ a {text-decoration: none;}
     padding-right: 19%;}
 .navLeft,.navRight{display: -webkit-inline-box}    
 .navRight {float: right;}
-.fp-section{background-color: #008a91!important;}
+.fp-section{background-color: #66b9bd!important;}
 .section{
     margin: 0 auto;
     max-width: 1280px;
@@ -321,7 +376,7 @@ a {text-decoration: none;}
     width: 20px;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: #66b9bd;
+    background-color: #008a91;
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
 
@@ -374,7 +429,6 @@ a {text-decoration: none;}
 .cbp-spmenu-left.cbp-spmenu-open {  
     left: -14px;
     top: 69px;
-    border: 6px solid #fff;
     }
 .cbp-spmenu-right.cbp-spmenu-open {right: 0px;}
 /* Push classes applied to the body */
@@ -501,7 +555,6 @@ html.fp-enabled,
 .fp-enabled body {
     margin: 0;
     padding: 0;
-    overflow:hidden;
 
     /*Avoid flicker on slides transitions for mobile phones #336 */
     -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -516,61 +569,72 @@ html.fp-enabled,
     /* IE 11 on Windows Phone 8.1*/
     touch-action: none;
 }
+
+.inputForm{
+    height: 100%;
+    background-color: #66b9bd;}
+
 .fp-section {
+    width: 100%;
+    height: 100%;
     position: relative;
     -webkit-box-sizing: border-box; /* Safari<=5 Android<=3 */
     -moz-box-sizing: border-box; /* <=28 */
     box-sizing: border-box;
-
+    background-color: #66b9bd;
+    overflow: scroll;
 }
 .fp-slide {
     float: left;
 }
 .fp-slide, .fp-slidesContainer {
     height: 100%;
-    display: block;
+    overflow: hidden;
 }
 .fp-slides {
-    width: 75%;
+    height: 700px;
+    width: 78%;
     margin: 0 auto;
     z-index:1;
-    overflow: scroll;
     overflow-x: hidden;
     position: relative;
     -webkit-transition: all 0.3s ease-out; /* Safari<=6 Android<=4.3 */
     transition: all 0.3s ease-out;
-    top: -2px;
+    top: 50px;
+    bottom: 10px;
     background-color: #008a91;
-    border: 5px solid #fff;
-    height: 77%;
+    border: 5px solid #008a91;
 }
 
 .fp-section.fp-table, .fp-slide.fp-table {
     display: table;
     table-layout:fixed;
     width: 100%;
+
 }
 .fp-tableCell {
     display: table-cell;
     /*vertical-align: middle;*/
     width: 100%;
-    height: 100%;
+    max-height: 500px;
+    padding-bottom: 0;
+
 }
 .fp-slidesContainer {
     float: left;
     position: relative;
+    height: 650px;
     top:45px;
-
-    left: 245px;
+    left: 8%;
 }
 .fp-controlArrow {
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
     -moz-user-select: none; /* mozilla browsers */
     -khtml-user-select: none; /* webkit (konqueror) browsers */
     -ms-user-select: none; /* IE10+ */
-    position: absolute;
+    position: fixed;
     z-index: 4;
-    top: 45%;
+    top: 50%;
     cursor: pointer;
     width: 0;
     height: 0;
@@ -581,20 +645,20 @@ html.fp-enabled,
     transform: translate3d(0,0,0);
 }
 .fp-controlArrow.fp-prev {
-    left: 15px;
+    left: 35px;
     width: 0;
     border-width: 38.5px 34px 38.5px 0;
     border-color: transparent #fff transparent transparent;
     z-index: 100;
 }
 .fp-controlArrow.fp-next {
-    right: 15px;
+    right: 35px;
     border-width: 38.5px 0 38.5px 34px;
     border-color: transparent transparent transparent #fff;
     z-index: 100;
 }
 .fp-scrollable {
-    overflow: scroll;
+    /*overflow: scroll;*/
 }
 .fp-notransition {
     -webkit-transition: none !important;
@@ -716,3 +780,26 @@ html.fp-enabled,
 .fp-auto-height .fp-tableCell{
     height: auto !important;
 }
+
+.submitBtn{
+    text-align: center;
+    margin-top: 50px;
+    display: block;
+    width: 100%;
+    height: 15%;
+    background-color: #66b9bd;
+}
+
+.submitBtn input{
+    left: 41%;
+    right: 41%;
+    width: 18%;
+    height: 50px;
+    background-color: #008a91;
+}
+
+.submitBtn input:hover{
+    cursor: pointer;
+    background-color: #c1ebed;
+    color: #66b9bd;
+    }

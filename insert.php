@@ -104,10 +104,10 @@ if (!$recLang3Result) {
     echo "<br> Transaction rolled back <br> Error: " . $recLang3Sql . "<br>" . mysqli_error($conn); 
 } 
 
+
 /////////////////Licenses ////////////////////
 
-if (isset($_POST['PC'])) {
-
+if( isset( $_POST['PC'] )) {
     $recLicenseSql = "INSERT INTO recLicense (recID, licenseID, state)
                             VALUES ('$recID', '1', '$_POST[PCState]'); ";
     $recLicenseResult = mysqli_query($conn, $recLicenseSql);
@@ -116,9 +116,13 @@ if (isset($_POST['PC'])) {
         echo "<br> Transaction rolled back <br> Error: " . $recLicenseSql . "<br>" . mysqli_error($conn); 
     }
 }
+else{
+    $recLicenseResult = "TRUE";
+}
 
-if (isset($_POST['series12'])) {
 
+
+if( isset( $_POST['series12'] )) {
     $recLicense2Sql = "INSERT INTO recLicense (recID, licenseID, state)
                             VALUES ('$recID', '2', '$_POST[series12State]'); ";
     $recLicense2Result = mysqli_query($conn, $recLicense2Sql);
@@ -127,20 +131,26 @@ if (isset($_POST['series12'])) {
         echo "<br> Transaction rolled back <br> Error: " . $recLicense2Sql . "<br>" . mysqli_error($conn); 
     }
 }
+else{
+    $recLicense2Result = "TRUE";
+}
 
-if (isset($_POST['health'])) {
 
+if( isset( $_POST['health'])) {
     $recLicense3Sql = "INSERT INTO recLicense (recID, licenseID, state)
-                            VALUES ('$recID', '3', '$_POST[health]'); ";
+                            VALUES ('$recID', '3', '$_POST[healthState]'); ";
     $recLicense3Result = mysqli_query($conn, $recLicense3Sql);
     if (!$recLicense3Result) {
         rollback($conn); // transaction rolls back
         echo "<br> Transaction rolled back <br> Error: " . $recLicense3Sql . "<br>" . mysqli_error($conn); 
     }
 }
+else{
+    $recLicense3Result = "TRUE";
+}
 
-if (isset($_POST['life'])) {
 
+if( isset($_POST['life'] )) {
     $recLicense4Sql = "INSERT INTO recLicense (recID, licenseID, state)
                             VALUES ('$recID', '4', '$_POST[lifeState]'); ";
     $recLicense4Result = mysqli_query($conn, $recLicense4Sql);
@@ -149,10 +159,12 @@ if (isset($_POST['life'])) {
         echo "<br> Transaction rolled back <br> Error: " . $recLicense4Sql . "<br>" . mysqli_error($conn); 
     }
 }
+else{
+    $recLicense4Result = "TRUE";
+}
 
 
-if (isset($_POST['accident'])) {
-
+if( isset( $_POST['accident'] )) {
     $recLicense5Sql = "INSERT INTO recLicense (recID, licenseID, state)
                             VALUES ('$recID', '5', '$_POST[accidentState]'); ";
     $recLicense5Result = mysqli_query($conn, $recLicense5Sql);
@@ -160,6 +172,9 @@ if (isset($_POST['accident'])) {
         rollback($conn); // transaction rolls back
         echo "<br> Transaction rolled back <br> Error: " . $recLicense5Sql . "<br>" . mysqli_error($conn); 
     }
+}
+else{
+    $recLicense5Result = "TRUE";
 }
 
 
@@ -261,6 +276,18 @@ else{
     echo "<br> Transaction rolled back <br>" ;
 }
 
+
+/* if ( $recResult and $distResult and $recLicenseResult and $recLicense2Result and
+ $recLicense3Result and $recLicense4Result and $recLicense5Result) {
+   commit($conn); // transaction is committed
+    echo "<br> New record created successfully <br> Database transaction was successful"; 
+}
+
+else{
+   rollback($conn); // transaction rolls back
+    echo "<br> Transaction rolled back <br>" ;
+}
+*/
 mysqli_close($conn);
 ?>
 

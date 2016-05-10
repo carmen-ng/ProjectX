@@ -40,18 +40,29 @@ if (!$distResult) {
 } 
 $distID= mysqli_insert_id($conn);
 
+/////////////// Why Disqualify /////////////
+
+$disqualifySql = "INSERT INTO whyDisqualify (whyDisqualifyID, explanation)
+VALUES (Null, '$_POST[disqualifyReason]'); ";
+$disqualifyResult = mysqli_query($conn, $disqualifySql);
+if (!$disqualifyResult) {
+    rollback($conn); // transaction rolls back
+    echo "<br> Transaction rolled back <br> Error: " . $disqualifySql . "<br>" . mysqli_error($conn);  
+} 
+$whyDisqualifyID= mysqli_insert_id($conn);
+
 ///////////////// Rec //////////////////
 
 
 $recSql = "INSERT INTO rec (recID, firstName, middleInitial, lastName, streetAddress, streetAddress2,
-  city, zip, state, phone, secondPhone, firstLang, ged, districtID, sourceOfLead, noNominator, abc)
+  city, zip, state, phone, secondPhone, email, secondEmail, firstLang, ged, districtID, sourceOfLead, noNominator,
+   whyDisqualifyID, abc)
 
 VALUES (Null, '$_POST[firstName]','$_POST[middleInitial]','$_POST[lastName]','$_POST[streetAddress]',
     '$_POST[streetAddress2]',
     '$_POST[city]','$_POST[zip]','$_POST[recState]','$_POST[phone]',
-    '$_POST[phone2]',
-    '$_POST[lang]','$_POST[ged]', '$distID',
-    '$_POST[sourceOfLead]','$_POST[noNominator]', '$_POST[abc]');";
+    '$_POST[phone2]','$_POST[email]', '$_POST[email2]', '$_POST[lang]','$_POST[ged]', '$distID',
+    '$_POST[sourceOfLead]','$_POST[noNominator]', '$whyDisqualifyID', '$_POST[abc]');";
 
 
 
@@ -263,7 +274,7 @@ if (!$recExperience2Result) {
 //////////////////////////////
 
 if ( $recResult and $lang2Result and $recLang2Result and $lang3Result and $recLang3Result and
- $distResult and $recLicenseResult and $recLicense2Result and $recLicense3Result and $recLicense4Result and
+ $distResult and $disqualifyResult and $recLicenseResult and $recLicense2Result and $recLicense3Result and $recLicense4Result and
   $recLicense5Result and $highschoolResult and $recHighschoolResult and $heResult and $recHEResult and
    $experienceResult and $recExperienceResult and
   $experience2Result and $recExperience2Result) {
@@ -290,7 +301,4 @@ else{
 */
 mysqli_close($conn);
 ?>
-
-
-
 

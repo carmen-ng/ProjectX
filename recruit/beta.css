@@ -75,6 +75,61 @@ button[name="searchbtn1"] span {display: none;}
 
 /*styles***************************************/
 *{font-family: 'Century Gothic', sans-serif;}
+
+/*-----------NAV------------*/
+.nav {height: 70px;}
+.ham {margin: 22px 25px 17px 25px;}
+.face {
+    margin-top: 3px;
+    width: 70%;}
+.asc {margin: 42px 15px 39px 19px;}
+.everwell-logo {
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+    padding-top: 5%;}
+.navLeft h1 {
+    font-size: 26px;
+    margin: 22px 15px 18px 0px;}
+li {list-style-type: none;}
+a {text-decoration: none;}
+
+.navLogo {
+    width: 25px;
+    padding: 0;
+    margin: 5px 0 0 0;
+}
+.navLeft {
+    height: 70px;
+    margin-left: 0px;
+    float: left;
+}
+
+.navRight {
+    margin-right: 0px;
+    text-align: right;
+    float: right;
+    width: 45%;
+}
+
+
+.navRight li{
+    margin: 0 2% 0 2%;
+}
+
+.navRight .navLogo{
+    -webkit-mask-image:-webkit-linear-gradient(top, rgba(58,116,164, 0.5), rgba(58,116,164, 0.5));
+}
+
+.navRight li a img:hover, .navRight .active img, .navRight .logoLast {
+    -webkit-mask-image: none;
+
+}
+
+/*-------------------------*/
+
+
+
 .black_overlay{
     display: none;
     position: absolute;
@@ -233,11 +288,12 @@ label {
     display: inline-block;
     margin-right: 15px;
 }
-.body .fp-slidesContainer .expText, .higherEd, .left label, .leadSource, .nom, .lblProcess{
+.body .fp-slidesContainer .expText, .higherEd, .left label, .rightright label, .page4 label, .leadSource, .nom, .lblProcess{
     width: 35%;
     height: 30px;
     font-size: 102%;
     display: inline-block;
+    padding: 2px 0 0 0;
 }
 
 input .formName,
@@ -257,10 +313,15 @@ input.email1.formName,
 input.email2.formName,
 input.gradForm,
 select.state,
+select.positionApplied,
+select.processLevel,
+select.interviewGrade,
 input.coForm.formName,
 input.disqualifyReason,
 input.interviewerName,
-input.lead{
+input.lead,
+div.interviewDateTime,
+div.datesWorkedToFrom{
     float: right;
     margin-right: 17%;
     width: 42%;
@@ -298,16 +359,13 @@ input.ln.formName,.left table label {
     height: 25px;
 }
 
-.lblInterviewTime{
-    width: 38%;
-}
 
 .expText .datesWorked{
     width: 60%;
 }
 
-.workedFrom, .workedTo, .interviewDate, .interviewTime{
-    width: 15%;
+.interviewDate, .interviewTime, .workedFrom, .workedTo{
+    width: 47%;
     display: inline-block;
     height: 25px;
 }
@@ -600,7 +658,7 @@ html.fp-enabled,
     position: relative;
     -webkit-transition: all 0.3s ease-out; /* Safari<=6 Android<=4.3 */
     transition: all 0.3s ease-out;
-    top: 50px;
+    top: 55px;
     bottom: 10px;
     background-color: #008a91;
     border: 5px solid #008a91;
@@ -781,6 +839,11 @@ html.fp-enabled,
     height: auto !important;
 }
 
+.submit{
+    width: 85%;
+    text-align: center;
+    margin-top: 20px;
+}
 
 .submit input{
     left: 41%;
@@ -790,6 +853,7 @@ html.fp-enabled,
     background-color: #66b9bd;
     border: 0;
     color: #fff;
+    font-size: 120%;
 }
 
 .submit input:hover{

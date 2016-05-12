@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 	<title>NEW</title>
+
 	<link rel="stylesheet" href="beta.css" type="text/css">
 	<link rel="stylesheet" href="animsition.css" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -35,7 +36,7 @@
 				<div class="navRight">
 					<li><a href="../home.html"><img class="navLogo" src="../images/icon-home.png" alt=""></a></li>
 					<li><a href="#"><img class="navLogo" src="../images/icon-cal.png" alt=""></a></li>
-					<li><a href="dashRec.html"><img class="navLogo" src="../images/icon-rec.png" alt=""></a></li>
+					<li><a href="dashRec.html" class="active"><img class="navLogo" src="../images/icon-rec.png" alt=""></a></li>
 					<li><a href="#"><img class="navLogo" src="../images/icon-hr.png" alt=""></a></li>
 					<li><a href="#"><img class="navLogo" src="../images/icon-leads.png" alt=""></a></li>
 					<li><a href="#"><img class="navLogo" src="../images/icon-sales.png" alt=""></a></li>
@@ -218,7 +219,7 @@
  								   <input type="hidden" name="ged" value="0">
  								   <input type="checkbox" name="ged" value="1">
  								   <label class="ged hsGed">GED</label>
- 								   <br>
+ 								   <br><br>
  						   <table width="85%">
  								   <td width="16%">
  								   <input type="hidden" name="diploma" value="0">
@@ -235,16 +236,15 @@
  								<td width="17%">
  								   <input type="text" name="gradYear" class="hsgradForm formName">
  								</td>
- 							</table><br><br>
+ 							</table><br><br><br>
  
  						   <h2>HIGHER EDUCATION</h2> 
- 						   <input type="hidden" name="higherEd" value="0">
+ 						   <!--<input type="hidden" name="higherEd" value="0">
  						   <input type="checkbox" name="higherEd" value="1">
  						   <label class="higherEd">Yes</label>
  						   <input type="hidden" name="higherEd" value="0">
  						   <input type="checkbox" name="higherEd" value="1">
- 						   <label class="higherEd">No</label><br><br>
- 						   
+ 						   <label class="higherEd">No</label><br><br>-->
  						   <label class="higherEd">College/University:</label>
  					       <input type="text" name="university" class="gradForm formName"><br><br>
  					       <label class="higherEd">Degree:</label>
@@ -262,9 +262,10 @@
  	  				  	<input type="text" name="title" class="coForm formName">
  							<br><br>
  	  				  <label class="expText datesWorked">Dates Worked:</label>
+ 	  				  <div class="datesWorkedToFrom">
  	  				  	<input type="date" class="workedFrom" name="startDate">
  	  				  	<!-- <p class="datesWorkedP">-</p> -->
-	  				  	<input type="date" class="workedTo" name="endDate">
+	  				  	<input type="date" class="workedTo" name="endDate"></div>
 	  				  	<br><br><br>
 	  				  <h2>2ND MOST RECENT WORK EXPERIENCE</h2>
 					  <label class="expText">Company Name:</label>
@@ -274,9 +275,11 @@
  	  				  	<input type="text" name="title2" class="coForm formName">
  							<br><br>
  	  				  <label class="expText datesWorked">Dates Worked:</label>
+ 	  				  <div class="datesWorkedToFrom">
  	  				  	<input type="date" class="workedFrom" name="startDate">
  	  				  	<!-- <p class="datesWorkedP">-</p> -->
  	  				  	<input type="date" class="workedTo" name="endDate">
+ 	  				  </div>
  	  				  	<br><br><br>
  
  	  				  	<h2>LICENSES & STATE OF RESIDENCY</h2>
@@ -559,10 +562,17 @@
 		  				  <br><br><br>
 						</div>
 				<div class="rightright slide">
- 	    		<h2>SOURCE</h2>
+				<h2>DOCUMENTS</H2>
+					  <label class="resume">Resume:</label>
+					  <input type="file" name="resume" class="resumeBtn" accept="file_extension">
+					  <br><br>
+					  <label class="coverLetter">Cover Letter:</label>
+					  <input type="file" name="cover-letter" class="cvBtn" accept="file_extension">
+					  <br><br><br>
+	    		<h2>SOURCE</h2>
   					 <label class="leadSource">Source of Lead:</label>
   	  				  	<input type="text" class="lead" name="sourceOfLead">
-  	  				  	<br><br>
+  	  				  	<br><br><br>
   	  				  	<table width="85%">
  	  				  		<tr>
  	  				  		<td width="50%">
@@ -590,49 +600,74 @@
  	  					<td width="12%"><input type="text" class="yesNomName" name="nominatorName" placeholder="Writing #"></td>
  	  					
  	  				</table>
- 	  				 	<br>
+ 	  				 	<br><br>
+ 	  				 	<h2>APPLIED FOR</h2>
   	  				 	<label>Assigned District:</label>
   	  				 	<input type="text" class="assDist" name="district">
-  	  				 	<br><br><br><br>
+  	  				 	<br><br><br>
   	  				 	<label class="lblProcess">Position:</label>
- 	  				 	<input type="hidden" name="intern" value="0">
- 	  				 	<input type="checkbox" name="intern" value="1">
- 	  				 	<label>Internship</label><input type="text" name="internship"class="internship formName">
- 	  				 	<input type="hidden" name="business" value="0">
- 	  				 	<input type="checkbox" name="business" value="1">
- 	  				 	<label>Business Consultant</label><br><br>
+ 	  				 	 <select name="position" class="positionApplied">
+						    <option value="businessConsultant">Business Consultant</option>
+							<option value="districtManager">District Manager</option>
+							<option value="brokerConsultant">Broker Consultant</option>
+							<option value="internBusDev">Intern - Business Development</option>
+							<option value="internHR">Intern - Human Resources</option>
+							<option value="internWeb">Intern - Web Development</option>
+							<option value="internGraphic">Intern - Graphic Design</option>
+							<option value="internPRMarket">Intern - PR & Marketing</option>
+							<option value="internSales">Intern - Sales</option>
+						</select><br><br>
  
- 	  				 	<label class="lblProcess">Process Level: </label>
- 	  				 	<input type="hidden" name="firstInterview" value="0">
- 	  				 	<input type="checkbox" name="firstInterview" value="1">
-	  				 	<label>1st Interview</label>
-	  				 	<input type="hidden" name="secondInterview" value="0">
- 	  				 	<input type="checkbox" name="secondInterview" value="1">
- 	  				 	<label>2nd Interview</label>
- 	  				 	<input type="hidden" name="disqualified" value="0">
- 	  				 	<input type="checkbox" name="disqualified" value="1">
- 	  				 	<label>Disqualified</label><br><br>
+ 	  				 		
+ 	    	</div>
+ 	    	<div class="page4 slide">
+ 	    <h2>PROCESS LEVEL</h2>
+			    <label class="lblProcess">Process Level: </label>
+ 	  				 	<select name="process" class="processLevel">
+						    <option value="1stInterview">1st Interview</option>
+							<option value="2ndInterview">2nd Interview</option>
+							<option value="disqualified">Disqualified</option>
+						</select><br><br>
  
  	  				 	<label>If Disqualified, State Reason:</label>
- 	  				 	<input type="text" class="disqualifyReason formName" name="disqualifyReason" placeholder="Reason for Disqualification"><br><br><br>
- 
+ 	  				 	<input type="text" class="disqualifyReason formName" name="disqualifyReason" placeholder="Reason for Disqualification"><br><br><BR>
+ 		<h2>1ST INTERVIEW</h2>
  	  				 	<label>Interviewer Name:</label>
- 	  				 	<input type="text" class="interviewerName formName" name="interviewerName" placeholder=""><br><br><br>
+ 	  				 	<input type="text" class="interviewerName formName" name="interviewerName1" placeholder="">
+ 	  				 	<br><br>
  						<label class="lblInterviewTime">Interview Date/Time:</label>
- 	  				 	<input type="date" class="interviewDate" name="interviewDate"><input type="time" class="interviewTime" name="interviewTime"><br><br><br>
- 
- 
- 		    		<h2>DOCUMENTS</H2>
-  
- 						  <label class="resume">Resume:</label>
- 						  <input type="file" name="resume" class="resumeBtn" accept="file_extension">
- 						  <br><br>
- 						  <label class="coverLetter">Cover Letter:</label>
- 						  <input type="file" name="cover-letter" class="cvBtn" accept="file_extension">
- 	    	</div>
- 	    	<div class="submit slide">
- 		 		<input type="submit" name="submit" value="Submit">
- 		 	</div>
+ 						<div class="interviewDateTime">
+ 	  				 	<input type="date" class="interviewDate" name="interviewDate1">
+ 	  				 	<input type="time" class="interviewTime" name="interviewTime1"></div><br><br>
+ 	  				 	<label class="lblInterviewGrade">Interview Grade:</label>
+ 	  				 	<select name="grade1" class="interviewGrade">
+						    <option value="A">A</option>
+							<option value="B">B</option>
+							<option value="C">C</option>
+							<option value="D">D</option>
+							<option value="N/A">N/A</option>
+						</select><br><br><BR>
+						<h2>2ND INTERVIEW</h2>
+						<label>Interviewer Name:</label>
+ 	  				 	<input type="text" class="interviewerName formName" name="interviewerName"2 placeholder="">
+ 	  				 	<br><br>
+ 						<label class="lblInterviewTime">Interview Date/Time:</label>
+ 						<div class="interviewDateTime">
+ 	  				 	<input type="date" class="interviewDate" name="interviewDate2">
+ 	  				 	<input type="time" class="interviewTime" name="interviewTime2"></div><br><br>
+ 	  				 	<label class="lblInterviewGrade">Interview Grade:</label>
+ 	  				 	<select name="grade2" class="interviewGrade">
+						    <option value="A">A</option>
+							<option value="B">B</option>
+							<option value="C">C</option>
+							<option value="D">D</option>
+							<option value="N/A">N/A</option>
+						</select><br><br>
+
+ 						  <div class="submit">
+ 		 						<input type="submit" name="submit" value="Submit">
+ 		 					</div>
+			</div>
 
      		<!--<div class="submitBtn">
  		 		<input type="submit" name="submit" value="Submit">

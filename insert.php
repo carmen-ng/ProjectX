@@ -51,18 +51,28 @@ if (!$disqualifyResult) {
 } 
 $whyDisqualifyID= mysqli_insert_id($conn);
 
+/////////// Nominator ////////////
+$nominatorSql = "INSERT INTO Nominator (nominatorID, firstName, lastName, writingNo, abc)
+VALUES (Null, '$_POST[firstName]', '$_POST[lastName]','$_POST[writingNo]','$_POST[abc]'); ";
+$nominatorResult = mysqli_query($conn, $nominatorSql);
+if (!$nominatorResult) {
+    rollback($conn); // transaction rolls back
+    echo "<br> Transaction rolled back <br> Error: " . $nominatorSql . "<br>" . mysqli_error($conn);
+} 
+$nominatorID= mysqli_insert_id($conn);
+
 ///////////////// Rec //////////////////
 
 
 $recSql = "INSERT INTO rec (recID, firstName, middleInitial, lastName, streetAddress, streetAddress2,
-  city, zip, state, phone, secondPhone, email, secondEmail, firstLang, ged, districtID, sourceOfLead, noNominator,
-   whyDisqualifyID, abc)
+  city, zip, state, phone, secondPhone, email, secondEmail, firstLang, ged, process, districtID, sourceOfLead, noNominator,
+   whyDisqualifyID, nominatorID)
 
 VALUES (Null, '$_POST[firstName]','$_POST[middleInitial]','$_POST[lastName]','$_POST[streetAddress]',
     '$_POST[streetAddress2]',
     '$_POST[city]','$_POST[zip]','$_POST[recState]','$_POST[phone]',
-    '$_POST[phone2]','$_POST[email]', '$_POST[email2]', '$_POST[lang]','$_POST[ged]', '$distID',
-    '$_POST[sourceOfLead]','$_POST[noNominator]', '$whyDisqualifyID', '$_POST[abc]');";
+    '$_POST[phone2]','$_POST[email]', '$_POST[email2]', '$_POST[lang]','$_POST[ged]', '$_POST[process]', '$distID',
+    '$_POST[sourceOfLead]','$_POST[noNominator]', '$whyDisqualifyID', '$nominatorID');";
 
 
 

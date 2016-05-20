@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="HandheldFriendly" content="true"> 
 	<title>Recruit</title>
 	<link rel="stylesheet" href="normalize.css">
 	<link rel="stylesheet" href="re.css">
@@ -59,7 +61,15 @@
 		</div>
 
 		<div class="body revBody">
-            <!--begin buttons-->
+			<!--begin header-->
+			<header>
+			<h1>Review Leads</h1>
+			</header>            
+			<!--end header-->
+
+			
+			<!--begin buttons-->
+			<!--start of commenting out buttons
 			<div id="divone">
                 <p>Booking</p>
 			</div>
@@ -79,26 +89,39 @@
 			<div id="divfive">
 			    <p>Contract Offer</p>
 			</div>
+			<!--end buttons and commenting-->
+					
 
-			<br><br>
 			<!--Search Bar-->	
 			
+			<section id="searchbar">
+				
+				<div>
+				<li><form class="search-container" onclick="document.getElementById('lightbox').style.display='inline';">
+				  <input id="search-box" type="text" class="search-box" name="q" />
+				  <label for="search-box"><span class="glyphicon glyphicon-search search-icon"></span></label>
+				  <input type="submit" id="search-submit" />
+				</form>
+				</li>
+				</div>
 
-			<form class="search-container" onclick="document.getElementById('lightbox').style.display='inline';">
-			  <input id="search-box" type="text" class="search-box" name="q" />
-			  <label for="search-box"><span class="glyphicon glyphicon-search search-icon"></span></label>
-			  <input type="submit" id="search-submit" />
-			</form>
-			
-			<button name="searchbtn1" onclick="document.getElementById('lightbox').style.display='inline';">
-			<img src="../images/icon-search.png">
-			</button>
+				<div>
+				<li>
+				<a href="#" onClick="openbox('Advanced Search', 0)">Advanced Search</a>
+				</li>
+				</div>
+
+				<div>
+				<li>			
+				<button class="searchicon" name="searchbtn1" onclick="document.getElementById('lightbox').style.display='inline';">
+				<img src="../images/icon-search.png">
+				</button>
+				</li>
+				</div>
+			</section>
 
 
-			<a href="#" onClick="openbox('Advanced Search', 0)">Advanced Search</a>
-
-
-			<!-- LIGHTBOX CODE BEGIN -->
+			<!-- ADVANCED SEARCH LIGHTBOX CODE BEGINS -->
 
 			<br>
 
@@ -176,60 +199,153 @@
 			   </table>
 			</div>
 
-<!-- LIGHTBOX CODE END -->
+			<!-- ADVANCED SEARCH LIGHTBOX CODE END -->
 
-            <!--end buttons>
-		<!-- end container -->
-
+			<!-- end container -->
 
 
-            <!--table begins-->
-            <table border="1" style="width:100%" class="revTable">
-                <!--begin header of table-->  
-                <tr>
-                    <th>Name</th>
-                    <th>Position</th> 
-                    <th>Source</th>
-                    <th>Process</th>
-                    <th>E-mail Address</th>
-                    <th>Number</th>
-                    <th>Interview</th>
-                    <th>Interviewer</th>
-                    <th>Resume</th>
-                    <th>Grade</th>          
-                  </tr>
-                <!--end header-->
-                <!--begin first row-->
-                  <tr>
-                      <td>John Smith</td>
-                      <td> Business Consultant</td>
-                      <td>Russell Stanberry</td>
-                      <td>1st Interview</td>
-                      <td>johnsmith@gmail.com</td>
-                      <td>(555) 555-5555</td>
-                      <td>03/03/16 12:00PM</td>
-                      <td>Joe Crilly</td>
-                      <td>View</td>
-                      <td>B/Survive</td>
-                  </tr>
-                <!--end first row-->
-                <!--begin second row-->
-                  <tr>
-                      <td>Jane Doe</td>
-                      <td>Broker Consultant</td>
-                      <td>Monster.com</td>
-                      <td>2st Interview</td>
-                      <td>janedoe@gmail.com</td>
-                      <td>(555) 555-5555</td>
-                      <td>03/03/16 12:00PM</td>
-                      <td>Joe Crilly</td>
-                      <td>View</td>
-                      <td>B</td>
-                  </tr>
-                <!--end second row-->
-             </table>
+			<!--code for horizontal overflow bar-->
+			<div class="scrollbar" style="overflow-x:auto;">
+	            
+	            <!--main table begins-->
+	            <div id=table>
+	            <table border="1" style="width:100%" class="revTable">
+
+	                <!--begin header of table-->  
+	                <tr>
+	                    <th>First Name</th>
+	                    <th>Last Name</th> 
+	                    <th>City</th>
+	                    <th>Zip</th>
+	                    <th>Primary Email</th>
+	                    <th>Primary Phone</th>
+	                    <th>Status</th>
+	                    <th>More Results</th>          
+	                  </tr>
+	                <!--end header-->
+	                <!--begin first row-->
+	                  <tr>
+	                      <td>John</td>
+	                      <td>Smith</td>
+	                      <td>Pasadena</td>
+	                      <td>91709</td>
+	                      <td>johnsmith@gmail.com</td>
+	                      <td>(555)555-5555</td>
+	                      <td>1st Interview</td>
+	                      <td>
+							<a href="#profile1" onclick="document.getElementById('lightbox1').style.display='inline';">
+							<img src="../images/icon-profile-small-teal.png">
+							</button>
+						</td>
+	                  </tr>
+	                <!--end first row-->
+	                <!--begin second row-->
+	                  <tr>
+	                      <td>Jane</td>
+	                      <td>Doe</td>
+	                      <td>Chino</td>
+	                      <td>91710</td>
+	                      <td>janedoe@gmail.com</td>
+	                      <td>(555)555-5555</td>
+	                      <td>2nd Interview</td>
+	                      <td>
+	                      	<a href="#profile2" onclick="document.getElementById('lightbox2').style.display='inline';">
+							<img src="../images/icon-profile-small-teal.png">
+							</button>
+							</td>
+	                  </tr>
+	                <!--end second row-->
+	             </table>
+             </div>
 
 	</div>
+
+		<!-- MORE RESULTS LIGHTBOX1 CODE BEGINS -->
+
+			<div id="lightbox1" class="lightbox" style="display:none"
+
+			      onclick="document.getElementById('lightbox1').style.display='none';">
+			   <table class="lightbox_table">
+			   <tr>
+			   <td class="lightbox_table_cell" align="center">
+			      <div id="lightbox_content" style=
+			            "width:60%; 
+			            background-color:#008080; 
+			            border:5px solid #008080; 
+			            margin:auto;">
+			         <p>
+
+			         	<!--Begin table within lightbox-->
+			         
+			         	
+			    <table border="1" align="center" class="litTable">
+			         <h1> Carmen Ng </h1>
+			         <tr>
+			         	<td>Position:</td>
+			         	<td>Intern</td>
+			         </tr>
+			         <tr>
+			         	<td>Email:</td>
+			         	<td>carmenng@gmail.com</td>
+			         </tr>
+			         <tr>
+			         	<td>Phone Number:</td>
+			         	<td>(626)512-6140</td>
+			         </tr>
+			         
+			      </div>
+
+			   </td>
+			   </tr>
+			   </table>
+			</div>
+
+		<!-- MORE RESULTS LIGHTBOX1 CODE ENDS -->
+
+		<!-- MORE RESULTS LIGHTBOX2 CODE BEGINS -->
+
+			<div id="lightbox2" class="lightbox" style="display:none"
+
+			      onclick="document.getElementById('lightbox2').style.display='none';">
+			   <table class="lightbox_table">
+			   <tr>
+			   <td class="lightbox_table_cell" align="center">
+			      <div id="lightbox_content" style=
+			            "width:60%; 
+			            background-color:#008080; 
+			            border:5px solid #008080; 
+			            margin:auto;">
+			         <p>
+			         	
+			         	<!--Begin table within lightbox-->
+			         <h1> Jackie Cortes </h1>
+			         	
+			    	<table border="1" align="center" class="litTable">
+			         <tr>
+			         	<td>Position:</td>
+			         	<td>Intern</td>
+			         </tr>
+			         <tr>
+			         	<td>Email:</td>
+			         	<td>carmenng@gmail.com</td>
+			         </tr>
+			         <tr>
+			         	<td>Phone Number:</td>
+			         	<td>(626)512-6140</td>
+			         </tr>
+			         
+
+			         </p>
+			         
+			      </div>
+
+			   </td>
+			   </tr>
+			   </table>
+			</div>
+
+		<!-- MORE RESULTS LIGHTBOX2 CODE ENDS -->
+
 
 
 

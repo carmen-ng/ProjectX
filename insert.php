@@ -301,6 +301,85 @@ if (!$recInterview2Result) {
     echo "<br> Transaction rolled back <br> Error: " . $recInterview2Sql . "<br>" . mysqli_error($conn); 
 } 
 
+/////////////// Resume /////////////
+
+$target_dir = "uploaded_Resumes/";
+$target_file = $target_dir . basename($_FILES["resume"]["name"]);
+$uploadOk = 1;
+$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+// Check if image file is a actual image or fake image
+/*if(isset($_POST["submit"])) {
+    $check = getimagesize($_FILES["resume"]["tmp_name"]);
+    if($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+    }
+}*/
+// Check if file already exists
+if (file_exists($target_file)) {
+    echo "Sorry, file already exists.";
+    $uploadOk = 0;
+}
+// Check file size
+if ($_FILES["resume"]["size"] > 500000) {
+    echo "Sorry, your file is too large.";
+    $uploadOk = 0;
+}
+// Allow certain file formats
+if($imageFileType != "doc" && $imageFileType != "docx" && $imageFileType != "pdf"
+&& $imageFileType != "txt" ) {
+    echo "Sorry, only doc, docx, txt, and pdf files are allowed.";
+    $uploadOk = 0;
+}
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+    echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+    if (move_uploaded_file($_FILES["resume"]["tmp_name"], $target_file)) {
+        echo "The file ". basename( $_FILES["resume"]["name"]). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+}
+///////////////////// Cover Letter //////////////////////////
+/*
+$target_dir2 = "uploaded_coverLetters/";
+$target_file2 = $target_dir2 . basename($_FILES["coverLetter"]["name"]);
+$uploadOk2 = 1;
+$imageFileType2 = pathinfo($target_file2,PATHINFO_EXTENSION);
+// Check if file already exists
+if (file_exists($target_file2)) {
+    echo "Sorry, file already exists.";
+    $uploadOk2 = 0;
+}
+// Check file size
+if ($_FILES["coverLetter"]["size"] > 500000) {
+    echo "Sorry, your file is too large.";
+    $uploadOk2 = 0;
+}
+// Allow certain file formats
+if($imageFileType2 != "doc" && $imageFileType2 != "docx" && $imageFileType2 != "pdf"
+&& $imageFileType2 != "txt" ) {
+    echo "Sorry, only doc, docx, txt, and pdf files are allowed.";
+    $uploadOk2 = 0;
+}
+// Check if $uploadOk2 is set to 0 by an error
+if ($uploadOk2 == 0) {
+    echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+    if (move_uploaded_file($_FILES["coverLetter"]["tmp_name"], $target_file2)) {
+        echo "The file ". basename( $_FILES["coverLetter"]["name"]). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+}
+*/
+
 //////////////////////////////
 
 if ( $recResult and $lang2Result and $recLang2Result and $lang3Result and $recLang3Result and

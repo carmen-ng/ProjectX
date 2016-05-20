@@ -66,13 +66,13 @@ $nominatorID= mysqli_insert_id($conn);
 
 $recSql = "INSERT INTO rec (recID, firstName, middleInitial, lastName, streetAddress, streetAddress2,
   city, zip, state, phone, secondPhone, email, secondEmail, firstLang, ged, process, districtID, sourceOfLead, noNominator,
-   whyDisqualifyID, nominatorID)
+   whyDisqualifyID, nominatorID, positionName)
 
 VALUES (Null, '$_POST[firstName]','$_POST[middleInitial]','$_POST[lastName]','$_POST[streetAddress]',
     '$_POST[streetAddress2]',
     '$_POST[city]','$_POST[zip]','$_POST[recState]','$_POST[phone]',
     '$_POST[phone2]','$_POST[email]', '$_POST[email2]', '$_POST[lang]','$_POST[ged]', '$_POST[process]', '$distID',
-    '$_POST[sourceOfLead]','$_POST[noNominator]', '$whyDisqualifyID', '$nominatorID');";
+    '$_POST[sourceOfLead]','$_POST[noNominator]', '$whyDisqualifyID', '$nominatorID', '$_POST[position]' );";
 
 
 
@@ -280,6 +280,26 @@ if (!$recExperience2Result) {
     echo "<br> Transaction rolled back <br> Error: " . $recExperience2Sql . "<br>" . mysqli_error($conn); 
 } 
 
+///////////  First Interview /////////////
+
+$recInterviewSql = "INSERT INTO recInterview (recID, interviewNo, grade, interviewerName, interviewDate, interviewTime)
+VALUES ('$recID', '1',  '$_POST[grade1]','$_POST[interviewerName1]', '$_POST[interviewDate1]', '$_POST[interviewTime1]' ); ";
+$recInterviewResult = mysqli_query($conn, $recInterviewSql);
+if (!$recInterviewResult) {
+    rollback($conn); // transaction rolls back
+    echo "<br> Transaction rolled back <br> Error: " . $recInterviewSql . "<br>" . mysqli_error($conn); 
+} 
+
+
+/////// Second Interview ///////////////////
+
+$recInterview2Sql = "INSERT INTO recInterview (recID, interviewNo, grade, interviewerName, interviewDate, interviewTime)
+VALUES ('$recID', '2',  '$_POST[grade2]','$_POST[interviewerName2]', '$_POST[interviewDate2]' , '$_POST[interviewTime2]' ); ";
+$recInterview2Result = mysqli_query($conn, $recInterview2Sql);
+if (!$recInterview2Result) {
+    rollback($conn); // transaction rolls back
+    echo "<br> Transaction rolled back <br> Error: " . $recInterview2Sql . "<br>" . mysqli_error($conn); 
+} 
 
 //////////////////////////////
 

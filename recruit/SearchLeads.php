@@ -13,13 +13,51 @@
 	<script>
  		$(document).ready(function(){
   	 		$('table.revTable tr td#bcard').click(function(){
-          	//alert($(this).closest('tr').find('td:first').text());
 
-          	document.getElementById('lightbox1').style.display='inline';
+          	//alert($(this).closest('tr').find('td:first').text());
+          	var varid = $(this).closest('tr').find('td:first').text();
+          	//alert(x); 
+           showUser(varid);
+
+          	//document.getElementById('lightbox1').style.display='inline';
 
     		});
 
   		});
+
+
+  		function showUser(varid)
+  		{
+  			//alert(varid); 
+    		if (varid == "") 
+    		{
+        		document.getElementById("txtHint").innerHTML = "";
+        		return;
+    		} 
+    		else 
+    		{ 
+        		if (window.XMLHttpRequest) 
+        		{
+            		// code for IE7+, Firefox, Chrome, Opera, Safari
+            		xmlhttp = new XMLHttpRequest();
+        		} 
+        		else 
+        		{
+            		// code for IE6, IE5
+            		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        		}
+
+        		xmlhttp.onreadystatechange = function() {
+            		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+            		{
+                		document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+            		}
+        		};
+
+        		xmlhttp.open("GET","getuser.php?q="+varid,true);
+        		xmlhttp.send();
+    		}
+		}
  
   	</script>
 
@@ -270,8 +308,9 @@
 
 		</div>
 
+		<div id="txtHint"><b>Person info will be listed here...</b></div>
 
-		<!-- LIGHTBOX1 CODE BEGIN -->
+		<!-- LIGHTBOX1 CODE BEGIN 
 
 			<div id="lightbox1" class="lightbox" style="display:none"
 
@@ -288,23 +327,30 @@
 
 			         	<!--Begin table within lightbox-->
 
-
-
-			         <h1> <?php echo $row["firstName"] . $row["lastName"] ?> </h1>
+			    
+			         <!--
+			         <h1> 
+			         <?php 
+			          //echo $row["firstName"] . $row["lastName"] ?> </h1>
 			         	
-			    <table border="1" align="center" class="litTable">
+			    	<table border="1" align="center" class="litTable">
 			         <tr>
 			         	<td>Position:</td>
 			         	<td>Intern</td>
 			         </tr>
 			         <tr>
 			         	<td>Email:</td>
-			         	<td><?php echo $row["email"] ?></td>
+			         	<td>
+			         	<?php 
+			         	//echo $row["email"] ?></td>
 			         </tr>
 			         <tr>
 			         	<td>Phone Number:</td>
-			         	<td><?php echo $row["phone"] ?></td>
+			         	<td><?php 
+			         	//echo $row["phone"] ?></td>
 			         </tr>
+			        </table> 
+			        
 			         
 			      </div>
 
@@ -316,7 +362,7 @@
 		<!-- LIGHTBOX1 CODE END -->
 
 		<!-- LIGHTBOX1 CODE BEGIN -->
-
+			<!--
 			<div id="lightbox2" class="lightbox" style="display:none"
 
 			      onclick="document.getElementById('lightbox2').style.display='none';">
@@ -331,7 +377,7 @@
 			         <p>
 			         	
 			         	<!--Begin table within lightbox-->
-			         <h1> Jackie Cortes </h1>
+			         <!--<h1> Jackie Cortes </h1>
 			         <section>
 			         	<p>• Position: </p>
 			         	<span>Contact Information</span>

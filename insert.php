@@ -254,7 +254,12 @@ $experienceID= mysqli_insert_id($conn);
 
 $recExperienceSql = "INSERT INTO recExperience (recID, experienceID, priority, company, startDate, endDate)
 VALUES ('$recID', '$experienceID', '1',  '$_POST[company]','$_POST[startDate]','$_POST[endDate]'); ";
-$recExperienceResult = mysqli_query($conn, $recExperienceSql);
+if(strtotime($_POST[startDate]) > strtotime($_POST[endDate])) {
+    echo "<br> End date cannot be earlier than start date!<br> "; 
+}
+else{
+	$recExperienceResult = mysqli_query($conn, $recExperienceSql);
+}
 if (!$recExperienceResult) {
     rollback($conn); // transaction rolls back
     echo "<br> Transaction rolled back <br> Error: " . $recExperienceSql . "<br>" . mysqli_error($conn); 
@@ -274,7 +279,12 @@ $experience2ID= mysqli_insert_id($conn);
 
 $recExperience2Sql = "INSERT INTO recExperience (recID, experienceID, priority, company, startDate, endDate)
 VALUES ('$recID', '$experience2ID', '2', '$_POST[company2]', '$_POST[startDate2]', '$_POST[endDate2]'); ";
-$recExperience2Result = mysqli_query($conn, $recExperience2Sql);
+if(strtotime($_POST[startDate2]) > strtotime($_POST[endDate2])) {
+    echo "<br> End date cannot be earlier than start date!<br> "; 
+}
+else{
+	$recExperience2Result = mysqli_query($conn, $recExperience2Sql);
+}
 if (!$recExperience2Result) {
     rollback($conn); // transaction rolls back
     echo "<br> Transaction rolled back <br> Error: " . $recExperience2Sql . "<br>" . mysqli_error($conn); 
@@ -284,7 +294,13 @@ if (!$recExperience2Result) {
 
 $recInterviewSql = "INSERT INTO recInterview (recID, interviewNo, grade, interviewerName, interviewDate, interviewTime)
 VALUES ('$recID', '1',  '$_POST[grade1]','$_POST[interviewerName1]', '$_POST[interviewDate1]', '$_POST[interviewTime1]' ); ";
-$recInterviewResult = mysqli_query($conn, $recInterviewSql);
+$date = date("m/d/y");
+if(strtotime($date) > strtotime($_POST[interviewDate1])) {
+    echo "<br> Interview date cannot be a past date!<br> "; 
+}
+else{
+	$recInterviewResult = mysqli_query($conn, $recInterviewSql);	
+}
 if (!$recInterviewResult) {
     rollback($conn); // transaction rolls back
     echo "<br> Transaction rolled back <br> Error: " . $recInterviewSql . "<br>" . mysqli_error($conn); 
@@ -295,7 +311,12 @@ if (!$recInterviewResult) {
 
 $recInterview2Sql = "INSERT INTO recInterview (recID, interviewNo, grade, interviewerName, interviewDate, interviewTime)
 VALUES ('$recID', '2',  '$_POST[grade2]','$_POST[interviewerName2]', '$_POST[interviewDate2]' , '$_POST[interviewTime2]' ); ";
-$recInterview2Result = mysqli_query($conn, $recInterview2Sql);
+if(strtotime($_POST[interviewDate1]) > strtotime($_POST[interviewDate2])) {
+    echo "<br> First interview date cannot be later than second interview date!<br> "; 
+}
+else{
+	$recInterview2Result = mysqli_query($conn, $recInterview2Sql);
+}
 if (!$recInterview2Result) {
     rollback($conn); // transaction rolls back
     echo "<br> Transaction rolled back <br> Error: " . $recInterview2Sql . "<br>" . mysqli_error($conn); 

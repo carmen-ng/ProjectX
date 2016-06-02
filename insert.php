@@ -241,86 +241,108 @@ if (!$recHEResult) {
 
 
 ///////////  Most Recent Work Experience /////////////
-
-$experienceSql = "INSERT INTO workExperience (experienceID, title)
-VALUES (Null, '$_POST[title]'); ";
-$experienceResult = mysqli_query($conn, $experienceSql);
-if (!$experienceResult) {
-    rollback($conn); // transaction rolls back
-    echo "<br> Transaction rolled back <br> Error: " . $experienceSql . "<br>" . mysqli_error($conn);  
-} 
-$experienceID= mysqli_insert_id($conn);
-
-
-$recExperienceSql = "INSERT INTO recExperience (recID, experienceID, priority, company, startDate, endDate)
-VALUES ('$recID', '$experienceID', '1',  '$_POST[company]','$_POST[startDate]','$_POST[endDate]'); ";
-if(strtotime($_POST[startDate]) > strtotime($_POST[endDate])) {
-    echo "<br> End date cannot be earlier than start date!<br> "; 
+if($_POST[startDate]!=null&&$_POST[endDate]!=null){
+	if(strtotime($_POST[startDate]) < strtotime($_POST[endDate])){
+		$experienceSql = "INSERT INTO workExperience (experienceID, title)
+		VALUES (Null, '$_POST[title]'); ";
+		$experienceResult = mysqli_query($conn, $experienceSql);
+		if (!$experienceResult) {
+			rollback($conn); // transaction rolls back
+			echo "<br> Transaction rolled back <br> Error: " . $experienceSql . "<br>" . mysqli_error($conn);  
+		} 
+		$experienceID= mysqli_insert_id($conn);
+		
+		$recExperienceSql = "INSERT INTO recExperience (recID, experienceID, priority, company, startDate, endDate)
+		VALUES ('$recID', '$experienceID', '1',  '$_POST[company]','$_POST[startDate]','$_POST[endDate]'); ";
+		$recExperienceResult = mysqli_query($conn, $recExperienceSql);
+		if (!$recExperienceResult) {
+			rollback($conn); // transaction rolls back
+			echo "<br> First workXP Transaction rolled back <br> Error: " . $recExperienceSql . "<br>" . mysqli_error($conn); 
+		} 
+	}
+	else{
+		echo "End date cannot be earlier than start date!<br>";
+	}
 }
 else{
-	$recExperienceResult = mysqli_query($conn, $recExperienceSql);
+	echo  "<br>below is start date<br>";
+	echo $_POST[startDate];
+	echo "Dates cannot be empty!<br>";
 }
-if (!$recExperienceResult) {
-    rollback($conn); // transaction rolls back
-    echo "<br> Transaction rolled back <br> Error: " . $recExperienceSql . "<br>" . mysqli_error($conn); 
-} 
 
 /////// 2nd Most Recent Work Experience ////////////////////
 
-$experience2Sql = "INSERT INTO workExperience (experienceID, title)
-VALUES (Null, '$_POST[title2]'); ";
-$experience2Result = mysqli_query($conn, $experience2Sql);
-if (!$experience2Result) {
-    rollback($conn); // transaction rolls back
-    echo "<br> Transaction rolled back <br> Error: " . $experience2Sql . "<br>" . mysqli_error($conn);  
-} 
-$experience2ID= mysqli_insert_id($conn);
-
-
-$recExperience2Sql = "INSERT INTO recExperience (recID, experienceID, priority, company, startDate, endDate)
-VALUES ('$recID', '$experience2ID', '2', '$_POST[company2]', '$_POST[startDate2]', '$_POST[endDate2]'); ";
-if(strtotime($_POST[startDate2]) > strtotime($_POST[endDate2])) {
-    echo "<br> End date cannot be earlier than start date!<br> "; 
+if($_POST[startDate2]!=null&&$_POST[endDate2]!=null){
+	if(strtotime($_POST[startDate2]) < strtotime($_POST[endDate2])){
+		$experience2Sql = "INSERT INTO workExperience (experienceID, title)
+		VALUES (Null, '$_POST[title2]'); ";
+		$experience2Result = mysqli_query($conn, $experience2Sql);
+		if (!$experience2Result) {
+			rollback($conn); // transaction rolls back
+			echo "<br> Transaction rolled back <br> Error: " . $experienceSql . "<br>" . mysqli_error($conn);  
+		} 
+		$experience2ID= mysqli_insert_id($conn);
+		
+		$recExperience2Sql = "INSERT INTO recExperience (recID, experienceID, priority, company, startDate, endDate)
+		VALUES ('$recID', '$experience2ID', '2', '$_POST[company2]', '$_POST[startDate2]', '$_POST[endDate2]'); ";
+		$recExperience2Result = mysqli_query($conn, $recExperience2Sql);
+		if (!$recExperience2Result) {
+			rollback($conn); // transaction rolls back
+			echo "<br> Second workXP Transaction rolled back <br> Error: " . $recExperience2Sql . "<br>" . mysqli_error($conn); 
+		} 
+	}
+	else{
+		echo "End date cannot be earlier than start date!<br>";
+	}
 }
 else{
-	$recExperience2Result = mysqli_query($conn, $recExperience2Sql);
+	echo  "<br>below is start date<br>";
+	echo $_POST[startDate];
+	echo "Dates cannot be empty!<br>";
 }
-if (!$recExperience2Result) {
-    rollback($conn); // transaction rolls back
-    echo "<br> Transaction rolled back <br> Error: " . $recExperience2Sql . "<br>" . mysqli_error($conn); 
-} 
 
 ///////////  First Interview /////////////
-
-$recInterviewSql = "INSERT INTO recInterview (recID, interviewNo, grade, interviewerName, interviewDate, interviewTime)
-VALUES ('$recID', '1',  '$_POST[grade1]','$_POST[interviewerName1]', '$_POST[interviewDate1]', '$_POST[interviewTime1]' ); ";
-$date = date("m/d/y");
-if(strtotime($date) > strtotime($_POST[interviewDate1])) {
-    echo "<br> Interview date cannot be a past date!<br> "; 
+$date = date("Y/m/d");    //current date
+if($_POST[interviewDate1]!=null&&$_POST[interviewTime1]!=null){
+	if(strtotime($date) < strtotime($_POST[interviewDate1])){
+		$recInterviewSql = "INSERT INTO recInterview (recID, interviewNo, grade, interviewerName, interviewDate, interviewTime)
+		VALUES ('$recID', '1',  '$_POST[grade1]','$_POST[interviewerName1]', '$_POST[interviewDate1]', '$_POST[interviewTime1]' ); ";
+		$recInterviewResult = mysqli_query($conn, $recInterviewSql);
+		if (!$recInterviewResult) {
+			rollback($conn); // transaction rolls back
+			echo "<br>First interview Transaction rolled back <br> Error: " . $recInterviewSql . "<br>" . mysqli_error($conn);  
+		}  
+	}
+	else{
+		echo "Interview_1 date cannot be a past date!<br>";
+	}
 }
 else{
-	$recInterviewResult = mysqli_query($conn, $recInterviewSql);	
+	echo  "<br>below is interview1 date<br>";
+	echo $_POST[interviewDate1];
+	echo " Interview date and time cannot be empty!<br>";
 }
-if (!$recInterviewResult) {
-    rollback($conn); // transaction rolls back
-    echo "<br> Transaction rolled back <br> Error: " . $recInterviewSql . "<br>" . mysqli_error($conn); 
-} 
 
-
-/////// Second Interview ///////////////////
-
-$recInterview2Sql = "INSERT INTO recInterview (recID, interviewNo, grade, interviewerName, interviewDate, interviewTime)
-VALUES ('$recID', '2',  '$_POST[grade2]','$_POST[interviewerName2]', '$_POST[interviewDate2]' , '$_POST[interviewTime2]' ); ";
-if(strtotime($_POST[interviewDate1]) > strtotime($_POST[interviewDate2])) {
-    echo "<br> First interview date cannot be later than second interview date!<br> "; 
+///////////  Second Interview /////////////
+if($_POST[interviewDate2]!=null&&$_POST[interviewTime2]!=null){
+	if(strtotime($_POST[interviewDate1]) < strtotime($_POST[interviewDate2])){
+		$recInterview2Sql = "INSERT INTO recInterview (recID, interviewNo, grade, interviewerName, interviewDate, interviewTime)
+		VALUES ('$recID', '2',  '$_POST[grade2]','$_POST[interviewerName2]', '$_POST[interviewDate2]', '$_POST[interviewTime2]' ); ";
+		$recInterview2Result = mysqli_query($conn, $recInterview2Sql);
+		if (!$recInterview2Result) {
+			rollback($conn); // transaction rolls back
+			echo "<br>Second interview Transaction rolled back <br> Error: " . $recInterview2Sql . "<br>" . mysqli_error($conn);  
+		}  
+	}
+	else{
+		echo "Interview_1 date cannot be earlier than Interview_2 date!<br>";
+	}
 }
 else{
-	$recInterview2Result = mysqli_query($conn, $recInterview2Sql);
+	echo  "<br>below is interview2 date<br>";
+	echo $_POST[interviewDate2];
+	echo " Interview date and time cannot be empty!<br>";
 }
-if (!$recInterview2Result) {
-    rollback($conn); // transaction rolls back
-    echo "<br> Transaction rolled back <br> Error: " . $recInterview2Sql . "<br>" . mysqli_error($conn); 
-} 
 
 /////////////// Resume /////////////
 

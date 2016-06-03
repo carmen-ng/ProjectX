@@ -46,13 +46,20 @@ function openbox(formtitle, fadin)
 }
 
 
-// Close the lightbox
 
+// Close the lightbox
 function closebox()
 {
    document.getElementById('box').style.display='none';
    document.getElementById('shadowing').style.display='none';
 }
 
+/*
+$( '#overlay, #close').on('click', function(event) {
+    $("#lightbox, #overlay").hide();
+});
 
-
+$( '#show').on('click', function(event) {
+    $("#lightbox, #overlay").show();
+});
+*/

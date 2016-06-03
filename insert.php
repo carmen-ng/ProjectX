@@ -328,12 +328,91 @@ if($_POST[interviewDate2]!=null&&$_POST[interviewTime2]!=null){
 }
 
 
-/////////////// Resume /////////////
+/////////////// Resume and CoverLetter /////////////
 
-$target_dir = "uploaded_Resumes/";
+
+/*
+foreach($_FILES["userfile"]["tmp_name"] as $key => $tmp_name)
+{
+    $file_name = $key.$_FILES["userfile"]["name"][$key];
+    $file_size =$_FILES["userfile"]["size"][$key];
+    $file_tmp =$_FILES["userfile"]["tmp_name"][$key];
+    $file_type=$_FILES["userfile"]["type"][$key];  
+    move_uploaded_file($file_tmp,"uploaded_Files".time().$file_name);
+}
+*/
+
+
+///////////////// Resume and CoverLetter///////////////////
+
+function reArrayFiles(&$file_post) {
+
+    $file_ary = array();
+    $file_count = count($file_post["name"]);
+    $file_keys = array_keys($file_post);
+    for ($i=0; $i<$file_count; $i++) {
+        foreach ($file_keys as $key) {
+            $file_ary[$i][$key] = $file_post[$key][$i];
+        }
+    }
+
+    return $file_ary;
+}
+
+$target_dir = "uploaded_Files/";
+//if ($_FILES["upload"]) {
+if(isset($_POST["submit"])) {
+    $file_ary = reArrayFiles($_FILES["userfile"]);
+    $fcount = 0;
+    foreach ($file_ary as $file) {
+        $fcount += 1;
+        $target_file = basename($file["name"]);
+        $fileType = pathinfo($target_file,PATHINFO_EXTENSION);
+        $uploadOk = 1;
+
+        if ($fcount == 1){
+            $target_file = $target_dir . $recID . "-Resume" . "." . $fileType;    
+        }
+        else if ($fcount == 2){
+            $target_file = $target_dir . $recID . "-CL" . "." . $fileType;
+        }
+
+    if (file_exists($target_file)) {
+        echo "<br> Sorry, your file " . basename( $file["name"]). " already exists. <br>";
+        $uploadOk = 0;
+    }
+    // Check file size
+    if ($file["size"] > 500000) {
+        echo "<br> Sorry, your file ". basename( $file["name"]). " is too large. <br>";
+        $uploadOk = 0;
+    }
+    // Allow certain file formats
+    if($fileType != "doc" && $fileType != "docx" && $fileType != "pdf"
+        && $fileType != "txt" ) {
+        echo "<br> Sorry, only doc, docx, txt, and pdf files are allowed. <br>";
+        $uploadOk = 0;
+    }
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        echo "<br> Sorry, your file ".basename( $file["name"])." was not uploaded. <br>";
+        // if everything is ok, try to upload file
+    } else {
+         if (move_uploaded_file($file["tmp_name"], $target_file)) {
+        echo "<br> The file ". basename( $file["name"]). " has been uploaded.<br>";
+        } else {
+            echo "<br> Sorry, there was an error uploading your file " . basename( $file["name"]). "<br>";
+        }
+    }
+    }
+}
+
+////////////////////////////// Resumes //////////////////////////////////////
+
+/*
+$target_dir = "uploaded_Resumes";
 $target_file = $target_dir . basename($_FILES["resume"]["name"]);
 $uploadOk = 1;
-$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+$fileType = pathinfo($target_file,PATHINFO_EXTENSION);
 // Check if image file is a actual image or fake image
 /*if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["resume"]["tmp_name"]);
@@ -346,6 +425,8 @@ $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
     }
 }*/
 // Check if file already exists
+
+/*
 if (file_exists($target_file)) {
     echo "Sorry, file already exists.";
     $uploadOk = 0;
@@ -356,8 +437,8 @@ if ($_FILES["resume"]["size"] > 500000) {
     $uploadOk = 0;
 }
 // Allow certain file formats
-if($imageFileType != "doc" && $imageFileType != "docx" && $imageFileType != "pdf"
-&& $imageFileType != "txt" ) {
+if($fileType != "doc" && $fileType != "docx" && $fileType != "pdf"
+&& $fileType != "txt" ) {
     echo "Sorry, only doc, docx, txt, and pdf files are allowed.";
     $uploadOk = 0;
 }
@@ -372,12 +453,15 @@ if ($uploadOk == 0) {
         echo "Sorry, there was an error uploading your file.";
     }
 }
+$resumeFileName = basename($_FILES["resume"]["name"]);
+
+
 ///////////////////// Cover Letter //////////////////////////
 /*
 $target_dir2 = "uploaded_coverLetters/";
 $target_file2 = $target_dir2 . basename($_FILES["coverLetter"]["name"]);
 $uploadOk2 = 1;
-$imageFileType2 = pathinfo($target_file2,PATHINFO_EXTENSION);
+$fileType2 = pathinfo($target_file2,PATHINFO_EXTENSION);
 // Check if file already exists
 if (file_exists($target_file2)) {
     echo "Sorry, file already exists.";
@@ -389,8 +473,8 @@ if ($_FILES["coverLetter"]["size"] > 500000) {
     $uploadOk2 = 0;
 }
 // Allow certain file formats
-if($imageFileType2 != "doc" && $imageFileType2 != "docx" && $imageFileType2 != "pdf"
-&& $imageFileType2 != "txt" ) {
+if($fileType2 != "doc" && $fileType2 != "docx" && $fileType2 != "pdf"
+&& $fileType2 != "txt" ) {
     echo "Sorry, only doc, docx, txt, and pdf files are allowed.";
     $uploadOk2 = 0;
 }
@@ -405,10 +489,9 @@ if ($uploadOk2 == 0) {
         echo "Sorry, there was an error uploading your file.";
     }
 }
+$coverLetterFileName = basename($_FILES["coverLetter"]["name"]);
 */
-
 //////////////////////////////
-
 if ( $recResult and $lang2Result and $recLang2Result and $lang3Result and $recLang3Result and
  $distResult and $disqualifyResult and $recLicenseResult and $recLicense2Result and $recLicense3Result and $recLicense4Result and
   $recLicense5Result and $highschoolResult and $recHighschoolResult and $heResult and $recHEResult and

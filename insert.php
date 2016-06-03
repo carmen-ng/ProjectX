@@ -264,11 +264,7 @@ if($_POST[startDate]!=null&&$_POST[endDate]!=null){
 		echo "End date cannot be earlier than start date!<br>";
 	}
 }
-else{
-	echo  "<br>below is start date<br>";
-	echo $_POST[startDate];
-	echo "Dates cannot be empty!<br>";
-}
+
 
 /////// 2nd Most Recent Work Experience ////////////////////
 
@@ -295,11 +291,7 @@ if($_POST[startDate2]!=null&&$_POST[endDate2]!=null){
 		echo "End date cannot be earlier than start date!<br>";
 	}
 }
-else{
-	echo  "<br>below is start date<br>";
-	echo $_POST[startDate];
-	echo "Dates cannot be empty!<br>";
-}
+
 
 ///////////  First Interview /////////////
 $date = date("Y/m/d");    //current date
@@ -317,11 +309,7 @@ if($_POST[interviewDate1]!=null&&$_POST[interviewTime1]!=null){
 		echo "Interview_1 date cannot be a past date!<br>";
 	}
 }
-else{
-	echo  "<br>below is interview1 date<br>";
-	echo $_POST[interviewDate1];
-	echo " Interview date and time cannot be empty!<br>";
-}
+
 
 ///////////  Second Interview /////////////
 if($_POST[interviewDate2]!=null&&$_POST[interviewTime2]!=null){
@@ -338,11 +326,7 @@ if($_POST[interviewDate2]!=null&&$_POST[interviewTime2]!=null){
 		echo "Interview_1 date cannot be earlier than Interview_2 date!<br>";
 	}
 }
-else{
-	echo  "<br>below is interview2 date<br>";
-	echo $_POST[interviewDate2];
-	echo " Interview date and time cannot be empty!<br>";
-}
+
 
 /////////////// Resume /////////////
 

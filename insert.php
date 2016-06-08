@@ -239,7 +239,7 @@ if (!$recHEResult) {
     echo "<br> Transaction rolled back <br> Error: " . $recHESql . "<br>" . mysqli_error($conn); 
 } 
 
-
+error_reporting(E_ALL ^ E_NOTICE);
 ///////////  Most Recent Work Experience /////////////
 $experienceSql = "INSERT INTO workExperience (experienceID, title)
 VALUES (Null, '$_POST[title]'); ";

@@ -513,9 +513,7 @@ $coverLetterFileName = basename($_FILES["coverLetter"]["name"]);
 //////////////////////////////
 if ( $recResult and $lang2Result and $recLang2Result and $lang3Result and $recLang3Result and
  $distResult and $disqualifyResult and $recLicenseResult and $recLicense2Result and $recLicense3Result and $recLicense4Result and
-  $recLicense5Result and $highschoolResult and $recHighschoolResult and $heResult and $recHEResult and
-   $experienceResult and $recExperienceResult and
-  $experience2Result and $recExperience2Result) {
+  $recLicense5Result and $highschoolResult and $recHighschoolResult and $heResult and $recHEResult ) {
    commit($conn); // transaction is committed
     echo "<br> New record created successfully <br> Database transaction was successful"; 
 }

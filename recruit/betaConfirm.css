@@ -38,9 +38,12 @@ table {
     border-spacing: 0;
 }
 input[type=text], input[type=checkbox], input[type=date], input[type=time], select {
-    background-color: #c1ebed;
-    border: 1px solid #c1ebed;
+    background-color: #008a91;
+    border: 1px solid #008a91;
     margin: 3px;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
     display: inline-block;
 }
 input[name="search"] {
@@ -848,7 +851,7 @@ html.fp-enabled,
 .submit input{
     left: 41%;
     right: 41%;
-    width: 28%;
+    width: 18%;
     height: 50px;
     background-color: #66b9bd;
     border: 0;

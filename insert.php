@@ -239,7 +239,7 @@ if (!$recHEResult) {
     echo "<br> Transaction rolled back <br> Error: " . $recHESql . "<br>" . mysqli_error($conn); 
 } 
 
-
+error_reporting(E_ALL ^ E_NOTICE);
 ///////////  Most Recent Work Experience /////////////
 $experienceSql = "INSERT INTO workExperience (experienceID, title)
 VALUES (Null, '$_POST[title]'); ";
@@ -513,9 +513,7 @@ $coverLetterFileName = basename($_FILES["coverLetter"]["name"]);
 //////////////////////////////
 if ( $recResult and $lang2Result and $recLang2Result and $lang3Result and $recLang3Result and
  $distResult and $disqualifyResult and $recLicenseResult and $recLicense2Result and $recLicense3Result and $recLicense4Result and
-  $recLicense5Result and $highschoolResult and $recHighschoolResult and $heResult and $recHEResult and
-   $experienceResult and $recExperienceResult and
-  $experience2Result and $recExperience2Result) {
+  $recLicense5Result and $highschoolResult and $recHighschoolResult and $heResult and $recHEResult ) {
    commit($conn); // transaction is committed
     echo "<br> New record created successfully <br> Database transaction was successful"; 
 }

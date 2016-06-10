@@ -837,7 +837,7 @@
 
 
 			            <p>
-			         		<form action="SearchLeads.html" method="get">
+			         		<form action="SearchLeads.php" method="get">
 				 			 <input type="text" name="search" placeholder="Search..">
 				 			 <input type="submit" name="searchbtn" value="Search">
 				 			

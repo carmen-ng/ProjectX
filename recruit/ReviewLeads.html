@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>Recruit</title>
+	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="re.css">
+	<script type="text/javascript">var hide_awf_Form = true;</script>
+	<script type="text/javascript">
+		document.addEventListener("touchstart", function() {}, true);
+	</script>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+	<script src="lightbox-form.js" type="text/javascript"></script>
+
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 	<meta charset="UTF-8">	
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
@@ -115,7 +133,7 @@
 				<!--SEARCH ICON IN SEARCH BAR-->
 				<div>
 				<li>			
-				<button class="searchicon" name="searchbtn1" onclick="document.getElementById('box').style.display='inline';">
+				<button class="searchicon" name="searchbtn1" onclick="document.getElementById('lightbox').style.display='inline';">
 				<img src="../images/icon-search.png">
 				</button>
 				</li>
@@ -806,7 +824,7 @@
 			</div>
 
 	
-			<!--start comment block
+			
 			<div id="lightbox" class="lightbox" style="display:none">
 			   <table class="lightbox_table">
 			   <tr>
@@ -819,7 +837,7 @@
 
 
 			            <p>
-			         		<form action="SearchLeads.html" method="get">
+			         		<form action="SearchLeads.php" method="get">
 				 			 <input type="text" name="search" placeholder="Search..">
 				 			 <input type="submit" name="searchbtn" value="Search">
 				 			
@@ -841,7 +859,7 @@
 			   </tr>
 			   </table>
 			</div>
-			end comment block-->
+			
 
 			<!--SEARCH ICON LIGHTBOX ENDS-->
 			
@@ -1012,4 +1030,5 @@
 	    }
 		</script>
 </body>
+</html>
 </html>

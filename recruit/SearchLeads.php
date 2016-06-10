@@ -13,19 +13,13 @@
 	<script>
  		$(document).ready(function(){
   	 		$('table.revTable tr td#bcard').click(function(){
-
           	//alert($(this).closest('tr').find('td:first').text());
           	var varid = $(this).closest('tr').find('td:first').text();
           	//alert(x); 
            showUser(varid);
-
           	//document.getElementById('lightbox1').style.display='inline';
-
     		});
-
   		});
-
-
   		function showUser(varid)
   		{
   			//alert(varid); 
@@ -46,14 +40,12 @@
             		// code for IE6, IE5
             		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         		}
-
         		xmlhttp.onreadystatechange = function() {
             		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
             		{
                 		document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
             		}
         		};
-
         		xmlhttp.open("GET","getuser.php?q="+varid,true);
         		xmlhttp.send();
     		}
@@ -116,8 +108,6 @@
 			$username = "root";
 			$password = "root";
 			$dbname = "rec";
-
-
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
 			// Check connection
@@ -125,12 +115,9 @@
 			{
      			die("Connection failed: " . $conn->connect_error);
 			} 
-
-
 			$fromvar1 = 'rec r';
 			//echo "hi";
             $selectvar = $_POST[searchOption];
-
             //echo $selectvar;
 			if(isset($_POST[searchOption]))
 			{
@@ -140,39 +127,27 @@
 				{
 					case 'firstName' :
 						//echo "FirstName selected";
-
 						$wherevar = "firstName LIKE '%{$_POST[search]}%'";
         				$fromvar = $fromvar1;
         
 						break;
-
 					case 'lastName' :
 						//echo "lastName selected";
-
 						$wherevar = "lastName LIKE '%{$_POST[search]}%'";
         				$fromvar = $fromvar1;
-
         				break;
-
         			case 'city' :
 						//echo "city selected";
-
 						$wherevar = "city LIKE '%{$_POST[search]}%'";
         				$fromvar = $fromvar1;
-
         				break;
-
         			case 'zip' :
 						//echo "zip selected";
-
 						$wherevar = "zip LIKE '%{$_POST[search]}%'";
         				$fromvar = $fromvar1;
-
         				break;
-
         			case 'license' :
 						//echo "license selected";
-
 						$wherevar = "rl.licenseID LIKE '%{$_POST[search]}%'";
         				$fromvar = "rec r
                     				inner join 
@@ -180,44 +155,29 @@
                     				on r.recID = rl.recID
                     				inner join license l
                     				on rl.licenseID = l.licenseID" ;
-
-
         				break;
-
         			case 'email' :
 						//echo "email selected";
-
 						$wherevar = "email LIKE '%{$_POST[search]}%'";
         				$fromvar = $fromvar1;
-
         				break;
-
         			case 'contact' :
 						//echo "contact selected";
-
 						$wherevar = "phone LIKE '%{$_POST[search]}%'";
         				$fromvar = $fromvar1;
-
         				break;
-
 					default:
 					    echo "None"; 
 				}
 			}
-
-
 			$sql = "SELECT r.recID, firstName, lastName, streetAddress, city, r.state, zip, phone, email, resume, firstLang, ged,
         		r.processLevelID, r.districtID, sourceOfLead, r.nominatorID
         		FROM " . $fromvar .
         		" where " . $wherevar;
-
         	//echo $sql;
-
         	$result = $conn->query($sql);
-
 			if ($result->num_rows > 0) 
 			{
-
 			?>
 
             <!--table begins-->
@@ -244,14 +204,11 @@
         			$sqlproclevel = "SELECT LevelName
         			FROM ProcessLevel 
         			WHERE ProcessLevelID  = " . $row["processLevelID"]; 
-
         			$resultproclevel = $conn->query($sqlproclevel);    
-
         			if ($resultproclevel->num_rows > 0)  
             			$rowproc = $resultproclevel->fetch_assoc();
         			else
             			$rowproc["LevelName"] = "No Interview";     
-
     			?>
                 <!--begin first row-->
                   	<tr>
@@ -301,9 +258,7 @@
 			{
     			echo "0 results";
 			}
-
 			$conn->close();
-
 			?>
 
 		</div>
@@ -311,9 +266,7 @@
 		<div id="txtHint"><b>Person info will be listed here...</b></div>
 
 		<!-- LIGHTBOX1 CODE BEGIN 
-
 			<div id="lightbox1" class="lightbox" style="display:none"
-
 			      onclick="document.getElementById('lightbox1').style.display='none';">
 			   <table class="lightbox_table">
 			   <tr>
@@ -324,7 +277,6 @@
 			            border:5px solid #008080; 
 			            margin:auto;">
 			         <p>
-
 			         	<!--Begin table within lightbox-->
 
 			    
@@ -353,18 +305,15 @@
 			        
 			         
 			      </div>
-
 			   </td>
 			   </tr>
 			   </table>
 			</div>
-
 		<!-- LIGHTBOX1 CODE END -->
 
 		<!-- LIGHTBOX1 CODE BEGIN -->
 			<!--
 			<div id="lightbox2" class="lightbox" style="display:none"
-
 			      onclick="document.getElementById('lightbox2').style.display='none';">
 			   <table class="lightbox_table">
 			   <tr>
@@ -389,16 +338,13 @@
 			         	
 			         </section>
 			         
-
 			         </p>
 			         
 			      </div>
-
 			   </td>
 			   </tr>
 			   </table>
 			</div>
-
 		<!-- LIGHTBOX1 CODE END -->
 
 

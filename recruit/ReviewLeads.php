@@ -133,7 +133,7 @@
 				<!--SEARCH ICON IN SEARCH BAR-->
 				<div>
 				<li>			
-				<button class="searchicon" name="searchbtn1" onclick="document.getElementById('box').style.display='inline';">
+				<button class="searchicon" name="searchbtn1" onclick="document.getElementById('lightbox').style.display='inline';">
 				<img src="../images/icon-search.png">
 				</button>
 				</li>
@@ -824,7 +824,7 @@
 			</div>
 
 	
-			<!--start comment block
+			
 			<div id="lightbox" class="lightbox" style="display:none">
 			   <table class="lightbox_table">
 			   <tr>
@@ -859,7 +859,7 @@
 			   </tr>
 			   </table>
 			</div>
-			end comment block-->
+			
 
 			<!--SEARCH ICON LIGHTBOX ENDS-->
 			

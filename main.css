@@ -1,0 +1,146 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,100,200,900);
+html {
+    height: 100%;
+    margin: 0;
+}
+
+.navigation{
+	position: fixed;
+	z-index: 98;
+	width: 100%;
+	background-color: #333333;
+	height: 50px;
+	box-shadow: 2px 2px 2px #888888;
+}
+
+body {
+    background: #333 url('pasadenabg.png');
+    background-size: cover;
+    background-position: top;
+    margin: 0;
+    overflow: hidden;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+#login,
+#title {
+    position: absolute;
+    top: 42px;
+    height: 100%;
+}
+
+#login {
+    background: #f4f4f4;
+    right: 0;
+    width: 27%;
+}
+
+.holder {
+    background: #fcfcfc;
+    width: 27vw;
+    height: 19vw;
+    text-align: center;
+    font-size: 11.5px;
+}
+
+.holder img {
+    width: 8.5vw;
+    margin-top: 5vw;
+}
+
+.holder::after {
+    content: ". ";
+    background: url('arrow.png');
+    top: 19vw;
+    width: 30px;
+    left: 45%;
+    position: absolute;
+    color: #f4f4f4;
+}
+
+.form {
+    text-align: center;
+}
+
+.form h1 {
+    color: #555;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.form input {
+    border: 0;
+    outline: none;
+}
+
+.uspa {
+    background: #e8e8e8;
+    padding: 10px;
+    width: 60%;
+    margin: 3px;
+    font-style: italic;
+}
+
+input[type="submit"] {
+    color: #eee;
+    background: #097e92;
+    margin-top: -20px;
+    border-radius: 100%;
+    width:58px;
+    height: 58px;
+    border: 7px solid #f4f4f4;
+    text-align: center;
+    font-size: 36px;
+    transition: all .3s;
+    font-weight: 100;
+}
+
+input[type="submit"]:hover {
+    color: #097e92;
+    background: #eee;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+#title {
+    background: rgba(51, 51, 51, 0.6);
+    width: 73%;
+    left: 0;
+}
+
+.heading {
+    position: absolute;
+    top: 25%;
+    left: 70px;
+    text-transform: uppercase;
+    color: white;
+    font-size: 52px;
+    font-weight: 100;
+}
+
+.heading span {
+    text-transform: none;
+    font-size: 14px;
+    font-weight: 100;
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    left: 5px;
+}
+
+.partners {
+    font-size: 14px;
+    color: white;
+    font-weight: 100;
+    position: absolute;
+    bottom: 110px;
+    left: 70px;
+}
+
+.partners img {
+    height: 3.7vw;
+}

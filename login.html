@@ -9,23 +9,23 @@
 </head>
 
 <body>
-    <div class="navigation" align="center">
-        <div id='cssmenu'>
-            <ul>
-                <li class='active'><a href='#everwell' class="scroll">What is Everwell?</a></li>
-                <li><a href='#pasadena' class="scroll">Why Pasadena?</a></li>
-                <li id="li_teams">
-                    <a href='#teams' class="scroll">
-                        <div class="navhide1">Meet The Teams</div>
-                    </a>
-                </li>
-                <li><a href='#careers' class="scroll">Careers</a></li>
-                <li><a href='#contact-us' class="scroll">Contact Us</a></li>
-                <li><a href='login.html'>Login</a></li>
-            </ul>
-        </div>
-        <script src="javascript/smooth.js"></script>
-    </div>
+    		<header>
+			<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=320, height=device-height, target-densitydpi=medium-dpi" />
+			<div class = "navigation" align = "center">
+				<div id='cssmenu'>
+					<ul>
+					   <li><a href='../' class = "scroll">Everwell Pasadena</a></li>
+					   <li><a href='../#pasadena' class = "scroll">Why Pasadena?</a></li>
+					   <li id="li_teams"><a href='../#teams' class = "scroll"><div class = "navhide1">Meet The Teams</div></a></li>
+					   <li><a href='../#careers' class = "scroll">Careers</a></li>
+					   <li><a href='../#contact-us' class = "scroll">Contact Us</a></li>
+					   <li class='active'><a href='#' class = "scroll">Login</a></li>					  
+					</ul>
+				</div>
+				<script src="javascript/smooth.js"></script>
+			</div>
+		</header>
+
 
     <section id="login">
         <div class="holder">
@@ -35,12 +35,12 @@
         </div>
         <div class="form">
             <h1>Login</h1>
-            <form name="login" class="login-form" action="home.html" method="post" accept-charset="utf-8">
-                <input type="username" name="useremail" placeholder="Username" class="uspa user" required>
+            <form name="login" action="" method="get" accept-charset="utf-8">
+                <input type="username" name="username" placeholder="Username" class="uspa user" required>
                 <br>
                 <input type="password" name="password" placeholder="Password" class="uspa pass" required>
                 <br>
-                <input type="submit" name="btnLogin" value="+">
+                <input type="submit" value="+">
             </form>
         </div>
     </section>
@@ -53,12 +53,13 @@
         <div class="partners">
             <i>Partnered with</i>
             <br>
-            <img src="partners/xprs.png"> <img src="partners/mx3.png"> <img src="partners/everwell.png"> <img src="partners/insur.png"> <img src="partners/lanorth.png"> <img src="partners/brystra.png">
+            <img src="/partners/xprs.png"> <img src="/partners/mx3.png"> <img src="/partners/everwell.png"> <img src="/partners/insur.png"> <img src="/partners/lanorth.png"> <img src="/partners/brystra.png">
         </div>
     </section>
     
     <script src="jquery-latest.min.js" type="text/javascript"></script>
-	<script src="javascript/navbar.js"></script>
+	<script src="navbar.js"></script>
+    <script src="smooth.js"></script>
 </body>
 
 </html>

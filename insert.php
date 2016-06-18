@@ -4,10 +4,10 @@
 $host = '127.0.0.1';
 $user = 'root';
 $pass = '';
-$db = 'rec';
+$db = 'recruiter2';
 //$db = 'recruiter';
 
-
+error_reporting(E_ALL ^ E_NOTICE);
 // Create connection
 $conn = mysqli_connect($host, $user, $pass, $db);
 // Check connection
@@ -76,14 +76,26 @@ VALUES (Null, '$_POST[firstName]','$_POST[middleInitial]','$_POST[lastName]','$_
 
 
 
-$recResult = mysqli_query($conn, $recSql);
-if (!$recResult) {
-    rollback($conn); // transaction rolls back
+if ($_POST[email] and $_POST[email2] and $_POST[email]!=$_POST[email2]) {
+	$email = filter_var($_POST[email], FILTER_SANITIZE_EMAIL);
+	$email2 = filter_var($_POST[email2], FILTER_SANITIZE_EMAIL);
+    // check if e-mail address is well-formed
+    if (!filter_var($email1, FILTER_VALIDATE_EMAIL) === false or !filter_var($email2, FILTER_VALIDATE_EMAIL) === false) {
+		$recResult = mysqli_query($conn, $recSql);
+		if (!$recResult) {
+			rollback($conn); // transaction rolls back
+			echo "<br>rec transaction rolled back(Basic Info) <br> Error: " . $recSql . "<br>" . mysqli_error($conn);  
+		} 
+		$recID= mysqli_insert_id($conn);
 
-    echo "<br> Transaction rolled back <br> Error: " . $recSql . "<br>" . mysqli_error($conn);  
-} 
-
-$recID= mysqli_insert_id($conn);
+    }
+	else{
+		echo "Invalid email format<br>"; 
+	} 
+}
+else{
+    echo "Both emails cannot be empty or same!<br> "; 
+}	
 
 
 ///////////  Second Language/////////////
@@ -239,7 +251,7 @@ if (!$recHEResult) {
     echo "<br> Transaction rolled back <br> Error: " . $recHESql . "<br>" . mysqli_error($conn); 
 } 
 
-error_reporting(E_ALL ^ E_NOTICE);
+
 ///////////  Most Recent Work Experience /////////////
 $experienceSql = "INSERT INTO workExperience (experienceID, title)
 VALUES (Null, '$_POST[title]'); ";
@@ -262,6 +274,7 @@ if($_POST[startDate]!=null&&$_POST[endDate]!=null){
 		} 
 	}
 	else{
+		rollback($conn); // transaction rolls back
 		echo "End date cannot be earlier than start date!<br>";
 	}
 }
@@ -289,6 +302,7 @@ if($_POST[startDate2]!=null&&$_POST[endDate2]!=null){
 		} 
 	}
 	else{
+		rollback($conn); // transaction rolls back
 		echo "End date cannot be earlier than start date!<br>";
 	}
 }
@@ -307,6 +321,7 @@ if($_POST[interviewDate1]!=null&&$_POST[interviewTime1]!=null){
 		}  
 	}
 	else{
+		rollback($conn); // transaction rolls back
 		echo "Interview_1 date cannot be a past date!<br>";
 	}
 }
@@ -333,6 +348,7 @@ if($_POST[interviewDate2]!=null&&$_POST[interviewTime2]!=null){
 		}  
 	}
 	else{
+		rollback($conn); // transaction rolls back
 		echo "Interview_1 date cannot be earlier than Interview_2 date!<br>";
 	}
 }

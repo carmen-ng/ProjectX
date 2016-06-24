@@ -363,169 +363,89 @@ else{
 }
 
 
-/////////////// Resume and CoverLetter /////////////
-
-
-/*
-foreach($_FILES["userfile"]["tmp_name"] as $key => $tmp_name)
-{
-    $file_name = $key.$_FILES["userfile"]["name"][$key];
-    $file_size =$_FILES["userfile"]["size"][$key];
-    $file_tmp =$_FILES["userfile"]["tmp_name"][$key];
-    $file_type=$_FILES["userfile"]["type"][$key];  
-    move_uploaded_file($file_tmp,"uploaded_Files".time().$file_name);
-}
-*/
-
-
 ///////////////// Resume and CoverLetter///////////////////
 
-function reArrayFiles(&$file_post) {
+//File uploads:
 
-    $file_ary = array();
-    $file_count = count($file_post["name"]);
-    $file_keys = array_keys($file_post);
-    for ($i=0; $i<$file_count; $i++) {
-        foreach ($file_keys as $key) {
-            $file_ary[$i][$key] = $file_post[$key][$i];
-        }
-    }
-
-    return $file_ary;
-}
-
-$target_dir = "uploaded_Files/";
-//if ($_FILES["upload"]) {
 if(isset($_POST["submit"])) {
-    $file_ary = reArrayFiles($_FILES["userfile"]);
-    $fcount = 0;
-    foreach ($file_ary as $file) {
-        $fcount += 1;
-        $target_file = basename($file["name"]);
-        $fileType = pathinfo($target_file,PATHINFO_EXTENSION);
-        $uploadOk = 1;
+	$target_dir = "uploaded_Files/";
+	$tempResume = $_POST['resume'];
+	$tempResumes = explode("/", $tempResume);
+	$target_file1 = $target_dir . $tempResumes[1]; //basename($_FILES["resume"]["name"]);
+	
+	$tempCover = $_POST['coverLetter'];
+	$tempCovers = explode("/", $tempCover);
+	$target_file2 = $target_dir . $tempCovers[1];//basename($_FILES["coverLetter"]["name"]);
+	$uploadOk = 1;
+	$resumeType = pathinfo($target_file1,PATHINFO_EXTENSION);
+	$coverLetterType = pathinfo($target_file2,PATHINFO_EXTENSION);
+	
+	//rename("user/image1.jpg", "user/del/image1.jpg");
+	
+	if(!empty($_POST['resume'])){
+		echo $_POST['resume'];
+		echo "<br>";
+	}
+	else{
+		echo "resume cannot be empty!";
+	}
+	// Check if file already exists
 
-        if ($fcount == 1){
-            $target_file = $target_dir . $recID . "-Resume" . "." . $fileType;    
-        }
-        else if ($fcount == 2){
-            $target_file = $target_dir . $recID . "-CL" . "." . $fileType;
-        }
+	if (file_exists($target_file1)) {
+		echo "Sorry, resume already exists.<br>";
+		$uploadOk = 0;
+	}
+	if (file_exists($target_file2)) {
+		echo "Sorry, coverLetter already exists.<br>";
+		$uploadOk = 0;
+	}
 
-    if (file_exists($target_file)) {
-        echo "<br> Sorry, your file " . basename( $file["name"]). " already exists. <br>";
-        $uploadOk = 0;
-    }
-    // Check file size
-    if ($file["size"] > 500000) {
-        echo "<br> Sorry, your file ". basename( $file["name"]). " is too large. <br>";
-        $uploadOk = 0;
-    }
-    // Allow certain file formats
-    if($fileType != "doc" && $fileType != "docx" && $fileType != "pdf"
-        && $fileType != "txt" ) {
-        echo "<br> Sorry, only doc, docx, txt, and pdf files are allowed. <br>";
-        $uploadOk = 0;
-    }
-    // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk == 0) {
-        echo "<br> Sorry, your file ".basename( $file["name"])." was not uploaded. <br>";
-        // if everything is ok, try to upload file
-    } else {
-         if (move_uploaded_file($file["tmp_name"], $target_file)) {
-        echo "<br> The file ". basename( $file["name"]). " has been uploaded.<br>";
-        } else {
-            echo "<br> Sorry, there was an error uploading your file " . basename( $file["name"]). "<br>";
-        }
-    }
-    }
+	// Check file size
+	/*
+	if ($_FILES["resume"]["size"] > 500000) {
+		echo "Sorry, resume is too large.<br>";
+		$uploadOk = 0;
+	}
+	if ($_FILES["coverLetter"]["size"] > 500000) {
+		echo "Sorry, coverLetter is too large.<br>";
+		$uploadOk = 0;
+	}
+	*/
+	// Allow certain file formats
+	
+	if($resumeType != "txt" && $resumeType != "doc" && $resumeType != "docx" && $resumeType != "pdf") {
+		echo "Sorry, only doc, docx, txt, and pdf files are allowed.<br>";
+		$uploadOk = 0;
+	}
+	if(!empty($_POST['coverLetter'])){
+		if($coverLetterType != "txt" && $coverLetterType != "doc" && $coverLetterType != "docx" && $coverLetterType != "pdf") {
+			echo "Sorry, only doc, docx, txt, and pdf files are allowed.<br>";
+			$uploadOk = 0;
+		}
+	}
+	
+	// Check if $uploadOk is set to 0 by an error
+	if ($uploadOk == 0) {
+		echo "Sorry, your file was not uploaded.<br>";
+	// if everything is ok, try to upload file
+	} else {
+		//$target_dir . $recID . "-Resume" . "." . $resumeType;$coverLetterType
+		//rename($_POST['resume'], $target_file1);
+		//rename($_POST['coverLetter'], $target_file2);
+		rename($_POST['resume'], $target_dir . $recID . "-Resume" . "." . $resumeType);
+		rename($_POST['coverLetter'], $target_dir . $recID . "-CL" . "." . $coverLetterType);
+		if (file_exists($target_dir . $recID . "-Resume" . "." . $resumeType)) {
+			echo "Resume has been uploaded.<br>";
+			$uploadOk = 0;
+		}
+		if (file_exists($target_dir . $recID . "-CL" . "." . $coverLetterType)) {
+			echo "Cover Letter has been uploaded.<br>";
+			$uploadOk = 0;
+		}
+	}
 }
-
-////////////////////////////// Resumes //////////////////////////////////////
-
-/*
-$target_dir = "uploaded_Resumes";
-$target_file = $target_dir . basename($_FILES["resume"]["name"]);
-$uploadOk = 1;
-$fileType = pathinfo($target_file,PATHINFO_EXTENSION);
-// Check if image file is a actual image or fake image
-/*if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["resume"]["tmp_name"]);
-    if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
-    } else {
-        echo "File is not an image.";
-        $uploadOk = 0;
-    }
-}*/
-// Check if file already exists
-
-/*
-if (file_exists($target_file)) {
-    echo "Sorry, file already exists.";
-    $uploadOk = 0;
-}
-// Check file size
-if ($_FILES["resume"]["size"] > 500000) {
-    echo "Sorry, your file is too large.";
-    $uploadOk = 0;
-}
-// Allow certain file formats
-if($fileType != "doc" && $fileType != "docx" && $fileType != "pdf"
-&& $fileType != "txt" ) {
-    echo "Sorry, only doc, docx, txt, and pdf files are allowed.";
-    $uploadOk = 0;
-}
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
-// if everything is ok, try to upload file
-} else {
-    if (move_uploaded_file($_FILES["resume"]["tmp_name"], $target_file)) {
-        echo "The file ". basename( $_FILES["resume"]["name"]). " has been uploaded.";
-    } else {
-        echo "Sorry, there was an error uploading your file.";
-    }
-}
-$resumeFileName = basename($_FILES["resume"]["name"]);
 
 
-///////////////////// Cover Letter //////////////////////////
-/*
-$target_dir2 = "uploaded_coverLetters/";
-$target_file2 = $target_dir2 . basename($_FILES["coverLetter"]["name"]);
-$uploadOk2 = 1;
-$fileType2 = pathinfo($target_file2,PATHINFO_EXTENSION);
-// Check if file already exists
-if (file_exists($target_file2)) {
-    echo "Sorry, file already exists.";
-    $uploadOk2 = 0;
-}
-// Check file size
-if ($_FILES["coverLetter"]["size"] > 500000) {
-    echo "Sorry, your file is too large.";
-    $uploadOk2 = 0;
-}
-// Allow certain file formats
-if($fileType2 != "doc" && $fileType2 != "docx" && $fileType2 != "pdf"
-&& $fileType2 != "txt" ) {
-    echo "Sorry, only doc, docx, txt, and pdf files are allowed.";
-    $uploadOk2 = 0;
-}
-// Check if $uploadOk2 is set to 0 by an error
-if ($uploadOk2 == 0) {
-    echo "Sorry, your file was not uploaded.";
-// if everything is ok, try to upload file
-} else {
-    if (move_uploaded_file($_FILES["coverLetter"]["tmp_name"], $target_file2)) {
-        echo "The file ". basename( $_FILES["coverLetter"]["name"]). " has been uploaded.";
-    } else {
-        echo "Sorry, there was an error uploading your file.";
-    }
-}
-$coverLetterFileName = basename($_FILES["coverLetter"]["name"]);
-*/
 //////////////////////////////
 if ( $recResult and $lang2Result and $recLang2Result and $lang3Result and $recLang3Result and
  $distResult and $disqualifyResult and $recLicenseResult and $recLicense2Result and $recLicense3Result and $recLicense4Result and

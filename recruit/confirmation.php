@@ -297,13 +297,21 @@
 				<div class="rightright slide">
 				<h2>DOCUMENTS</H2>
 					  <label class="resume">Currently Uploaded Resume:</label>
-					  <!-- <input type="file" name="resume" class="resumeBtn" accept="file_extension"> -->
-					  <input type="text" class="resumeBtn" value = "<?php echo $_FILES['resume']['tmp_name']; ?>" placeholder="NO FILE SUBMITTED" readonly>
+					  <input type="text" value = "<?php echo $_FILES['resume']['name']; ?>" placeholder="NO FILE SUBMITTED" readonly>
+					  
 					  <br><br>
 					  <label class="coverLetter">Currently Uploaded Cover Letter:</label>
-					  <!--<input type="file" name="coverLetter" class="cvBtn" accept="file_extension">-->
-					  <input type="text" class="cvBtn" value = "<?php echo $_FILES['coverLetter']['name']; ?>" placeholder="NO FILE SUBMITTED" readonly>
-					  <br><br><br>
+					  <input type="text" value = "<?php echo $_FILES['coverLetter']['name']; ?>" placeholder="NO FILE SUBMITTED" readonly>
+					  <br><br><br>	
+						<?php	
+							$target_dir = "temp_uploadedFiles/";
+							$target_file1 = $target_dir . basename($_FILES["resume"]["name"]);
+							$target_file2 = $target_dir . basename($_FILES["coverLetter"]["name"]);
+							move_uploaded_file($_FILES["resume"]["tmp_name"], $target_file1);
+							move_uploaded_file($_FILES["coverLetter"]["tmp_name"], $target_file2);
+						?>	
+						<input type="hidden" name = "resume" value = "<?php echo $target_file1; ?>">	
+						<input type="hidden" name = "coverLetter" value = "<?php echo $target_file2; ?>">
 	    		<h2>SOURCE</h2>
   					 <label class="leadSource">Source of Lead:</label>
   	  				  	<input type="text" class="lead" name="sourceOfLead" value = "<?php echo $_POST['sourceOfLead']; ?>" placeholder="NOT ENTERED" readonly>

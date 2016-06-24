@@ -217,24 +217,24 @@
  
  						   <h2>HIGH SCHOOL DIPLOMA OR GED</h2>
  								   <input type="hidden" name="ged" value="0">
- 								   <input type="checkbox" name="ged" value="1">
+ 								   <input type="checkbox" name="ged" id="ged" value="1">
  								   <label class="ged hsGed">GED</label>
  								   <br><br>
  						   <table width="85%">
  								   <td width="16%">
  								   <input type="hidden" name="diploma" value="0">
- 								   <input type="checkbox" name="diploma" value="1">
+ 								   <input type="checkbox" name="diploma" id="diploma" value="1">
 								   <label class="highSchool hsGed">High School</label>
  								</td>
  								<td width="29%">
-								   <input type="text" name="highschool" class="hs formName">
+								   <input type="text" name="highschool" id="highschool" class="hs formName" disabled>
  								</td>
  								<td width="5%"></td>
  								<td width="18%">
  								   <label class="gradYear">Year Graduated: </label>
  								</td>
  								<td width="17%">
- 								   <input type="text" name="gradYear" class="hsgradForm formName">
+ 								   <input type="text" name="gradYear" id="gradYear" class="hsgradForm formName" disabled>
  								</td>
  							</table><br><br><br>
  
@@ -709,6 +709,29 @@
 			function disableOther( button ) {
 				if( button !== 'showLeft' ) {
 					classie.toggle( showLeft, 'disabled' );
+				}
+			}
+
+			diploma.onclick = function() {
+				check();	
+			}
+			ged.onclick = function() {
+				document.getElementById('diploma').checked = false;
+				check();
+			}
+			
+			function check() {
+				var check = document.getElementById('diploma');
+	
+				if (check.checked) {
+					document.getElementById('highschool').disabled = false;
+					document.getElementById('gradYear').disabled = false;
+					document.getElementById('ged').checked = false;
+				} else {
+					document.getElementById('highschool').disabled = true;
+					document.getElementById('highschool').value = "";
+					document.getElementById('gradYear').disabled = true;
+					document.getElementById('gradYear').value = "";
 				}
 			}
 		</script>

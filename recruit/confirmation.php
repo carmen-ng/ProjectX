@@ -318,56 +318,19 @@
   	  				  	<br><br><br>
   	  				  	<table width="85%">
  	  				  		<tr>
- 	  				  		<td width="50%">
- 	  						 <label class="nom">Nominator:</label>
- 	  					</td>
- 	  						<td width="15%">
-  	  				 	<input type="hidden" name="noNominator" value="<?php echo $_POST['noNominator']; ?>">
-  	  				 	<label class="noNom"><?php
- 								   if(isset($_POST['noNominator']) && 
- 								   	$_POST['noNominator'] == 1) 
- 								   {
- 								   	echo "<a style='color:#00cc00;font-weight:bold;'>Y</a> None";
- 								   }
- 								   else
- 								   {
- 								   	echo "<a style='color:#ff0000;font-weight:bold;'>N</a> None";
- 								   }    
- 								   ?></label>
-	  				 </td>
- 	  				 	<td width="15%">
- 	  				 	<input type="hidden" name="abc" value="<?php echo $_POST['abc']; ?>">
- 	  				 	<label><?php
- 								   if(isset($_POST['abc']) && 
- 								   	$_POST['abc'] == 1) 
- 								   {
- 								   	echo "<a style='color:#00cc00;font-weight:bold;'>Y</a> abc";
- 								   }
- 								   else
- 								   {
- 								   	echo "<a style='color:#ff0000;font-weight:bold;'>N</a> abc";
- 								   }    
- 								   ?></label></td>
- 	  				 	<td width="20%">
-  	  				 	<input type="hidden" name="yesNominator" value="<?php echo $_POST['yesNominator']; ?>">
-  	  				 	<label class="yesNom"><?php
- 								   if(isset($_POST['yesNominator']) && 
- 								   	$_POST['yesNominator'] == 1) 
- 								   {
- 								   	echo "<a style='color:#00cc00;font-weight:bold;'>Y</a> Yes";
- 								   }
- 								   else
- 								   {
- 								   	echo "<a style='color:#ff0000;font-weight:bold;'>N</a> Yes";
- 								   }    
- 								   ?></label>
-  	  				 	 </td>
- 	  				</tr></table><br>
+								<td width="50%">
+								 <label class="nom">Nominator:</label>
+								</td>
+								<td width="50%">
+								<a style='color:#00cc00;font-weight:bold;'><?php echo $_POST['nominator']; ?></a>
+								</td>	
+							</tr>
+						</table><br>
  	  				<table width="84%">
  	  					<td width="47%"><label>If Yes:</label></td>
- 	  					<td width="19%"><input type="text" class="yesNomName" name="nomfirstName" value = "<?php echo $_POST['nomfirstName']; ?>" placeholder="No First Name" readonly></td>
- 	  					<td width="19%"><input type="text" class="yesNomName" name="nomlastName" value = "<?php echo $_POST['nomlastName']; ?>" placeholder="No Last Name" readonly></td>
- 	  					<td width="12%"><input type="text" class="yesNomName" name="writingNo" value = "<?php echo $_POST['writingNo']; ?>" placeholder="No Writing #" readonly></td>
+ 	  					<td width="19%"><input type="text"  name="nomfirstName" value = "<?php echo $_POST['nomfirstName']; ?>" placeholder="No First Name" readonly></td>
+ 	  					<td width="19%"><input type="text"  name="nomlastName" value = "<?php echo $_POST['nomlastName']; ?>" placeholder="No Last Name" readonly></td>
+ 	  					<td width="12%"><input type="text"  name="writingNo" value = "<?php echo $_POST['writingNo']; ?>" placeholder="No Writing #" readonly></td>
  	  					
  	  				</table>
  	  				 	<br><br>

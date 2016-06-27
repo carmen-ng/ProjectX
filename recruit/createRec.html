@@ -578,26 +578,18 @@
  	  				  		<td width="50%">
  	  						 <label class="nom">Nominator:</label>
  	  					</td>
- 	  						<td width="15%">
-  	  				 	<input type="hidden" name="noNominator" value="0">
-  	  				 	<input type="checkbox" name="noNominator" value="1">
-  	  				 	<label class="noNom">None</label>
-	  				 </td>
- 	  				 	<td width="15%">
- 	  				 	<input type="hidden" name="abc" value="0">
- 	  				 	<input type="checkbox" name="abc" value="1">
- 	  				 	<label>ABC</label></td>
- 	  				 	<td width="20%">
-  	  				 	<input type="hidden" name="yesNominator" value="0">
-  	  				 	<input type="checkbox" name="yesNominator" value="1">
-  	  				 	<label class="yesNom">Yes</label>
-  	  				 	 </td>
- 	  				</tr></table><br>
+ 	  						<td width="50%">
+								<input type="radio" name="nominator" id="none" value="none">None
+								<input type="radio" name="nominator" id="abc" value="abc">ABC
+								<input type="radio" name="nominator" id="yes" value="yes">Yes
+							</td>
+							</tr>
+						</table><br>
  	  				<table width="84%">
  	  					<td width="47%"><label>If Yes:</label></td>
- 	  					<td width="19%"><input type="text" class="yesNomName" name="nomfirstName"	 placeholder="First name"></td>
- 	  					<td width="19%"><input type="text" class="yesNomName" name="nomlastName" placeholder="Last name"></td>
- 	  					<td width="12%"><input type="text" class="yesNomName" name="writingNo" placeholder="Writing #"></td>
+ 	  					<td width="19%"><input type="text"  name="nomfirstName"	id="nomfirstName" placeholder="First name"></td>
+ 	  					<td width="19%"><input type="text"  name="nomlastName" id="nomlastName" placeholder="Last name"></td>
+ 	  					<td width="12%"><input type="text"  name="writingNo" id="writingNo" placeholder="Writing #"></td>
  	  					
  	  				</table>
  	  				 	<br><br>
@@ -607,7 +599,7 @@
   	  				 	<br><br><br>
   	  				 	<label class="lblProcess">Position:</label>
  	  				 	 <select name="position" class="positionApplied">
-						    <option value="businessConsultant">Business Consultant</option>
+							<option value="no">Choose One</option>
 							<option value="districtManager">District Manager</option>
 							<option value="brokerConsultant">Broker Consultant</option>
 							<option value="internBusDev">Intern - Business Development</option>
@@ -734,6 +726,45 @@
 					document.getElementById('gradYear').value = "";
 				}
 			}
+			none.onclick = function() {
+				document.getElementById('none').checked = true;
+				check2();	
+			}
+			abc.onclick = function() {
+				document.getElementById('abc').checked = true;
+				check2();	
+			}
+			yes.onclick = function() {
+				document.getElementById('yes').checked = true;
+				check2();
+			}
+			
+			function check2() {
+				var none = document.getElementById('none');
+				var abc = document.getElementById('abc');
+				var yes = document.getElementById('yes');
+	
+				if (none.checked) {
+					document.getElementById('nomfirstName').disabled = true;
+					document.getElementById('nomlastName').disabled = true;
+					document.getElementById('writingNo').disabled = true;
+					document.getElementById('nomfirstName').value = " ";
+					document.getElementById('nomlastName').value = " ";
+					document.getElementById('writingNo').value = " ";
+				} 
+				else if (abc.checked){
+					document.getElementById('nomfirstName').disabled = true;
+					document.getElementById('nomlastName').disabled = true;
+					document.getElementById('writingNo').disabled = true;
+					document.getElementById('nomfirstName').value = " ";
+					document.getElementById('nomlastName').value = " ";
+					document.getElementById('writingNo').value = " ";
+				}else{
+					document.getElementById('nomfirstName').disabled = false;
+					document.getElementById('nomlastName').disabled = false;
+					document.getElementById('writingNo').disabled = false;					
+				}
+			}			
 		</script>
 </body>
 </html>

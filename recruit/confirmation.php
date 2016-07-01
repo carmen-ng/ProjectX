@@ -190,7 +190,21 @@
 					  <label class="expText coTitle">Title:</label>
  	  				  	<input type="text" name="title" class="coForm formName" value = "<?php echo $_POST['title']; ?>" placeholder="NOT ENTERED" readonly>
  							<br><br>
- 	  				  <label class="expText datesWorked">Dates Worked:</label>
+ 	  				 <!-- Recent Work experience 1 validation-->
+ 	  				  <label class="expText datesWorked">
+ 	  				  	<?php if(isset($_POST['startDate']) && isset($_POST['endDate'])){
+	 	  				  		$start_date = $_POST['startDate'];
+	 	  				  		$end_date = $_POST['endDate'];
+	 	  				  		if(strtotime($start_date) > strtotime($end_date)){
+	 	  				  			echo "<a style='color:#ff0000;font-weight:bold;'>*</a>Dates Worked:";
+	 	  				  		}
+	 	  				  		else{
+	 	  				  			echo "Dates Worked:";
+	 	  				  		}
+ 	  				  		}
+ 	  				    ?>
+					  </label>
+					  <!-- validation ends-->
  	  				  <div class="datesWorkedToFrom">
  	  				  	<input type="date" class="workedFrom" name="startDate" value = "<?php echo $_POST['startDate']; ?>" readonly>
  	  				  	<!-- <p class="datesWorkedP">-</p> -->
@@ -203,7 +217,21 @@
  					  <label class="expText coTitle">Title:</label>
  	  				  	<input type="text" name="title2" class="coForm formName" value = "<?php echo $_POST['title2']; ?>" placeholder="NOT ENTERED" readonly>
  							<br><br>
- 	  				  <label class="expText datesWorked">Dates Worked:</label>
+ 	  				   	<!-- Recent Work Experience 2 date validation-->
+ 	  				  <label class="expText datesWorked">
+						<?php if(isset($_POST['startDate2']) && isset($_POST['endDate2'])){
+	 	  				  		$start_date_2 = $_POST['startDate2'];
+	 	  				  		$end_date_2 = $_POST['endDate2'];
+	 	  				  		if(strtotime($start_date_2) > strtotime($end_date_2)){
+	 	  				  			echo "<a style='color:#ff0000;font-weight:bold;'>*</a>Dates Worked:";
+	 	  				  		}
+	 	  				  		else{
+	 	  				  			echo "Dates Worked:";
+	 	  				  		}
+ 	  				  		}
+ 	  				    ?>
+ 	  				  </label>
+ 	  				  <!-- validation -->
  	  				  <div class="datesWorkedToFrom">
  	  				  	<input type="date" class="workedFrom" name="startDate2" value = "<?php echo $_POST['startDate2']; ?>" readonly>
  	  				  	<!-- <p class="datesWorkedP">-</p> -->
@@ -215,81 +243,101 @@
  	  				  	<input type="hidden" class="licenseBox" name="PC" value="<?php echo $_POST['PC']; ?>" readonly>
  	  				  	<!-- ADD PC CHECKBOX CONFIRMATION-->
 						  <label class="licenseText"><?php
- 								   if(isset($_POST['PC']) && 
- 								   	$_POST['PC'] == 1) 
+ 								   if(isset($_POST['PC'])) 
  								   {
- 								   	echo "<a style='color:#00cc00;font-weight:bold;'>Y</a> PC";
+ 								   		if($_POST['PCState'] != '')
+ 								   		{
+ 								   			$temp_pc_state = $_POST['PCState'];
+ 								   			echo "<a style='color:#00cc00;font-weight:bold;'>Y</a> P&C          ";
+ 								   			echo "<a>{$temp_pc_state}</a>";
+ 								   		}
+ 								   		else
+ 								   		{
+											echo "<a style='color:#ff0000;font-weight:bold;'>*</a> P&C";
+ 								   		}
  								   }
- 								   else
- 								   {
- 								   	echo "<a style='color:#ff0000;font-weight:bold;'>N</a> PC";
- 								   }    
  								   ?></label>
-						  <input type ="text" name="PCState" class="stateLicense" value = "<?php echo $_POST['PCState']; ?>" placeholder="NOT ENTERED" readonly>
+						  <input type ="hidden" name="PCState" class="stateLicense" value = "<?php echo $_POST['PCState']; ?>" readonly>
 						    
 						  <br>
 
 		  				  <!--<input type="hidden" class="licenseBox" name="series12" value="0"> -->
 		  				  <input type="hidden" class="licenseBox" name="series12" value="<?php echo $_POST['series12']; ?>" readonly>
 		  				  <label class="licenseText"><?php
- 								   if(isset($_POST['series12']) && 
- 								   	$_POST['series12'] == 1) 
+		  				   		   if(isset($_POST['series12'])) 
  								   {
- 								   	echo "<a style='color:#00cc00;font-weight:bold;'>Y</a> Series 12";
+ 								   		if($_POST['series12State'] != '')
+ 								   		{
+ 								   			$temp_series12_state = $_POST['series12State'];
+ 								   			echo "<a style='color:#00cc00;font-weight:bold;'>Y</a> Series 12          ";
+ 								   			echo "<a>{$temp_series12_state}</a>";
+ 								   		}
+ 								   		else
+ 								   		{
+											echo "<a style='color:#ff0000;font-weight:bold;'>*</a> Series 12";
+ 								   		}
  								   }
- 								   else
- 								   {
- 								   	echo "<a style='color:#ff0000;font-weight:bold;'>N</a> Series 12";
- 								   }    
  								   ?></label>
-		  				  <input type="text" name="series12State" class="stateLicense" value = "<?php echo $_POST['series12State']; ?>" placeholder="NOT ENTERED" readonly>
+		  				  <input type="hidden" name="series12State" class="stateLicense" value = "<?php echo $_POST['series12State']; ?>" readonly>
 						    
 						    <br>
 
 		  				 <!-- <input type="hidden" class="licenseBox" name="health" value="0"> -->
 		  				  <input type="hidden" class="licenseBox" name="health" value="<?php echo $_POST['health']; ?>" readonly>
 		  				  <label class="licenseText"><?php
- 								   if(isset($_POST['health']) && 
- 								   	$_POST['health'] == 1) 
+		  				   		   if(isset($_POST['health'])) 
  								   {
- 								   	echo "<a style='color:#00cc00;font-weight:bold;'>Y</a> Health";
+ 								   		if($_POST['healthState'] != '')
+ 								   		{
+ 								   			$temp_health_state = $_POST['healthState'];
+ 								   			echo "<a style='color:#00cc00;font-weight:bold;'>Y</a> Health          ";
+ 								   			echo "<a>{$temp_health_state}</a>";
+ 								   		}
+ 								   		else
+ 								   		{
+											echo "<a style='color:#ff0000;font-weight:bold;'>*</a> Health";
+ 								   		}
  								   }
- 								   else
- 								   {
- 								   	echo "<a style='color:#ff0000;font-weight:bold;'>N</a> Health";
- 								   }    
  								   ?></label>
-		  				  <input type = "text" name="healthState" class="stateLicense" value = "<?php echo $_POST['healthState']; ?>" placeholder="NOT ENTERED" readonly>
+		  				  <input type = "hidden" name="healthState" class="stateLicense" value = "<?php echo $_POST['healthState']; ?>" readonly>
 						    <br>
 						  <!--<input type="hidden" class="licenseBox" name="life" value="0"> -->
 		  				  <input type="hidden" class="licenseBox" name="life" value="<?php echo $_POST['life']; ?>" readonly>
 		  				  <label class="licenseText"><?php
- 								   if(isset($_POST['life']) && 
- 								   	$_POST['life'] == 1) 
+		  				   		   if(isset($_POST['life'])) 
  								   {
- 								   	echo "<a style='color:#00cc00;font-weight:bold;'>Y</a> Life";
+ 								   		if($_POST['lifeState'] != '')
+ 								   		{
+ 								   			$temp_life_state = $_POST['lifeState'];
+ 								   			echo "<a style='color:#00cc00;font-weight:bold;'>Y</a> Life          ";
+ 								   			echo "<a>{$temp_life_state}</a>";
+ 								   		}
+ 								   		else
+ 								   		{
+											echo "<a style='color:#ff0000;font-weight:bold;'>*</a> Life";
+ 								   		}
  								   }
- 								   else
- 								   {
- 								   	echo "<a style='color:#ff0000;font-weight:bold;'>N</a> Life";
- 								   }    
  								   ?></label>
-		  				  <input type="text" name="lifeState" class="stateLicense" value ="<?php echo $_POST['lifeState']; ?>" readonly>
+		  				  <input type="hidden" name="lifeState" class="stateLicense" value ="<?php echo $_POST['lifeState']; ?>" readonly>
 						    <br>
 		  				  <!--<input type="hidden" class="licenseBox" name="accident" value="0"> -->
 		  				  <input type="hidden" class="licenseBox" name="accident" value="<?php echo $_POST['accident']; ?>" readonly>
 		  				  <label class="licenseText"><?php
- 								   if(isset($_POST['accident']) && 
- 								   	$_POST['accident'] == 1) 
+		  				   		   if(isset($_POST['accident'])) 
  								   {
- 								   	echo "<a style='color:#00cc00;font-weight:bold;'>Y</a> Accident";
+ 								   		if($_POST['accidentState'] != '')s
+ 								   		{
+ 								   			$temp_accident_state = $_POST['accidentState'];
+ 								   			echo "<a style='color:#00cc00;font-weight:bold;'>Y</a> Accident          ";
+ 								   			echo "<a>{$temp_accident_state}</a>";
+ 								   		}
+ 								   		else
+ 								   		{
+											echo "<a style='color:#ff0000;font-weight:bold;'>*</a> Accident";
+ 								   		}
  								   }
- 								   else
- 								   {
- 								   	echo "<a style='color:#ff0000;font-weight:bold;'>N</a> Accident";
- 								   }    
  								   ?></label>
-		  				  <input type="text" name="accidentState" class="stateLicense" value = "<?php echo $_POST['accidentState']; ?>" placeholder="NOT ENTERED" readonly>
+		  				  <input type="hidden" name="accidentState" class="stateLicense" value = "<?php echo $_POST['accidentState']; ?>" readonly>
 						    
 						    <br>
 		  				  <br><br><br>

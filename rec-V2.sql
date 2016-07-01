@@ -3,8 +3,11 @@ Create database recruiter2;
 CREATE TABLE district (
 	districtID INT(11) NOT NULL AUTO_INCREMENT,
 	districtName VARCHAR(25) NOT NULL,
-	districtCoordinator CHAR(20) NOT NULL,
 	PRIMARY KEY(districtID));
+CREATE TABLE sourceOfLead (
+	sourceOfLeadID INT(11) NOT NULL AUTO_INCREMENT,
+	sourceOfLead VARCHAR(100) NOT NULL,
+	PRIMARY KEY(sourceOfLeadID));
 
 CREATE TABLE whyDisqualify (
 	whyDisqualifyID INT NOT NULL AUTO_INCREMENT,
@@ -16,7 +19,6 @@ CREATE TABLE nominator (
 	firstName VARCHAR(25) NOT NULL,
 	lastName VARCHAR(25) NOT NULL,
 	writingNo VARCHAR(8),
-	abc BOOLEAN NOT NULL DEFAULT '1',
 	PRIMARY KEY(nominatorID));
 
 
@@ -42,13 +44,11 @@ CREATE TABLE rec
 	ged TINYINT(1) NOT NULL DEFAULT '1',
 	process VARCHAR(25) NOT NULL,
 	districtID INT,
-	sourceOfLead CHAR(20) NOT NULL,
+	sourceOfLeadID INT(11),
 	intern TINYINT(1) NOT NULL DEFAULT '1',
 	disqualified BOOLEAN NOT NULL DEFAULT '1',
-	noNominator BOOLEAN NOT NULL DEFAULT '1',
 	whyDisqualifyID INT(11),
 	nominatorID INT(11),
-	abc BOOLEAN NOT NULL DEFAULT '1',
 	positionName VARCHAR(50) NOT NULL,
 	resumeFileName VARCHAR(50),
     PRIMARY KEY (recID)

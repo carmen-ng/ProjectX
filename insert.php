@@ -31,14 +31,32 @@ begin($conn); // transaction begins
 
 /////////// District ////////////
 
-$distSql = "INSERT INTO District (districtID, districtName, districtCoordinator)
-VALUES (Null, '$_POST[district]', ' '); ";
+$distSql = "INSERT INTO District (districtID, districtName)
+VALUES (Null, '$_POST[district]'); ";
 $distResult = mysqli_query($conn, $distSql);
 if (!$distResult) {
     rollback($conn); // transaction rolls back
     echo "<br> Transaction rolled back <br> Error: " . $distSql . "<br>" . mysqli_error($conn);  
 } 
 $distID= mysqli_insert_id($conn);
+
+
+/////////// Source Of Lead ////////////
+
+$sourceSql = "INSERT INTO sourceOfLead (sourceOfLeadID, sourceOfLead)
+VALUES (Null, '$_POST[sourceOfLead]'); ";
+if ($_POST[sourceOfLead]){
+	$sourceResult = mysqli_query($conn, $sourceSql);
+	if (!$sourceResult) {
+		rollback($conn); // transaction rolls back
+		echo "<br> Transaction rolled back of source of lead <br> Error: " . $sourceSql . "<br>" . mysqli_error($conn);  
+	} 
+	$sourceID= mysqli_insert_id($conn);
+}
+else{
+	echo "Source of Lead can not be empty!";
+}
+
 
 /////////////// Why Disqualify /////////////
 
@@ -52,9 +70,10 @@ if (!$disqualifyResult) {
 $whyDisqualifyID= mysqli_insert_id($conn);
 
 /////////// Nominator ////////////
-$nominatorSql = "INSERT INTO Nominator (nominatorID, firstName, lastName, writingNo, abc)
-VALUES (Null, '$_POST[firstName]', '$_POST[lastName]','$_POST[writingNo]','$_POST[abc]'); ";
+$nominatorSql = "INSERT INTO Nominator (nominatorID, firstName, lastName, writingNo)
+VALUES (Null, '$_POST[nomfirstName]', '$_POST[nomlastName]','$_POST[writingNo]'); ";
 $nominatorResult = mysqli_query($conn, $nominatorSql);
+echo $_POST[nomfirstName];
 if (!$nominatorResult) {
     rollback($conn); // transaction rolls back
     echo "<br> Transaction rolled back <br> Error: " . $nominatorSql . "<br>" . mysqli_error($conn);
@@ -65,14 +84,14 @@ $nominatorID= mysqli_insert_id($conn);
 
 
 $recSql = "INSERT INTO rec (recID, firstName, middleInitial, lastName, streetAddress, streetAddress2,
-  city, zip, state, phone, secondPhone, email, secondEmail, firstLang, ged, process, districtID, sourceOfLead, noNominator,
+  city, zip, state, phone, secondPhone, email, secondEmail, firstLang, ged, process, districtID, sourceOfLeadID, 
    whyDisqualifyID, nominatorID, positionName)
 
 VALUES (Null, '$_POST[firstName]','$_POST[middleInitial]','$_POST[lastName]','$_POST[streetAddress]',
     '$_POST[streetAddress2]',
     '$_POST[city]','$_POST[zip]','$_POST[recState]','$_POST[phone]',
     '$_POST[phone2]','$_POST[email]', '$_POST[email2]', '$_POST[lang]','$_POST[ged]', '$_POST[process]', '$distID',
-    '$_POST[sourceOfLead]','$_POST[noNominator]', '$whyDisqualifyID', '$nominatorID', '$_POST[position]' );";
+    '$sourceID', '$whyDisqualifyID', '$nominatorID', '$_POST[position]' );";
 
 
 
@@ -383,7 +402,6 @@ if(isset($_POST["submit"])) {
 	//rename("user/image1.jpg", "user/del/image1.jpg");
 	
 	if(!empty($_POST['resume'])){
-		echo $_POST['resume'];
 		echo "<br>";
 	}
 	else{
@@ -435,11 +453,11 @@ if(isset($_POST["submit"])) {
 		rename($_POST['resume'], $target_dir . $recID . "-Resume" . "." . $resumeType);
 		rename($_POST['coverLetter'], $target_dir . $recID . "-CL" . "." . $coverLetterType);
 		if (file_exists($target_dir . $recID . "-Resume" . "." . $resumeType)) {
-			echo "Resume has been uploaded.<br>";
+			echo "Resume has been stored on disk.<br>";
 			$uploadOk = 0;
 		}
 		if (file_exists($target_dir . $recID . "-CL" . "." . $coverLetterType)) {
-			echo "Cover Letter has been uploaded.<br>";
+			echo "Cover Letter has been stored on disk.<br>";
 			$uploadOk = 0;
 		}
 	}
@@ -447,7 +465,7 @@ if(isset($_POST["submit"])) {
 
 
 //////////////////////////////
-if ( $recResult and $lang2Result and $recLang2Result and $lang3Result and $recLang3Result and
+if ($sourceResult and $recResult and $lang2Result and $recLang2Result and $lang3Result and $recLang3Result and
  $distResult and $disqualifyResult and $recLicenseResult and $recLicense2Result and $recLicense3Result and $recLicense4Result and
   $recLicense5Result and $highschoolResult and $recHighschoolResult and $heResult and $recHEResult ) {
    commit($conn); // transaction is committed

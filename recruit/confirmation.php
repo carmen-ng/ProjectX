@@ -327,10 +327,10 @@
 							</tr>
 						</table><br>
  	  				<table width="84%">
- 	  					<td width="47%"><label>If Yes:</label></td>
- 	  					<td width="19%"><input type="text"  name="nomfirstName" value = "<?php echo $_POST['nomfirstName']; ?>" placeholder="No First Name" readonly></td>
- 	  					<td width="19%"><input type="text"  name="nomlastName" value = "<?php echo $_POST['nomlastName']; ?>" placeholder="No Last Name" readonly></td>
- 	  					<td width="12%"><input type="text"  name="writingNo" value = "<?php echo $_POST['writingNo']; ?>" placeholder="No Writing #" readonly></td>
+ 	  					<td width="50%"><label>If Yes:</label></td>
+ 	  					<td width="10%">FN:<input type="text"  name="nomfirstName" value = "<?php echo $_POST['nomfirstName']; ?>" placeholder="No First Name" readonly></td>
+ 	  					<td width="10%">LN:<input type="text"  name="nomlastName" value = "<?php echo $_POST['nomlastName']; ?>" placeholder="No Last Name" readonly></td>
+ 	  					<td width="30%">Writing#:<input type="text"  name="writingNo" value = "<?php echo $_POST['writingNo']; ?>" placeholder="No Writing #" readonly></td>
  	  					
  	  				</table>
  	  				 	<br><br>

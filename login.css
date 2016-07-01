@@ -41,7 +41,7 @@ body {
 }
 
 .holder::after {
-    content: ". ";
+    content: ' ';
     background: url('arrow.png');
     top: 19vw;
     width: 30px;
@@ -78,11 +78,10 @@ body {
 input[type="submit"] {
     color: #eee;
     background: #097e92;
-    margin-top: -15px;
     border-radius: 100%;
     width:58px;
     height: 58px;
-    border: 7px solid #f4f4f4;
+    border: 5px solid #f4f4f4;
     text-align: center;
     font-size: 36px;
     transition: all .3s;

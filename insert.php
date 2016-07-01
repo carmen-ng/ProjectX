@@ -73,7 +73,6 @@ $whyDisqualifyID= mysqli_insert_id($conn);
 $nominatorSql = "INSERT INTO Nominator (nominatorID, firstName, lastName, writingNo)
 VALUES (Null, '$_POST[nomfirstName]', '$_POST[nomlastName]','$_POST[writingNo]'); ";
 $nominatorResult = mysqli_query($conn, $nominatorSql);
-echo $_POST[nomfirstName];
 if (!$nominatorResult) {
     rollback($conn); // transaction rolls back
     echo "<br> Transaction rolled back <br> Error: " . $nominatorSql . "<br>" . mysqli_error($conn);

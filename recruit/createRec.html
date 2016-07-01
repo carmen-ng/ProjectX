@@ -54,41 +54,41 @@
 		
 	    <div class="section">
 	   <!--  <h1 class="main-text">Create a Recruit Profile</h1> -->
-	   <form action="confirmation.php" enctype="multipart/form-data"  method="post">
+	   <form action="confirmation.php" id="rec_form" enctype="multipart/form-data"  method="post">
 			<div class="left slide">
 
 				<!-- <form class="leftForm"> -->
 						<h2>NAME</h2>
  						<table width="84%">
  						<td width="12%">
- 						  <label>First name:</label></td>
+ 						  <label>First name:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span></td>
  						  <td width="25%">
- 						  <input type="text" name="firstName" class="fn formName"></td>
+ 						  <input type="text" name="firstName" class="fn formName" required></span></td>
  						  <td width="2%">
  						 <label class="labelMi">M.I:</label></td>
  						  <td width="8%">
  						  <input type="text" name="middleInitial" class="mi formName"></td>
  						  <td  width="12%">
- 						 <label class="labelLn">Last name:</label></td>
+ 						 <label class="labelLn">Last name:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span></td>
  						  <td width="25%">
-						  <input type="text" name="lastName" class="ln formName"></td>
+						  <input type="text" name="lastName" class="ln formName" required></td>
  						</table>
 							<br><br>
  							<h2>LOCATION</h2>
-						  <label>Street Address 1:</label>
-						  <input type="text" name="streetAddress" class="s1 formName">
+						  <label>Street Address 1:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+						  <input type="text" name="streetAddress" class="s1 formName" required>
 						  <br><br>
 						  <label>Street Address 2:</label>
 						  <input type="text" name="streetAddress2" class="s2 formName">
 							<br><br>
-						  <label class="labelCity">City:</label>
-						  <input type="text" name="city" class="city formName">
+						  <label class="labelCity">City:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+						  <input type="text" name="city" class="city formName" required>
 							<br><br>
-						  <label class="labelZip">Zip:</label>
-						  <input type="text" name="zip" class="zip formName">
+						  <label class="labelZip">Zip:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+						  <input type="text" name="zip" class="zip formName" required>
 							<br><br>
-						 <label class="labelState">State:</label>
-						  <select name="recState" class="state">
+						 <label class="labelState">State:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+						  <select name="recState" class="state" required>
 						    <option value="AL">Alabama</option>
 							<option value="AK">Alaska</option>
 							<option value="AZ">Arizona</option>
@@ -143,15 +143,15 @@
 						  </select><br><br>
 
 						 	<h2>CONTACT INFORMATION</h2>
-  						  <label class="labelPhoneOne">Primary Phone Number:</label>
-  						  <input type="text" name="phone" class="phone1 formName">
+  						  <label class="labelPhoneOne">Primary Phone Number:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+  						  <input type="text" name="phone" class="phone1 formName" required>
   						  <br><br>
   						  <label class="labelPhone2">Secondary Phone Number:</label>
   						  <input type="text" name="phone2" class="phone2 formName">
   						  <br><br>
 
-						  	<label class="email">Primary E-mail:</label>
- 						  <input type="text" name="email" class="email1 formName">
+						  	<label class="email">Primary E-mail:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+ 						  <input type="text" name="email" class="email1 formName" required>
   						  <br><br>
 						  	<label class="email2">Secondary E-mail:</label>
  						  <input type="text" name="email2" class="email2 formName">
@@ -166,10 +166,10 @@
  						<table width="85%">
  				
 	 						<td width="27%">
-	 							<label class="labelLang1">Primary Spoken Language:</label>
+	 							<label class="labelLang1">Primary Spoken Language:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
 		 					</td>
 		 					<td width="38%">
-		 						<input type="text" name="lang" class="lang1 formName">
+		 						<input type="text" name="lang" class="lang1 formName" required>
 		 					</td>
 		 					<td width=""><td>
 		 					</table><br>
@@ -224,17 +224,17 @@
  								   <td width="16%">
  								   <input type="hidden" name="diploma" value="0">
  								   <input type="checkbox" name="diploma" id="diploma" value="1">
-								   <label class="highSchool hsGed">High School</label>
+								   <label class="highSchool hsGed">High School</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
  								</td>
  								<td width="29%">
-								   <input type="text" name="highschool" id="highschool" class="hs formName" disabled>
+								   <input type="text" name="highschool" id="highschool" class="hs formName" disabled required>
  								</td>
  								<td width="5%"></td>
  								<td width="18%">
- 								   <label class="gradYear">Year Graduated: </label>
+ 								   <label class="gradYear">Year Graduated: </label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
  								</td>
  								<td width="17%">
- 								   <input type="text" name="gradYear" id="gradYear" class="hsgradForm formName" disabled>
+ 								   <input type="text" name="gradYear" id="gradYear" class="hsgradForm formName" disabled required>
  								</td>
  							</table><br><br><br>
  
@@ -255,17 +255,17 @@
  		     </div>
  	    	<div class="right slide">
  					  <h2>MOST RECENT WORK EXPERIENCE</h2>
- 					  <label class="expText">Company Name:</label>
- 					  	<input type="text" name="company" class=" coForm formName">
+ 					  <label class="expText">Company Name:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+ 					  	<input type="text" name="company" class=" coForm formName" required>
  					  	<br><br>
-					  <label class="expText coTitle">Title:</label>
- 	  				  	<input type="text" name="title" class="coForm formName">
+					  <label class="expText coTitle">Title:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+ 	  				  	<input type="text" name="title" class="coForm formName" required>
  							<br><br>
- 	  				  <label class="expText datesWorked">Dates Worked:</label>
+ 	  				  <label class="expText datesWorked">Dates Worked:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
  	  				  <div class="datesWorkedToFrom">
- 	  				  	<input type="date" class="workedFrom" name="startDate">
+ 	  				  	<input type="date" class="workedFrom" name="startDate" required>
  	  				  	<!-- <p class="datesWorkedP">-</p> -->
-	  				  	<input type="date" class="workedTo" name="endDate"></div>
+	  				  	<input type="date" class="workedTo" name="endDate" required></div>
 	  				  	<br><br><br>
 	  				  <h2>2ND MOST RECENT WORK EXPERIENCE</h2>
 					  <label class="expText">Company Name:</label>
@@ -563,23 +563,23 @@
 						</div>
 				<div class="rightright slide">
 				<h2>DOCUMENTS</H2>
-					  <label class="resume">Resume:</label>
-					  <input type="file" name="resume" class="resumeBtn" accept="file_extension">
+					  <label class="resume">Resume:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+					  <input type="file" name="resume" class="resumeBtn" accept="file_extension" required>
 					  <br><br>
 					  <label class="coverLetter">Cover Letter:</label>
 					  <input type="file" name="coverLetter" class="cvBtn" accept="file_extension">
 					  <br><br><br>
 	    		<h2>SOURCE</h2>
-  					 <label class="leadSource">Source of Lead:</label>
-  	  				  	<input type="text" class="lead" name="sourceOfLead">
+  					 <label class="leadSource">Source of Lead:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+  	  				  	<input type="text" class="lead" name="sourceOfLead" required>
   	  				  	<br><br><br>
   	  				  	<table width="85%">
  	  				  		<tr>
  	  				  		<td width="20%">
-								<label class="nom">Nominator:</label>
+								<label class="nom">Nominator:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
 							</td>
  	  						<td width="80%">
-								<input type="radio" name="nominator" id="none" value="none" checked="checked">No
+								<input type="radio" name="nominator" id="none" value="none" checked="checked" required>No
 								<input type="radio" name="nominator" id="yes" value="yes">Yes
 							</td>
 							</tr>
@@ -593,8 +593,8 @@
  	  				</table>
  	  				 	<br><br>
  	  				 	<h2>APPLIED FOR</h2>
-  	  				 	<label>Assigned District:</label>
-  	  				 	<input type="text" class="assDist" name="district">
+  	  				 	<label>Assigned District:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+  	  				 	<input type="text" class="assDist" name="district" required>
   	  				 	<br><br><br>
   	  				 	<label class="lblProcess">Position:</label>
  	  				 	 <select name="position" class="positionApplied">
@@ -613,9 +613,9 @@
  	    	</div>
  	    	<div class="page4 slide">
  	    <h2>PROCESS LEVEL</h2>
-			    <label class="lblProcess">Process Level: </label>
- 	  				 	<select name="process" class="processLevel">
-						    <option value="1stInterview">1st Interview</option>
+			    <label class="lblProcess">Process Level: </label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+ 	  				 	<select name="process" class="processLevel" required>
+						    <option value="1stInterview" required>1st Interview</option>
 							<option value="2ndInterview">2nd Interview</option>
 							<option value="disqualified">Disqualified</option>
 						</select><br><br>
@@ -752,6 +752,29 @@
 					document.getElementById('writingNo').disabled = false;					
 				}
 			}			
+		</script>
+		<script type="text/javascript">
+		
+		$("form").submit(function(e) {
+		    var ref = $(this).find("[required]");
+		    var missing = false;
+		    $(ref).each(function(){
+		        if ( $(this).val() == '')
+		        {	
+		            missing = true;
+		    		$(this).focus();
+		        	e.preventDefault();
+		        }
+		    });
+		    if (missing){
+		        	alert( "Please, fill all the required fields.");
+		        	var reqMsgs = document.getElementsByClassName('requiredFieldError');
+		        	for (var i = reqMsgs.length - 1; i >= 0; i--) {
+		        		reqMsgs[i].style.display = "block";
+		        	};
+		        }
+		});
+
 		</script>
 </body>
 </html>

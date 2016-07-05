@@ -756,25 +756,25 @@
             		
         </script>
         <script type="text/javascript">
-            // $("form").submit(function(e) {
-            //     var ref = $(this).find("[required]");
-            //     var missing = false;
-            //     $(ref).each(function(){
-            //         if ( $(this).val() == '')
-            //         {	
-            //             missing = true;
-            //     		$(this).focus();
-            //         	e.preventDefault();
-            //         }
-            //     });
-            //     if (missing){
-            //         	alert( "Please, fill all the required fields.");
-            //         	var reqMsgs = document.getElementsByClassName('requiredFieldError');
-            //         	for (var i = reqMsgs.length - 1; i >= 0; i--) {
-            //         		reqMsgs[i].style.display = "block";
-            //         	};
-            //         }
-            // });
+            $("form").submit(function(e) {
+                var ref = $(this).find("[required]");
+                var missing = false;
+                $(ref).each(function(){
+                    if ( $(this).val() == '')
+                    {	
+                        missing = true;
+                		$(this).focus();
+                    	e.preventDefault();
+                    }
+                });
+                if (missing){
+                    	alert( "Please, fill all the required fields.");
+                    	var reqMsgs = document.getElementsByClassName('requiredFieldError');
+                    	for (var i = reqMsgs.length - 1; i >= 0; i--) {
+                    		reqMsgs[i].style.display = "block";
+                    	};
+                    }
+            });
             
             diploma.onclick = function() {
             	check();	

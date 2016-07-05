@@ -325,7 +325,7 @@
 		  				  <label class="licenseText"><?php
 		  				   		   if(isset($_POST['accident'])) 
  								   {
- 								   		if($_POST['accidentState'] != '')s
+ 								   		if($_POST['accidentState'] != '')
  								   		{
  								   			$temp_accident_state = $_POST['accidentState'];
  								   			echo "<a style='color:#00cc00;font-weight:bold;'>Y</a> Accident          ";
@@ -436,6 +436,10 @@
 			    		if(strcmp($_POST['process'], "1stInterview") == 0)
 			    		{
 			    			$processvar = "1st Interview";
+			    			unset($_POST['interviewerName2']);    			
+			    			unset($_POST['interviewDate2']);    			
+			    			unset($_POST['interviewTime2']);    			
+			    			unset($_POST['grade2']);
 			    		}
 			    		if(strcmp($_POST['process'], "2ndInterview") == 0)
 			    		{
@@ -444,35 +448,132 @@
 			    		if(strcmp($_POST['process'], "disqualified") == 0)
 			    		{
 			    			$processvar = "Disqualified";
+			    			unset($_POST['interviewerName1']);
+			    			unset($_POST['interviewerName2']);
+			    			unset($_POST['interviewDate1']);
+			    			unset($_POST['interviewDate2']);
+			    			unset($_POST['interviewTime1']);
+			    			unset($_POST['interviewTime2']);
+			    			unset($_POST['grade1']);
+			    			unset($_POST['grade2']);
 			    		}
-
 			    ?>
  	  				 	<input type="text" name="process" class="processLevel"value = "<?php echo $processvar; ?>" readonly>
 						    <br><br>
  
- 	  				 	<label>If Disqualified, State Reason:</label>
+ 	  				 	<label> 	
+ 	  				 	<?php
+ 	  				 		$reason = $_POST['disqualifyReason'];
+ 	  				 		if($processvar == "Disqualified" && !$reason) {
+ 	  				 			echo "<a style='color:#ff0000;font-weightbold;'>*</a>If Disqualified, State Reason:";
+ 	  				 		} else echo "If Disqualified, State Reason:"
+ 	  				 	?>
+ 	  				 	</label>
  	  				 	<input type="text" class="disqualifyReason formName" name="disqualifyReason" value = "<?php echo $_POST['disqualifyReason']; ?>" placeholder="NOT ENTERED" readonly><br><br><BR>
  						<h2>1ST INTERVIEW</h2>
- 	  				 	<label>Interviewer Name:</label>
+ 	  				 	<label>	 	
+ 	  				 		<?php 
+ 	  				 		if (empty($_POST['interviewerName1']) && $processvar != "Disqualified" ) echo "<a style='color:#ff0000;font-weightbold;'>*</a>Interviewer Name:";
+ 	  				 		else echo "Interviewer Name:"
+ 	  				 		?>
+ 	  				 	</label>
  	  				 	<input type="text" class="interviewerName formName" name="interviewerName1" value = "<?php echo $_POST['interviewerName1']; ?>" placeholder="NOT ENTERED" readonly>
  	  				 	<br><br>
- 						<label class="lblInterviewTime">Interview Date/Time:</label>
+ 						<label class="lblInterviewTime">
+ 							<?php date_default_timezone_set('UTC'); 
+ 							$date = strtotime($_POST['interviewDate1']); 
+ 							$time = strtotime($_POST['interviewTime1']); 
+ 							$process_type = $_POST['process'];
+
+ 							if (!$date && !$time && ($process_type == "1stInterview" || $process_type == "2ndInterview")) {
+ 								echo "<a style='color:#ff0000;font-weightbold;'>*</a>Interview Date/Time:";
+ 							} else echo "Interview Date/Time:";
+ 							?>
+ 						</label>
  						<div class="interviewDateTime">
  	  				 	<input type="date" class="interviewDate" name="interviewDate1" value = "<?php echo $_POST['interviewDate1']; ?>" readonly>
  	  				 	<input type="time" class="interviewTime" name="interviewTime1" value = "<?php echo $_POST['interviewTime1']; ?>" readonly></div><br><br>
- 	  				 	<label class="lblInterviewGrade">Interview Grade:</label>
+ 	  				 	<label class="lblInterviewGrade">
+ 	  				 		<?php 
+ 	  				 			date_default_timezone_set("America/Los_Angeles"); 
+ 	  				 			$start_date = $_POST['interviewDate1'];  
+ 	  				 			$start_time = $_POST['interviewTime1']; 	  				 			 
+
+ 	  				 			if ($start_date && $start_time) {
+ 	  				 				$gradeOne = $_POST['grade1'];
+ 	  				 				
+ 	  				 				if ((strtotime($start_date) <= strtotime(date('Y-m-d'))) && $gradeOne == "") { 
+ 	  				 					if ((strtotime($start_date) + strtotime($start_time)) <= (strtotime(date('Y-m-d')) + strtotime(date('H:i')))) 
+ 	  				 						echo "<a style='color:#ff0000;font-weightbold;'>*</a>Interview Grade:"; 
+ 	  				 					else echo "Interview Grade:"; 
+ 	  				 				} 
+ 	  				 				elseif ((strtotime($start_date) > strtotime(date('Y-m-d'))) && $gradeOne) {
+ 	  				 					echo "Interview Grade:"; 
+ 	  				 					unset($_POST['grade1']); 
+ 	  				 				}
+ 	  				 				else {
+ 	  				 				    echo "Interview Grade:"; 
+ 	  				 				}
+ 	  				 			} else { 
+ 	  				 				echo "Interview Grade:"; 
+ 	  				 				unset($_POST['grade1']); 
+ 	  				 			}
+ 	  				 		?>
+ 	  				 	</label>
  	  				 	<input type="text" name="grade1" class="interviewGrade" value = "<?php echo $_POST['grade1']; ?>" placeholder="NOT ENTERED" readonly>
 						  
 						  <br><br><BR>
 						<h2>2ND INTERVIEW</h2>
-						<label>Interviewer Name:</label>
+						<label>
+							<?php
+ 	  				 		if (empty($_POST['interviewerName2']) && $processvar == "2nd Interview") echo "<a style='color:#ff0000;font-weightbold;'>*</a>Interviewer Name:";
+ 	  				 		else echo "Interviewer Name:"
+ 	  				 		?>
+						</label>
  	  				 	<input type="text" class="interviewerName formName" name="interviewerName2" value = "<?php echo $_POST['interviewerName2']; ?>" placeholder="NOT ENTERED" readonly>
  	  				 	<br><br>
- 						<label class="lblInterviewTime">Interview Date/Time:</label>
+ 						<label class="lblInterviewTime">
+ 							<?php date_default_timezone_set('UTC'); 
+ 								$date = strtotime($_POST['interviewDate2']); 
+ 								$time = strtotime($_POST['interviewTime2']);
+ 								$process_type = $_POST['process'];  
+
+ 								if (!$date && !$time && $process_type == "2ndInterview") {
+ 									echo "<a style='color:#ff0000;font-weightbold;'>*</a>Interview Date/Time:";	
+ 								} else echo "Interview Date/Time:";
+ 							?>
+ 						</label>
  						<div class="interviewDateTime">
  	  				 	<input type="date" class="interviewDate" name="interviewDate2" value = "<?php echo $_POST['interviewDate2']; ?>" readonly>
  	  				 	<input type="time" class="interviewTime" name="interviewTime2" value = "<?php echo $_POST['interviewTime2']; ?>" readonly></div><br><br>
- 	  				 	<label class="lblInterviewGrade">Interview Grade:</label>
+ 	  				 	<label class="lblInterviewGrade">
+ 	  				 		<?php 
+ 	  				 		date_default_timezone_set("America/Los_Angeles"); 
+ 	  				 			$start_date = $_POST['interviewDate2'];  
+ 	  				 			$start_time = $_POST['interviewTime2'];  
+ 	  				 			
+ 	  				 			if ($start_date && $start_time) {
+ 	  				 				$gradeTwo = $_POST['grade2'];
+ 	  				 				
+ 	  				 				if ((strtotime($start_date) <= strtotime(date('Y-m-d'))) && $gradeTwo == "") { 
+ 	  				 					if ((strtotime($start_date) + strtotime($start_time)) <= (strtotime(date('Y-m-d')) + strtotime(date('H:i')))) 
+ 	  				 						echo "<a style='color:#ff0000;font-weightbold;'>*</a>Interview Grade:"; 
+ 	  				 					else echo "Interview Grade:"; 
+ 	  				 				} 
+ 	  				 				elseif ((strtotime($start_date) > strtotime(date('Y-m-d'))) && $gradeTwo) {
+ 	  				 					echo "Interview Grade:"; 
+ 	  				 					unset($_POST['grade2']); 
+ 	  				 				}
+ 	  				 				else {
+ 	  				 				    echo "Interview Grade:"; 
+ 	  				 				}
+ 	  				 			} else { 
+ 	  				 				echo "Interview Grade:"; 
+ 	  				 				unset($_POST['grade2']); 
+ 	  				 			}
+
+ 	  				 		?>
+ 	  				 	</label>
  	  				 	<input type="text" name="grade2" class="interviewGrade" value = "<?php echo $_POST['grade2']; ?>" placeholder="NOT ENTERED" readonly>
 						  
 						<br><br>

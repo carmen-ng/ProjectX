@@ -192,7 +192,8 @@
  							<br><br>
  	  				 <!-- Recent Work experience 1 validation-->
  	  				  <label class="expText datesWorked">
- 	  				  	<?php if(isset($_POST['startDate']) && isset($_POST['endDate'])){
+ 	  				  	<?php date_default_timezone_set("America/Los_Angeles");
+ 	  				  		if(isset($_POST['startDate']) && isset($_POST['endDate'])){
 	 	  				  		$start_date = $_POST['startDate'];
 	 	  				  		$end_date = $_POST['endDate'];
 	 	  				  		if(strtotime($start_date) > strtotime($end_date)){
@@ -219,7 +220,8 @@
  							<br><br>
  	  				   	<!-- Recent Work Experience 2 date validation-->
  	  				  <label class="expText datesWorked">
-						<?php if(isset($_POST['startDate2']) && isset($_POST['endDate2'])){
+						<?php date_default_timezone_set("America/Los_Angeles");
+							if(isset($_POST['startDate2']) && isset($_POST['endDate2'])){
 	 	  				  		$start_date_2 = $_POST['startDate2'];
 	 	  				  		$end_date_2 = $_POST['endDate2'];
 	 	  				  		if(strtotime($start_date_2) > strtotime($end_date_2)){
@@ -480,7 +482,7 @@
  	  				 	<input type="text" class="interviewerName formName" name="interviewerName1" value = "<?php echo $_POST['interviewerName1']; ?>" placeholder="NOT ENTERED" readonly>
  	  				 	<br><br>
  						<label class="lblInterviewTime">
- 							<?php date_default_timezone_set('UTC'); 
+ 							<?php date_default_timezone_set("America/Los_Angeles");
  							$date = strtotime($_POST['interviewDate1']); 
  							$time = strtotime($_POST['interviewTime1']); 
  							$process_type = $_POST['process'];
@@ -533,7 +535,7 @@
  	  				 	<input type="text" class="interviewerName formName" name="interviewerName2" value = "<?php echo $_POST['interviewerName2']; ?>" placeholder="NOT ENTERED" readonly>
  	  				 	<br><br>
  						<label class="lblInterviewTime">
- 							<?php date_default_timezone_set('UTC'); 
+ 							<?php date_default_timezone_set("America/Los_Angeles");
  								$date = strtotime($_POST['interviewDate2']); 
  								$time = strtotime($_POST['interviewTime2']);
  								$process_type = $_POST['process'];  

@@ -638,9 +638,11 @@
                                     <option value="disqualified">Disqualified</option>
                                 </select>
                                 <br><br>
-                                <label>If Disqualified, State Reason:</label>
-                                <input type="text" class="disqualifyReason formName" name="disqualifyReason" id="disqualifyReason" placeholder="Reason for Disqualification" disabled><br><br><BR>
-                                <div id="interview_one">
+                                <div id="checkDisqualified" hidden>
+                                    <label>If Disqualified, State Reason:</label>    
+                                    <input type="text" class="disqualifyReason formName" name="disqualifyReason" id="disqualifyReason" placeholder="Reason for Disqualification"><br><br><BR>
+                                </div> <br>
+                                <div id="interview_one" hidden>
                                     <h2>1ST INTERVIEW</h2>
                                     <label>Interviewer Name:</label>
                                     <input type="text" class="interviewerName formName" name="interviewerName1" placeholder="">
@@ -709,7 +711,7 @@
             $(document).ready(function() {
                 $('#fullpage').fullpage({
                     sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000'],
-                });
+                }); changeProc();
             });
         </script>
         <script>
@@ -808,17 +810,17 @@
                 var level = process.options[process.selectedIndex].value;
                 
                 if (level == 'disqualified') { 
-                    document.getElementById('disqualifyReason').disabled = false;
+                    document.getElementById('checkDisqualified').hidden = false;
                     document.getElementById('interview_one').hidden = true;
                     document.getElementById('interview_two').hidden = true;
                     
                 } else if (level == '1stInterview') {
-                    document.getElementById('disqualifyReason').disabled = true;
+                    document.getElementById('checkDisqualified').hidden = true;
                     document.getElementById('disqualifyReason').value = "";
                     document.getElementById('interview_one').hidden = false;
                     document.getElementById('interview_two').hidden = true;
                 } else {
-                    document.getElementById('disqualifyReason').disabled = true;
+                    document.getElementById('checkDisqualified').hidden = true;
                     document.getElementById('disqualifyReason').value = "";
                     document.getElementById('interview_one').hidden = false;
                     document.getElementById('interview_two').hidden = false;

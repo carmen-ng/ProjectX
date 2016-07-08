@@ -606,7 +606,7 @@
                                 <br>
                                 <table width="84%">
                                     <td width="50%"><label>If Yes:</label></td>
-                                    <td width="10%">FN:<input type="text"  name="nomfirstName"	id="nomfirstName" placeholder="First name"></td>
+                                    <td width="10%">FN:<input type="text"  name="nomfirstName"  id="nomfirstName" placeholder="First name"></td>
                                     <td width="10%">LN:<input type="text"  name="nomlastName" id="nomlastName" placeholder="Last name"></td>
                                     <td width="30%">Writing#:<input type="text"  name="writingNo" id="writingNo" placeholder="Writing #"></td>
                                 </table>
@@ -683,7 +683,7 @@
                                     <br><br>
                                 </div>
                                 <div class="submit">
-                                    <input type="submit" name="submit" value="Review and Submit">
+                                    <input type="submit" id="submitBtn" name="submit" value="Review and Submit">
                                 </div>
                             </div>
                             <!--<div class="submitBtn">
@@ -714,115 +714,117 @@
         </script>
         <script>
             var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-            	showLeftPush = document.getElementById( 'showLeftPush' ),
-            	body = document.body;
+                showLeftPush = document.getElementById( 'showLeftPush' ),
+                body = document.body;
             showLeft.onclick = function() {
-            	classie.toggle( this, 'active' );
-            	classie.toggle( menuLeft, 'cbp-spmenu-open' );
-            	disableOther( 'showLeft' );
+                classie.toggle( this, 'active' );
+                classie.toggle( menuLeft, 'cbp-spmenu-open' );
+                disableOther( 'showLeft' );
             };
             function disableOther( button ) {
-            	if( button !== 'showLeft' ) {
-            		classie.toggle( showLeft, 'disabled' );
-            	}
+                if( button !== 'showLeft' ) {
+                    classie.toggle( showLeft, 'disabled' );
+                }
             }
             
             none.onclick = function() {
-            	document.getElementById('none').checked = true;
-            	check2();	
+                document.getElementById('none').checked = true;
+                check2();   
             }
             yes.onclick = function() {
-            	document.getElementById('yes').checked = true;
-            	check2();
+                document.getElementById('yes').checked = true;
+                check2();
             }
             
             function check2() {
-            	var none = document.getElementById('none');
-            	var yes = document.getElementById('yes');
+                var none = document.getElementById('none');
+                var yes = document.getElementById('yes');
             
-            	if (none.checked) {
-            		document.getElementById('nomfirstName').disabled = true;
-            		document.getElementById('nomlastName').disabled = true;
-            		document.getElementById('writingNo').disabled = true;
-            		document.getElementById('nomfirstName').value = "Empty";
-            		document.getElementById('nomlastName').value = "Empty";
-            		document.getElementById('writingNo').value = "Empty";
-            	} 
-            	else{
-            		document.getElementById('nomfirstName').disabled = false;
-            		document.getElementById('nomlastName').disabled = false;
-            		document.getElementById('writingNo').disabled = false;					
-            	}
-            		
+                if (none.checked) {
+                    document.getElementById('nomfirstName').disabled = true;
+                    document.getElementById('nomlastName').disabled = true;
+                    document.getElementById('writingNo').disabled = true;
+                    document.getElementById('nomfirstName').value = "Empty";
+                    document.getElementById('nomlastName').value = "Empty";
+                    document.getElementById('writingNo').value = "Empty";
+                } 
+                else{
+                    document.getElementById('nomfirstName').disabled = false;
+                    document.getElementById('nomlastName').disabled = false;
+                    document.getElementById('writingNo').disabled = false;                  
+                }
+                    
         </script>
         <script type="text/javascript">
-            $("form").submit(function(e) {
-                var ref = $(this).find("[required]");
+            $("#submitBtn").on('click', function(e){
+                var ref = $("form").find("[required]");
                 var missing = false;
                 $(ref).each(function(){
                     if ( $(this).val() == '')
-                    {	
+                    {   
                         missing = true;
-                		$(this).focus();
-                    	e.preventDefault();
+                        $(this).focus();
+                        e.preventDefault();
                     }
                 });
                 if (missing){
-                    	alert( "Please, fill all the required fields.");
-                    	var reqMsgs = document.getElementsByClassName('requiredFieldError');
-                    	for (var i = reqMsgs.length - 1; i >= 0; i--) {
-                    		reqMsgs[i].style.display = "block";
-                    	};
+                        alert( "Please, fill all the required fields.");
+                        var reqMsgs = document.getElementsByClassName('requiredFieldError');
+                        for (var i = reqMsgs.length - 1; i >= 0; i--) {
+                            reqMsgs[i].style.display = "block";
+                        };
                     }
-            });
+            })
+        </script>
+        <script type="text/javascript">
             
             diploma.onclick = function() {
-            	check();	
+                check();    
             }
             ged.onclick = function() {
-            	document.getElementById('diploma').checked = false;
-            	check();
+                document.getElementById('diploma').checked = false;
+                check();
             }
             
             function check() {
-            	var check = document.getElementById('diploma');
+                var check = document.getElementById('diploma');
             
-            	if (check.checked) {
-            		document.getElementById('highschool').disabled = false;
-            		document.getElementById('gradYear').disabled = false;
-            		document.getElementById('ged').checked = false;
-            	} else {
-            		document.getElementById('highschool').disabled = true;
-            		document.getElementById('highschool').value = "";
-            		document.getElementById('gradYear').disabled = true;
-            		document.getElementById('gradYear').value = "";
-            	}
+                if (check.checked) {
+                    document.getElementById('highschool').disabled = false;
+                    document.getElementById('gradYear').disabled = false;
+                    document.getElementById('ged').checked = false;
+                } else {
+                    document.getElementById('highschool').disabled = true;
+                    document.getElementById('highschool').value = "";
+                    document.getElementById('gradYear').disabled = true;
+                    document.getElementById('gradYear').value = "";
+                }
             }
 
             body.onclick = function() { changeProc(); }
             // checking Process Levels: 1st, 2nd, disqualified
             function changeProc() {
-            	var process = document.getElementById('process');
-            	var level = process.options[process.selectedIndex].value;
-            	
-            	if (level == 'disqualified') { 
-            		document.getElementById('disqualifyReason').disabled = false;
-            		document.getElementById('interview_one').hidden = true;
-            		document.getElementById('interview_two').hidden = true;
-            		
-            	} else if (level == '1stInterview') {
-            		document.getElementById('disqualifyReason').disabled = true;
-            		document.getElementById('disqualifyReason').value = "";
-            		document.getElementById('interview_one').hidden = false;
-            		document.getElementById('interview_two').hidden = true;
-            	} else {
-            		document.getElementById('disqualifyReason').disabled = true;
-            		document.getElementById('disqualifyReason').value = "";
-            		document.getElementById('interview_one').hidden = false;
-            		document.getElementById('interview_two').hidden = false;
-            	}
+                var process = document.getElementById('process');
+                var level = process.options[process.selectedIndex].value;
+                
+                if (level == 'disqualified') { 
+                    document.getElementById('disqualifyReason').disabled = false;
+                    document.getElementById('interview_one').hidden = true;
+                    document.getElementById('interview_two').hidden = true;
+                    
+                } else if (level == '1stInterview') {
+                    document.getElementById('disqualifyReason').disabled = true;
+                    document.getElementById('disqualifyReason').value = "";
+                    document.getElementById('interview_one').hidden = false;
+                    document.getElementById('interview_two').hidden = true;
+                } else {
+                    document.getElementById('disqualifyReason').disabled = true;
+                    document.getElementById('disqualifyReason').value = "";
+                    document.getElementById('interview_one').hidden = false;
+                    document.getElementById('interview_two').hidden = false;
+                }
             
-            }	
+            }   
             
         </script>
     </body>

@@ -227,26 +227,34 @@
                                 <br><br>
                                 <br><br>
                                 <h2>HIGH SCHOOL DIPLOMA OR GED</h2>
-                                <input type="hidden" name="ged" value="0">
-                                <input type="checkbox" name="ged" id="ged" value="1">
-                                <label class="ged hsGed">GED</label>
-                                <br><br>
-                                <table width="85%">
-                                    <td width="16%">
-                                        <input type="hidden" name="diploma" value="0">
-                                        <input type="checkbox" name="diploma" id="diploma" value="1">
-                                        <label class="highSchool hsGed">High School</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
-                                    </td>
-                                    <td width="29%">
-                                        <input type="text" name="highschool" id="highschool" class="hs formName" disabled required>
-                                    </td>
-                                    <td width="5%"></td>
-                                    <td width="18%">
-                                        <label class="gradYear">Year Graduated: </label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
-                                    </td>
-                                    <td width="17%">
-                                        <input type="text" name="gradYear" id="gradYear" class="hsgradForm formName" disabled required>
-                                    </td>
+								<br><br>
+								<script type="text/javascript">
+								function yesnoCheck() {
+									if (document.getElementById('ged').checked) {
+										document.getElementById('ifHichSchool').style.display = 'none';
+									}
+									else document.getElementById('ifHichSchool').style.display = 'block';
+								}
+								</script>
+								<table width="85%">
+                                    <tr>
+                                        <td width="70%">
+                                            <label>HIGH SCHOOL DIPLOMA OR GED:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+                                        </td>
+                                        <td width="50%">
+											GED <input type="radio" onclick="javascript:yesnoCheck();" name="diploma" value="GED" id="ged"> 
+											High School <input type="radio" onclick="javascript:yesnoCheck();" name="diploma" value="high school" id="highSchool"><br>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br>
+                                <table width="84%" >
+								    <td>
+										<div id="ifHichSchool" style="display:none">
+											School Name: <input type='text' id='highschool' name='highschool'><br>
+											Graduate Year<input type='text'   id='gradYear' name='gradYear'>
+										</div>
+									</td>
                                 </table>
                                 <br><br><br>
                                 <h2>HIGHER EDUCATION</h2>

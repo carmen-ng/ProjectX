@@ -125,47 +125,22 @@
  		  				  <br><br>
  
  						   <h2>HIGH SCHOOL DIPLOMA OR GED</h2>
- 								   <input type="hidden" name="ged" value="<?php echo $_POST['ged']; ?>" readonly>
-
- 								   <label class="ged hsGed">
- 								    <?php
- 								   if(isset($_POST['ged']) && 
- 								   	$_POST['ged'] == 1) 
- 								   {
- 								   	echo "<a style='color:#00cc00;font-weight:bold;'>Y</a> GED";
- 								   }
- 								   else
- 								   {
- 								   	echo "<a style='color:#ff0000;font-weight:bold;'>N</a> GED";
- 								   }    
- 								   ?></label>
- 								   <br><br>
- 						   <table width="85%">
- 								   <td width="16%">
- 								   <input type="hidden" name="diploma" value="<?php echo $_POST['diploma']; ?>" readonly>
- 								   <label class="highSchool hsGed"> <?php
- 								   if(isset($_POST['diploma']) && 
- 								   	$_POST['diploma'] == 1) 
- 								   {
- 								   	echo "<a style='color:#00cc00;font-weight:bold;'>Y</a> High School:";
- 								   }
- 								   else
- 								   {
- 								   	echo "<a style='color:#ff0000;font-weight:bold;'>N</a> High School";
- 								   }    
- 								   ?></label>
- 								</td>
- 								<td width="29%">
-								   <input type="text" name="highschool" class="hs formName" value = "<?php echo $_POST['highschool']; ?>" placeholder="HS NOT ENTERED" readonly>
- 								</td>
- 								<td width="5%"></td>
- 								<td width="18%">
- 								   <label class="gradYear">Year Graduated: </label>
- 								</td>
- 								<td width="17%">
- 								   <input type="text" name="gradYear" class="hsgradForm formName" value = "<?php echo $_POST['gradYear']; ?>" placeholder="NOT ENTERED" readonly>
- 								</td>
- 							</table><br><br><br>
+								<table width="85%">
+									<tr>
+										<td width="50%">
+										 <label class="nom">Diploma:</label>
+										</td>
+										<td width="50%">
+										<a style='color:#00cc00;font-weight:bold;'><?php echo $_POST['diploma']; ?></a>
+										</td>	
+									</tr>
+								</table><br>
+								<table width="84%">
+									<td width="50%"><label>If High School:</label></td>
+									<td width="20%">School Name:<input type="text"  name="highschool" value = "<?php echo $_POST['highschool']; ?>" placeholder="No School Name" readonly></td>
+									<td width="20%">Graduate Year:<input type="text"  name="gradYear" value = "<?php echo $_POST['gradYear']; ?>" placeholder="No Year" readonly></td>
+								</table>
+								<br><br><br>
  
  						   <h2>HIGHER EDUCATION</h2> 
  						   <!--<input type="hidden" name="higherEd" value="0">

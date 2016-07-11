@@ -69,7 +69,7 @@
                                 <h2>NAME</h2>
                                 <table width="84%">
                                     <td width="12%">
-                                        <label>First name:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+                                        <label>First name:</label><span class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none;">Required Field</span>
                                     </td>
                                     <td width="25%">
                                         <input type="text" name="firstName" class="fn formName" required></span>
@@ -81,7 +81,7 @@
                                         <input type="text" name="middleInitial" class="mi formName">
                                     </td>
                                     <td  width="12%">
-                                        <label class="labelLn">Last name:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+                                        <label class="labelLn">Last name:</label><span class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none;">Required Field</span>
                                     </td>
                                     <td width="25%">
                                         <input type="text" name="lastName" class="ln formName" required>
@@ -89,19 +89,19 @@
                                 </table>
                                 <br><br>
                                 <h2>LOCATION</h2>
-                                <label>Street Address 1:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+                                <label>Street Address 1:</label><span class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none;">Required Field</span>
                                 <input type="text" name="streetAddress" class="s1 formName" required>
                                 <br><br>
                                 <label>Street Address 2:</label>
                                 <input type="text" name="streetAddress2" class="s2 formName">
                                 <br><br>
-                                <label class="labelCity">City:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+                                <label class="labelCity">City:</label><span class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none;">Required Field</span>
                                 <input type="text" name="city" class="city formName" required>
                                 <br><br>
-                                <label class="labelZip">Zip:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+                                <label class="labelZip">Zip:</label><span class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none;">Required Field</span>
                                 <input type="text" name="zip" class="zip formName" required>
                                 <br><br>
-                                <label class="labelState">State:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+                                <label class="labelState">State:</label><span class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none;">Required Field</span>
                                 <select name="recState" class="state" required>
                                     <option value="AL">Alabama</option>
                                     <option value="AK">Alaska</option>
@@ -157,13 +157,13 @@
                                 </select>
                                 <br><br>
                                 <h2>CONTACT INFORMATION</h2>
-                                <label class="labelPhoneOne">Primary Phone Number:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+                                <label class="labelPhoneOne">Primary Phone Number:</label><span class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none;">Required Field</span>
                                 <input type="text" name="phone" class="phone1 formName" required>
                                 <br><br>
                                 <label class="labelPhone2">Secondary Phone Number:</label>
                                 <input type="text" name="phone2" class="phone2 formName">
                                 <br><br>
-                                <label class="email">Primary E-mail:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+                                <label class="email">Primary E-mail:</label><span class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none;">Required Field</span>
                                 <input type="text" name="email" class="email1 formName" required>
                                 <br><br>
                                 <label class="email2">Secondary E-mail:</label>
@@ -176,7 +176,7 @@
                                 <h2>LANGUAGE</h2>
                                 <table width="85%">
                                     <td width="27%">
-                                        <label class="labelLang1">Primary Spoken Language:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+                                        <label class="labelLang1">Primary Spoken Language:</label><span class="requiredSign"  style=" margin-left: 2%;">*</span><span class="requiredFieldMessage" style="display: none; margin-left: 25%;">Required Field</span>
                                     </td>
                                     <td width="38%">
                                         <input type="text" name="lang" class="lang1 formName" required>
@@ -227,34 +227,26 @@
                                 <br><br>
                                 <br><br>
                                 <h2>HIGH SCHOOL DIPLOMA OR GED</h2>
-								<br><br>
-								<script type="text/javascript">
-								function yesnoCheck() {
-									if (document.getElementById('ged').checked) {
-										document.getElementById('ifHichSchool').style.display = 'none';
-									}
-									else document.getElementById('ifHichSchool').style.display = 'block';
-								}
-								</script>
-								<table width="85%">
-                                    <tr>
-                                        <td width="70%">
-                                            <label>HIGH SCHOOL DIPLOMA OR GED:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
-                                        </td>
-                                        <td width="50%">
-											GED <input type="radio" onclick="javascript:yesnoCheck();" name="diploma" value="GED" id="ged"> 
-											High School <input type="radio" onclick="javascript:yesnoCheck();" name="diploma" value="high school" id="highSchool"><br>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <br>
-                                <table width="84%" >
-								    <td>
-										<div id="ifHichSchool" style="display:none">
-											School Name: <input type='text' id='highschool' name='highschool'><br>
-											Graduate Year<input type='text'   id='gradYear' name='gradYear'>
-										</div>
-									</td>
+                                <input type="hidden" name="ged" value="0">
+                                <input type="checkbox" name="ged" id="ged" value="1">
+                                <label class="ged hsGed">GED</label>
+                                <br><br>
+                                <table width="85%">
+                                    <td width="16%">
+                                        <input type="hidden" name="diploma" value="0">
+                                        <input type="checkbox" name="diploma" id="diploma" value="1">
+                                        <label class="highSchool hsGed">High School</label><span class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none; margin-left: 25%;">Required Field</span>
+                                    </td>
+                                    <td width="29%">
+                                        <input type="text" name="highschool" id="highschool" class="hs formName" disabled required>
+                                    </td>
+                                    <td width="5%"></td>
+                                    <td width="18%">
+                                        <label class="gradYear">Year Graduated: </label><span class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none;">Required Field</span>
+                                    </td>
+                                    <td width="17%">
+                                        <input type="text" name="gradYear" id="gradYear" class="hsgradForm formName" disabled required>
+                                    </td>
                                 </table>
                                 <br><br><br>
                                 <h2>HIGHER EDUCATION</h2>
@@ -274,13 +266,13 @@
                             </div>
                             <div class="right slide">
                                 <h2>MOST RECENT WORK EXPERIENCE</h2>
-                                <label class="expText">Company Name:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+                                <label class="expText">Company Name:</label><span class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none;">Required Field</span>
                                 <input type="text" name="company" class=" coForm formName" required>
                                 <br><br>
-                                <label class="expText coTitle">Title:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+                                <label class="expText coTitle">Title:</label><span class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none;">Required Field</span>
                                 <input type="text" name="title" class="coForm formName" required>
                                 <br><br>
-                                <label class="expText datesWorked">Dates Worked:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+                                <label class="expText datesWorked">Dates Worked:</label><span class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none;">Required Field</span>
                                 <div class="datesWorkedToFrom">
                                     <input type="date" class="workedFrom" name="startDate" required>
                                     <!-- <p class="datesWorkedP">-</p> -->
@@ -590,37 +582,39 @@
                             </div>
                             <div class="rightright slide">
                                 <h2>DOCUMENTS</H2>
-                                <label class="resume">Resume:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+                                <label class="resume">Resume:</label><span class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none;">Required Field</span>
                                 <input type="file" name="resume" class="resumeBtn" accept="file_extension" required>
                                 <br><br>
                                 <label class="coverLetter">Cover Letter:</label>
                                 <input type="file" name="coverLetter" class="cvBtn" accept="file_extension">
                                 <br><br><br>
                                 <h2>SOURCE</h2>
-                                <label class="leadSource">Source of Lead:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+                                <label class="leadSource">Source of Lead:</label><span class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none;">Required Field</span>
                                 <input type="text" class="lead" name="sourceOfLead" required>
                                 <br><br><br>
                                 <table width="85%">
                                     <tr>
                                         <td width="20%">
-                                            <label class="nom">Nominator:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+                                            <label class="nom">Nominator:</label>
                                         </td>
                                         <td width="80%">
-                                            <input type="radio" name="nominator" id="none" value="none" checked="checked" required>No
+                                            <span style="margin-left: 28%;"class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none; margin-right: -5%;">Required Field</span>
+                                            <input style="margin-left: 5%;" type="radio" name="nominator" id="none" value="none" checked="checked" required>No
                                             <input type="radio" name="nominator" id="yes" value="yes">Yes
                                         </td>
+
                                     </tr>
                                 </table>
                                 <br>
                                 <table width="84%">
                                     <td width="50%"><label>If Yes:</label></td>
-                                    <td width="10%">FN:<input type="text"  name="nomfirstName"  id="nomfirstName" placeholder="First name"></td>
+                                    <td width="10%">FN:<input type="text"  name="nomfirstName"  id="nomfirstName" placeholder="First name" ></td>
                                     <td width="10%">LN:<input type="text"  name="nomlastName" id="nomlastName" placeholder="Last name"></td>
                                     <td width="30%">Writing#:<input type="text"  name="writingNo" id="writingNo" placeholder="Writing #"></td>
                                 </table>
                                 <br><br>
                                 <h2>APPLIED FOR</h2>
-                                <label>Assigned District:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+                                <label>Assigned District:</label><span class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none;">Required Field</span>
                                 <input type="text" class="assDist" name="district" required>
                                 <br><br><br>
                                 <label class="lblProcess">Position:</label>
@@ -639,18 +633,16 @@
                             </div>
                             <div class="page4 slide">
                                 <h2>PROCESS LEVEL</h2>
-                                <label class="lblProcess">Process Level: </label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
+                                <label class="lblProcess">Process Level: </label><span class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none;">Required Field</span>
                                 <select name="process" id="process" class="processLevel" onchange="changeProc();">
                                     <option value="1stInterview">1st Interview</option>
                                     <option value="2ndInterview">2nd Interview</option>
                                     <option value="disqualified">Disqualified</option>
                                 </select>
                                 <br><br>
-                                <div id="checkDisqualified" hidden>
-                                    <label>If Disqualified, State Reason:</label>    
-                                    <input type="text" class="disqualifyReason formName" name="disqualifyReason" id="disqualifyReason" placeholder="Reason for Disqualification"><br><br><BR>
-                                </div> <br>
-                                <div id="interview_one" hidden>
+                                <label>If Disqualified, State Reason:</label>
+                                <input type="text" class="disqualifyReason formName" name="disqualifyReason" id="disqualifyReason" placeholder="Reason for Disqualification" disabled><br><br><BR>
+                                <div id="interview_one">
                                     <h2>1ST INTERVIEW</h2>
                                     <label>Interviewer Name:</label>
                                     <input type="text" class="interviewerName formName" name="interviewerName1" placeholder="">
@@ -719,7 +711,7 @@
             $(document).ready(function() {
                 $('#fullpage').fullpage({
                     sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000'],
-                }); changeProc();
+                });
             });
         </script>
         <script>
@@ -779,9 +771,12 @@
                 });
                 if (missing){
                         alert( "Please, fill all the required fields.");
-                        var reqMsgs = document.getElementsByClassName('requiredFieldError');
+                        var reqMsgs = document.getElementsByClassName('requiredFieldMessage');
                         for (var i = reqMsgs.length - 1; i >= 0; i--) {
-                            reqMsgs[i].style.display = "block";
+                            reqMsgs[i].style.display = "inline";
+                            reqMsgs[i].style.color = "#ffffff";
+                            reqMsgs[i].style.fontSize = "50%";
+                            reqMsgs[i].style.marginLeft = "-6%";
                         };
                     }
             })
@@ -818,17 +813,17 @@
                 var level = process.options[process.selectedIndex].value;
                 
                 if (level == 'disqualified') { 
-                    document.getElementById('checkDisqualified').hidden = false;
+                    document.getElementById('disqualifyReason').disabled = false;
                     document.getElementById('interview_one').hidden = true;
                     document.getElementById('interview_two').hidden = true;
                     
                 } else if (level == '1stInterview') {
-                    document.getElementById('checkDisqualified').hidden = true;
+                    document.getElementById('disqualifyReason').disabled = true;
                     document.getElementById('disqualifyReason').value = "";
                     document.getElementById('interview_one').hidden = false;
                     document.getElementById('interview_two').hidden = true;
                 } else {
-                    document.getElementById('checkDisqualified').hidden = true;
+                    document.getElementById('disqualifyReason').disabled = true;
                     document.getElementById('disqualifyReason').value = "";
                     document.getElementById('interview_one').hidden = false;
                     document.getElementById('interview_two').hidden = false;

@@ -1097,3 +1097,11 @@ html.fp-enabled,
             color: #66b9bd;
         }
 }
+
+.requiredSign {
+    color: #ffffff;
+    display: inline;
+    position: relative;
+    text-align: left;
+    margin-left: -1%;
+}

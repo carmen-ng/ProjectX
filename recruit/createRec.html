@@ -296,7 +296,7 @@
                                 <h2>LICENSES & STATE OF RESIDENCY</h2>
                                 <input type="checkbox" class="licenseBox" name="PC" value="0">
                                 <label class="licenseText">P&C</label>
-                                <select name="PCState" class="stateLicense">
+                                <select name="PCState" class="stateLicense" disabled>
                                     <option value=""></option>
                                     <option value="AL">AL</option>
                                     <option value="AK">AK</option>
@@ -353,7 +353,7 @@
                                 <!--<input type="hidden" class="licenseBox" name="series12" value="0"> -->
                                 <input type="checkbox" class="licenseBox" name="series12" value="0">
                                 <label class="licenseText">Series 12</label>
-                                <select name="series12State" class="stateLicense">
+                                <select name="series12State" class="stateLicense" disabled>
                                     <option value=""></option>
                                     <option value="AL">AL</option>
                                     <option value="AK">AK</option>
@@ -410,7 +410,7 @@
                                 <!-- <input type="hidden" class="licenseBox" name="health" value="0"> -->
                                 <input type="checkbox" class="licenseBox" name="health" value="0">
                                 <label class="licenseText">Health</label>
-                                <select name="healthState" class="stateLicense">
+                                <select name="healthState" class="stateLicense" disabled>
                                     <option value=""></option>
                                     <option value="AL">AL</option>
                                     <option value="AK">AK</option>
@@ -467,7 +467,7 @@
                                 <!--<input type="hidden" class="licenseBox" name="life" value="0"> -->
                                 <input type="checkbox" class="licenseBox" name="life" value="0">
                                 <label class="licenseText">Life</label>
-                                <select name="lifeState" class="stateLicense">
+                                <select name="lifeState" class="stateLicense" disabled>
                                     <option value=""></option>
                                     <option value="AL">AL</option>
                                     <option value="AK">AK</option>
@@ -524,7 +524,7 @@
                                 <!--<input type="hidden" class="licenseBox" name="accident" value="0"> -->
                                 <input type="checkbox" class="licenseBox" name="accident" value="0">
                                 <label class="licenseText">Accident</label>
-                                <select name="accidentState" class="stateLicense">
+                                <select name="accidentState" class="stateLicense" disabled>
                                     <option value=""></option>
                                     <option value="AL">AL</option>
                                     <option value="AK">AK</option>
@@ -602,7 +602,6 @@
                                             <input style="margin-left: 5%;" type="radio" name="nominator" id="none" value="none" checked="checked" required>No
                                             <input type="radio" name="nominator" id="yes" value="yes">Yes
                                         </td>
-
                                     </tr>
                                 </table>
                                 <br>
@@ -640,8 +639,10 @@
                                     <option value="disqualified">Disqualified</option>
                                 </select>
                                 <br><br>
-                                <label>If Disqualified, State Reason:</label>
-                                <input type="text" class="disqualifyReason formName" name="disqualifyReason" id="disqualifyReason" placeholder="Reason for Disqualification" disabled><br><br><BR>
+                                <div id="reason_disqualified" hidden>
+                                    <label>If Disqualified, State Reason:</label>
+                                    <input type="text" class="disqualifyReason formName" name="disqualifyReason" id="disqualifyReason" placeholder="Reason for Disqualification" ><br><br><BR>
+                                </div>
                                 <div id="interview_one">
                                     <h2>1ST INTERVIEW</h2>
                                     <label>Interviewer Name:</label>
@@ -712,6 +713,7 @@
                 $('#fullpage').fullpage({
                     sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000'],
                 });
+                changeProc();
             });
         </script>
         <script>
@@ -782,7 +784,6 @@
             })
         </script>
         <script type="text/javascript">
-            
             diploma.onclick = function() {
                 check();    
             }
@@ -805,7 +806,7 @@
                     document.getElementById('gradYear').value = "";
                 }
             }
-
+            
             body.onclick = function() { changeProc(); }
             // checking Process Levels: 1st, 2nd, disqualified
             function changeProc() {
@@ -813,17 +814,17 @@
                 var level = process.options[process.selectedIndex].value;
                 
                 if (level == 'disqualified') { 
-                    document.getElementById('disqualifyReason').disabled = false;
+                    document.getElementById('reason_disqualified').hidden = false;
                     document.getElementById('interview_one').hidden = true;
                     document.getElementById('interview_two').hidden = true;
                     
                 } else if (level == '1stInterview') {
-                    document.getElementById('disqualifyReason').disabled = true;
+                    document.getElementById('reason_disqualified').hidden = true;
                     document.getElementById('disqualifyReason').value = "";
                     document.getElementById('interview_one').hidden = false;
                     document.getElementById('interview_two').hidden = true;
                 } else {
-                    document.getElementById('disqualifyReason').disabled = true;
+                    document.getElementById('reason_disqualified').hidden = true;
                     document.getElementById('disqualifyReason').value = "";
                     document.getElementById('interview_one').hidden = false;
                     document.getElementById('interview_two').hidden = false;

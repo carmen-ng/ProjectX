@@ -294,9 +294,9 @@
                                 </div>
                                 <br><br><br>
                                 <h2>LICENSES & STATE OF RESIDENCY</h2>
-                                <input type="checkbox" class="licenseBox" name="PC" value="0">
+                                <input type="checkbox" class="licenseBox" name="PC" id="PC" value="0" onclick="setClickPC();">
                                 <label class="licenseText">P&C</label>
-                                <select name="PCState" class="stateLicense" disabled>
+                                <select name="PCState" id="PCState" class="stateLicense" disabled>
                                     <option value=""></option>
                                     <option value="AL">AL</option>
                                     <option value="AK">AK</option>
@@ -351,9 +351,9 @@
                                 </select>
                                 <br>
                                 <!--<input type="hidden" class="licenseBox" name="series12" value="0"> -->
-                                <input type="checkbox" class="licenseBox" name="series12" value="0">
+                                <input type="checkbox" class="licenseBox" name="series12" id="series12" value="0" onclick="setClickSeries();">
                                 <label class="licenseText">Series 12</label>
-                                <select name="series12State" class="stateLicense" disabled>
+                                <select name="series12State" id="series12State" class="stateLicense" disabled>
                                     <option value=""></option>
                                     <option value="AL">AL</option>
                                     <option value="AK">AK</option>
@@ -408,9 +408,9 @@
                                 </select>
                                 <br>
                                 <!-- <input type="hidden" class="licenseBox" name="health" value="0"> -->
-                                <input type="checkbox" class="licenseBox" name="health" value="0">
+                                <input type="checkbox" class="licenseBox" name="health" id="health" value="0" onclick="setClickHealth();">
                                 <label class="licenseText">Health</label>
-                                <select name="healthState" class="stateLicense" disabled>
+                                <select name="healthState" id="healthState" class="stateLicense" disabled>
                                     <option value=""></option>
                                     <option value="AL">AL</option>
                                     <option value="AK">AK</option>
@@ -465,9 +465,9 @@
                                 </select>
                                 <br>
                                 <!--<input type="hidden" class="licenseBox" name="life" value="0"> -->
-                                <input type="checkbox" class="licenseBox" name="life" value="0">
+                                <input type="checkbox" class="licenseBox" name="life" id="life" value="0" onclick="setClickLife();">
                                 <label class="licenseText">Life</label>
-                                <select name="lifeState" class="stateLicense" disabled>
+                                <select name="lifeState" id="lifeState" class="stateLicense" disabled>
                                     <option value=""></option>
                                     <option value="AL">AL</option>
                                     <option value="AK">AK</option>
@@ -522,9 +522,9 @@
                                 </select>
                                 <br>
                                 <!--<input type="hidden" class="licenseBox" name="accident" value="0"> -->
-                                <input type="checkbox" class="licenseBox" name="accident" value="0">
+                                <input type="checkbox" class="licenseBox" name="accident" id="accident" value="0" onclick="setClickAccident();">
                                 <label class="licenseText">Accident</label>
-                                <select name="accidentState" class="stateLicense" disabled>
+                                <select name="accidentState" id="accidentState" class="stateLicense" disabled>
                                     <option value=""></option>
                                     <option value="AL">AL</option>
                                     <option value="AK">AK</option>
@@ -829,8 +829,62 @@
                     document.getElementById('interview_one').hidden = false;
                     document.getElementById('interview_two').hidden = false;
                 }
-            
-            }   
+            } 
+            // License and State residency checkbox and select list  
+            function setClickPC() {
+                var check = document.getElementById('PC');
+
+                if (check.checked) {
+                    document.getElementById('PCState').disabled = false;
+                } else {
+                    document.getElementById('PCState').disabled = true;
+                    document.getElementById('PCState').value = "";
+                }
+            }
+            // License and State residency checkbox and select list  
+            function setClickSeries() {
+                var check = document.getElementById('series12');
+
+                if (check.checked) {
+                    document.getElementById('series12State').disabled = false;
+                } else {
+                    document.getElementById('series12State').disabled = true;
+                    document.getElementById('series12State').value = "";
+                }
+            }
+            // License and State residency checkbox and select list  
+            function setClickHealth() {
+                var check = document.getElementById('health');
+
+                if (check.checked) {
+                    document.getElementById('healthState').disabled = false;
+                } else {
+                    document.getElementById('healthState').disabled = true;
+                    document.getElementById('healthState').value = "";
+                }
+            }
+            // License and State residency checkbox and select list  
+            function setClickLife() {
+                var check = document.getElementById('life');
+
+                if (check.checked) {
+                    document.getElementById('lifeState').disabled = false;
+                } else {
+                    document.getElementById('lifeState').disabled = true;
+                    document.getElementById('lifeState').value = "";
+                }
+            }
+            // License and State residency checkbox and select list  
+            function setClickAccident() {
+                var check = document.getElementById('accident');
+
+                if (check.checked) {
+                    document.getElementById('accidentState').disabled = false;
+                } else {
+                    document.getElementById('accidentState').disabled = true;
+                    document.getElementById('accidentState').value = "";
+                }
+            }
             
         </script>
     </body>

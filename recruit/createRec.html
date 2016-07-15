@@ -592,26 +592,37 @@
                                 <label class="leadSource">Source of Lead:</label><span class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none;">Required Field</span>
                                 <input type="text" class="lead" name="sourceOfLead" required>
                                 <br><br><br>
-                                <table width="85%">
+								<script type="text/javascript">
+								function yesnoCheck2() {
+									if (document.getElementById('none').checked) {
+										document.getElementById('ifYesNominator').style.display = 'none';
+									}
+									else document.getElementById('ifYesNominator').style.display = 'block';
+								}
+								</script>
+								<table width="85%">
                                     <tr>
-                                        <td width="20%">
-                                            <label class="nom">Nominator:</label>
+                                        <td width="70%">
+                                            <label>Nominator:</label><span class="requiredSign">*</span><span class="requiredFieldError" style="display: none;">Required Field</span>
                                         </td>
-                                        <td width="80%">
-                                            <span style="margin-left: 28%;"class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none; margin-right: -5%;">Required Field</span>
-                                            <input style="margin-left: 5%;" type="radio" name="nominator" id="none" value="none" checked="checked" required>No
-                                            <input type="radio" name="nominator" id="yes" value="yes">Yes
+                                        <td width="50%">
+											No <input type="radio" onclick="javascript:yesnoCheck2();" name="nominator" value="none" id="none"> 
+											Yes <input type="radio" onclick="javascript:yesnoCheck2();" name="nominator" value="yes" id="yes"><br>
                                         </td>
                                     </tr>
                                 </table>
                                 <br>
-                                <table width="84%">
-                                    <td width="50%"><label>If Yes:</label></td>
-                                    <td width="10%">FN:<input type="text"  name="nomfirstName"  id="nomfirstName" placeholder="First name" ></td>
-                                    <td width="10%">LN:<input type="text"  name="nomlastName" id="nomlastName" placeholder="Last name"></td>
-                                    <td width="30%">Writing#:<input type="text"  name="writingNo" id="writingNo" placeholder="Writing #"></td>
+                                <table width="84%" >
+								    <td>
+										<div id="ifYesNominator" style="display:none">
+											If Yes:<br>
+											First Name: <input type='text' id='nomfirstName' name='nomfirstName'><br>
+											Last Name:<input type='text'   id='nomlastName' name='nomlastName'>
+											Writing#:<input type='text'   id='writingNo' name='writingNo'>
+										</div>
+									</td>
                                 </table>
-                                <br><br>
+								<br><br>
                                 <h2>APPLIED FOR</h2>
                                 <label>Assigned District:</label><span class="requiredSign">*</span><span class="requiredFieldMessage" style="display: none;">Required Field</span>
                                 <input type="text" class="assDist" name="district" required>

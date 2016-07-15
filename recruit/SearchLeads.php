@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-	<title>Recruit</title>
+	<title>Search</title>
 	<link rel="stylesheet" href="normalize.css">
 	<link rel="stylesheet" href="se.css">
 	<script type="text/javascript">var hide_awf_Form = true;</script>
@@ -107,7 +107,7 @@
 			$servername = "localhost";
 			$username = "root";
 			$password = "root";
-			$dbname = "rec";
+			$dbname = "recruiter2";
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
 			// Check connection
@@ -116,9 +116,9 @@
      			die("Connection failed: " . $conn->connect_error);
 			} 
 			$fromvar1 = 'rec r';
-			//echo "hi";
+			echo "hi";
             $selectvar = $_POST[searchOption];
-            //echo $selectvar;
+            echo $selectvar;
 			if(isset($_POST[searchOption]))
 			{
 				//echo "hi";
@@ -170,11 +170,11 @@
 					    echo "None"; 
 				}
 			}
-			$sql = "SELECT r.recID, firstName, lastName, streetAddress, city, r.state, zip, phone, email, resume, firstLang, ged,
-        		r.processLevelID, r.districtID, sourceOfLead, r.nominatorID
+			$sql = "SELECT r.recID, r.firstName, r.lastName, r.streetAddress, r.city, r.state, r.zip, r.phone, r.email, r.resume, r.firstLang, r.ged,
+        		r.process, r.districtID, r.sourceOfLeadID, r.nominatorID
         		FROM " . $fromvar .
         		" where " . $wherevar;
-        	//echo $sql;
+        	echo $sql;
         	$result = $conn->query($sql);
 			if ($result->num_rows > 0) 
 			{
@@ -201,6 +201,7 @@
         		// output data of each row
     			while($row = $result->fetch_assoc()) 
     			{
+        			/*
         			$sqlproclevel = "SELECT LevelName
         			FROM ProcessLevel 
         			WHERE ProcessLevelID  = " . $row["processLevelID"]; 
@@ -208,7 +209,8 @@
         			if ($resultproclevel->num_rows > 0)  
             			$rowproc = $resultproclevel->fetch_assoc();
         			else
-            			$rowproc["LevelName"] = "No Interview";     
+            			$rowproc["LevelName"] = "No Interview"; 
+            		*/    
     			?>
                 <!--begin first row-->
                   	<tr>
@@ -219,7 +221,7 @@
                       	<td><?php echo $row["zip"] ?></td>
                       	<td><?php echo $row["email"] ?></td>
                       	<td><?php echo $row["phone"] ?></td>
-                      	<td><?php echo $rowproc["LevelName"] ?></td>
+                      	<td><?php echo $row["process"] ?></td>
                       	<td id= "bcard">
 							<a href="#profile">
 							<!-- onclick="document.getElementById('lightbox1').style.display='inline';"> -->

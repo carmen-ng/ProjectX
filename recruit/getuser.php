@@ -16,7 +16,7 @@
             $servername = "localhost";
             $username = "root";
             $password = "root";
-            $dbname = "rec";
+            $dbname = "recruiter2";
 
 
             // Create connection
@@ -40,8 +40,8 @@
                 FROM rec r 
                 where  r.recID = ".$q ; */
 
-             $sql = "SELECT r.recID ,r.firstName,r.lastName,r.streetAddress, r.city, r.`zip`,r.`state`,r.`phone`,r.`email`,r.`firstLang`,r.sourceOfLead,
-                    r.noNominator,r.nominatorID,r.districtID,r.processLevelID,r.whyDisqualifyID,r.disqualified,r.ged
+             $sql = "SELECT r.recID ,r.firstName,r.lastName,r.streetAddress, r.city, r.zip,r.state,r.phone,r.email,r.firstLang,r.sourceOfLeadID,
+                    r.nominatorID,r.noNominator,r.districtID,r.process,r.whyDisqualifyID,r.disqualified,r.ged
                      from rec r 
                      where  r.recID = ".$q ;
             //echo $sql;
@@ -231,9 +231,9 @@
                                             
 
 
-                                            $sqltemp = "SELECT rhe.university ,rhe.gradYear, he.Degree
-                                                        from reche rhe
-                                                        inner join highereducation he
+                                            $sqltemp = "SELECT rhe.university ,rhe.gradYear, he.degree
+                                                        from recHE rhe
+                                                        inner join higherEducation he
                                                         on rhe.heID = he.heID
                                                         where rhe.recID =  " . $q .
                                                         " order by rhe.gradYear DESC" ;
@@ -257,7 +257,7 @@
 
                                                     echo "<tr>
                                                         <td>Degree :</td>
-                                                        <td>" .$rowtemp['Degree'] . "</td>
+                                                        <td>" .$rowtemp['degree'] . "</td>
                                                     </tr>
 
                                                     <tr>
@@ -281,7 +281,7 @@
                                                         inner join workExperience wex
                                                         on rex.experienceID = wex.experienceID
                                                         where rex.recID = " . $q .
-                                                        " order by startDate DESC" ;
+                                                        " order by rex.startDate DESC" ;
 
                                             //echo $sqltemp;
                                             
@@ -369,12 +369,37 @@
                                             }
 
 
-                                            echo "<tr><td><h1> Source </h1> </td></tr>";
-                                            echo "<tr>
-                                            <td> Source of Lead : </td><td>" .$row['sourceOfLead'] . "</td>
-                                            </tr>";
 
+                                            $sqltemp = "SELECT sl.sourceOfLead
+                                                        from sourceOfLead sl
+                                                        where sl.sourceOfLeadID =  " . $row[sourceOfLeadID];
 
+                                            //echo $sqltemp;
+                                            
+                                            
+                                            $resulttemp = $conn->query($sqltemp);
+
+                                            if ($resulttemp->num_rows > 0)
+                                            { 
+                         
+
+                                                echo "<tr><td><h1> Source </h1> </td></tr>";
+                                                
+
+                                                while($rowtemp = $resulttemp->fetch_assoc()) 
+                                                {
+                        
+                                                    //echo "hi lang";
+                                                    
+                                                    echo "<tr>
+                                                        <td> Source of Lead : </td><td>" .$rowtemp['sourceOfLead'] . "</td>
+                                                    </tr>";
+                                                    
+                                   
+                                                }
+                                            }
+
+                                            
                                             if ($row['noNominator'] == 0)
                                             {
                                                 $sqltemp = "SELECT no.nominatorID,no.firstName,no.lastName,no.writingNo,no.abc
@@ -427,6 +452,63 @@
                                                 
                                             }
 
+                                            /*
+
+                                            if ($row['nominatorID'] is NOT NULL)
+                                            {
+                                                $sqltemp = "SELECT no.nominatorID,no.firstName,no.lastName,no.writingNo,no.abc
+                                                            from nominator no 
+                                                            where  no.nominatorID = " . $row[nominatorID];
+
+
+                                                $resulttemp = $conn->query($sqltemp);
+
+                                                if ($resulttemp->num_rows > 0)
+                                                { 
+                                                    
+                                                    //echo "hi nom1";
+                                                    
+                                                    while($rowtemp = $resulttemp->fetch_assoc()) 
+                                                    {
+                        
+                                           
+                                                        echo "<tr><td>Nominator : </td>";
+
+                                                        
+                                                        if ($rowtemp['abc'] == 1)
+                                                        {
+                                                            
+                                                            ?><td><input type="checkbox" name="abc1" value="abc1" checked> ABC </td>
+                                                            
+                                                            <?php
+                                                        }
+                                                        echo "</tr>"; 
+                                                        
+                                                        
+
+                                                        echo "<tr>
+                                                            <td>First Name : </td><td> " .$rowtemp['firstName'] . "</td>
+                                                            <td>Last Name : </td><td> " .$rowtemp['lastName'] . "</td>
+                                                        </tr>";
+
+                                                        echo "<tr>
+                                                            <td> Writing # </td>
+                                                            <td>" .$rowtemp['writingNo'] . "</td>
+                                                        </tr>";
+
+                                                        
+                                                    
+                                   
+                                                    }
+                                                    
+
+                                                } 
+                                                
+                                            }
+
+                                            */
+
+
                                             $sqltemp = "SELECT districtName
                                             from district
                                             where district.districtID = " . $row[districtID];
@@ -477,7 +559,7 @@
                                                 }
                                             }
 
-
+                                            /*
                                             $sqltemp = "SELECT p.LevelName
                                                         from ProcessLevel p
                                                         where p.ProcessLevelID = " . $row[processLevelID];
@@ -495,6 +577,12 @@
                                                 <td> Process Level : </td><td>" .$rowtemp['LevelName'] . "</td>
                                                 </tr>";   
                                             }
+
+                                            */
+
+                                            echo "<tr>
+                                                <td> Process Level : </td><td>" .$row['process'] . "</td>
+                                                </tr>";  
 
 
                                             if ($row['disqualified'] == 1)
@@ -538,7 +626,7 @@
                                             }
 
 
-                                            $sqltemp = "SELECT ri.interviewerName,ri.date
+                                            $sqltemp = "SELECT ri.interviewerName,ri.interviewDate,ri.interviewNo,ri.grade
                                                         from recInterview ri
                                                         where recID =  " . $q;
                                             
@@ -548,6 +636,11 @@
                                             $rowtemp = $resulttemp->fetch_assoc();
                                                 
                                             echo "<tr>
+                                                <td> Interview Number : </td>
+
+                                                <td>" .$rowtemp['interviewNo'] . "</td>
+                                                </tr>"; 
+                                            echo "<tr>
                                                 <td> Interviewer Name : </td>
 
                                                 <td>" .$rowtemp['interviewerName'] . "</td>
@@ -556,7 +649,13 @@
                                             echo "<tr>
                                                 <td> Interview Date : </td>
 
-                                                <td>" .$rowtemp['date'] . "</td>
+                                                <td>" .$rowtemp['interviewDate'] . "</td>
+                                                </tr>"; 
+
+                                            echo "<tr>
+                                                <td> Interview Grade : </td>
+
+                                                <td>" .$rowtemp['grade'] . "</td>
                                                 </tr>"; 
                                             
   

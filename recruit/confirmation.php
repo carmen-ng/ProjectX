@@ -240,14 +240,14 @@
                             <br>
                             <!--<input type="hidden" class="licenseBox" name="series12" value="0"> -->
                             <input type="hidden" class="licenseBox" name="series12" value="<?php echo $_POST['series12']; ?>" readonly>
-                            <label class="licenseText"><?php
+                            <label ><?php
                                 if(isset($_POST['series12'])) 
                                 {
                                 if($_POST['series12State'] != '')
                                 {
                                 $temp_series12_state = $_POST['series12State'];
-                                echo "<a style='color:#00cc00;font-weight:bold;'>Y</a> Series 12          ";
-                                echo "<a>{$temp_series12_state}</a>";
+                                echo "<a class=\"licenseText\" style='color:#00cc00;font-weight:bold;'>Y</a> Series 12 ";
+                                echo "<a class=\"stateLicense\">{$temp_series12_state}</a>";
                                 }
                                 else
                                 {
@@ -297,14 +297,14 @@
                             <br>
                             <!--<input type="hidden" class="licenseBox" name="accident" value="0"> -->
                             <input type="hidden" class="licenseBox" name="accident" value="<?php echo $_POST['accident']; ?>" readonly>
-                            <label class="licenseText"><?php
+                            <label><?php
                                 if(isset($_POST['accident'])) 
                                 {
                                 if($_POST['accidentState'] != '')
                                 {
                                 $temp_accident_state = $_POST['accidentState'];
-                                echo "<a style='color:#00cc00;font-weight:bold;'>Y</a> Accident          ";
-                                echo "<a>{$temp_accident_state}</a>";
+                                echo "<a class=\"licenseText\" style='color:#00cc00;font-weight:bold;'>Y</a> Accident ";
+                                echo "<a\"stateLicense\" >{$temp_accident_state}</a>";
                                 }
                                 else
                                 {
@@ -474,7 +474,6 @@
                                     $start_time = $_POST['interviewTime1']; 	  				 			 
                                     
                                     if ($start_date && $start_time) {
-                                    	$gradeOne = $_POST['grade1'];
                                     	
                                     	if ((strtotime($start_date) <= strtotime(date('Y-m-d'))) && $gradeOne == "") { 
                                     		if ((strtotime($start_date) + strtotime($start_time)) <= (strtotime(date('Y-m-d')) + strtotime(date('H:i')))) 

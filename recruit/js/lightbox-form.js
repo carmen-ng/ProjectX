@@ -50,6 +50,7 @@ function openbox(formtitle, fadin)
 // Close the lightbox
 function closebox()
 {
+   document.getElementById('lightbox').style.display='none';
    document.getElementById('box').style.display='none';
    document.getElementById('shadowing').style.display='none';
 }

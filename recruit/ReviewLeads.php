@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>Recruit</title>
+	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="re.css">
+	<script type="text/javascript">var hide_awf_Form = true;</script>
+	<script type="text/javascript">
+		document.addEventListener("touchstart", function() {}, true);
+	</script>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+	<script src="lightbox-form.js" type="text/javascript"></script>
+
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 	<meta charset="UTF-8">	
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
@@ -126,13 +144,14 @@
 			<!-- ADVANCED SEARCH LIGHTBOX CODE BEGINS -->
 			<br>
 
-			<div id="shadowing" onClick="closebox()"></div>
+			<div id="shadowing"></div>
 			<div id="box">
 			  <span id="boxtitle"></span>
 			  <form action="SearchLeadsAdv.php" method="post">
 			      
 				<h2>NAME</h2>
  						<table width="84%">
+ 						<tr>	
  						<td width="12%">
  						  <label>First name:</label></td>
  						  <td width="25%">
@@ -145,9 +164,10 @@
  						 <label class="labelLn">Last name:</label></td>
  						  <td width="25%">
 						  <input type="text" name="lastName1" class="ln formName"></td>
+						</tr>
  						</table>
 
- 							<h2>LOCATION</h2>
+ 						<h2>LOCATION</h2>
 						  <label>Street Address 1:</label>
 						  <input type="text" name="streetAddress1" class="s1 formName">
 						  <br><br>
@@ -160,9 +180,10 @@
 						  <label class="labelZip">Zip:</label>
 						  <input type="text" name="zip" class="zip formName">
 							<br><br>
-						 <label class="labelState">State:</label>
+
+						<label class="labelState">State:</label>
 						  <select name="recState" class="state">
-                              <option value="None"> --Please select a state-- </option>
+						  	<option value="None">-- Please select a state --</option>
 						    <option value="AL">Alabama</option>
 							<option value="AK">Alaska</option>
 							<option value="AZ">Arizona</option>
@@ -216,7 +237,8 @@
 							<option value="WY">Wyoming</option>
 						  </select><br><br>
 
-						  	<h2>CONTACT INFORMATION</h2>
+
+						  <h2>CONTACT INFORMATION</h2>
   						  <label class="labelPhoneOne">Primary Phone Number:</label>
   						  <input type="text" name="phone" class="phone1 formName">
   						  <br><br>
@@ -231,41 +253,46 @@
  						  <input type="text" name="email2" class="email2 formName">
   						  <br><br>
 
+
   						  <h2>LANGUAGE</h2>
- 						<table width="85%" class="nLang">
-<tr>
-	 						<td width="1%">
+ 						  <table width="85%">
+ 							<tr>
+	 						<td width="27%">
 	 							<label class="labelLang1">Primary Spoken Language:</label>
 		 					</td>
 		 					<td width="38%">
 		 						<input type="text" name="lang" class="lang1 formName">
 		 					</td>
-    </tr>
-		 					</table><br>
- 			  		<table width="85%" class="nLang">
-                        <tr>
- 						<td width="27%">
+		 					<td width=""><td>
+		 					</tr>
+		 				  </table><br>
+
+		 				  <table width="85%">
+		 				  <tr>
+ 						  <td width="27%">
   						  <label class="labelLang2">Secondary Spoken Language:</label>
  						  </td>
- 						<td width="38%">
+ 						  <td width="38%">
   						  <input type="text" name="lang2" class="lang2 formName">
   						    </td>
- 						<td width="10%">
+ 						  <td width="10%">
   						  <label class="labelLang2">Proficiency:</label>
  						  </td>
- 						<td width="25%">
+ 						  <td width="25%">
   						  <select name="proficiency2" class="proficiency2">
-                              <option value="None">-- Any --</option>
+  						  	<option value="None">-- Any --</option>
   						  	<option value="elementary">Elementary</option>
   						  	<option value="limited">Limited</option>
   						  	<option value="professional">Professional</option>
   						  	<option value="fluent">Fluent</option>
   						  </select>
+        
   						  </td>
-                  </tr></table><br>
- 
- 			  		<table width="85%" class="nLang">
-                        <tr>
+  						  </tr>
+  						  </table><br>
+
+  						  <table width="85%">
+ 						  <tr>
  						<td width="27%">
   						  <label class="labelLang3">Tertiary Spoken Language:</label>
  						  </td>
@@ -277,13 +304,16 @@
  						   </td>
  						<td width="25%">	
   						  <select name="proficiency3" class="proficiency3">
-                              <option value="None">-- Any --</option>
+  						  	<option value="None">-- Any --</option>
   						  	<option value="elementary">Elementary</option>
   						  	<option value="limited">Limited</option>
   						  	<option value="professional">Professional</option>
   						  	<option value="fluent">Fluent</option>
-						</select></td></tr></table>
- 						  	<br><br>
+						</select></td>
+						</tr>
+						</table>
+
+						<br><br>
    				
  		  				  <br><br>
  
@@ -293,11 +323,11 @@
  								   <label class="ged hsGed">GED</label>
  								   <br><br>
  						   <table width="85%">
-                               <tr>
- 								   <td width="16%">
+ 						   	<tr>
+ 								<td width="16%">
  								   <input type="hidden" name="diploma" value="0">
  								   <input type="checkbox" name="diploma" value="1">
-                                       <label class="highSchool hsGed">High School</label>
+								   <label class="highSchool hsGed">High School</label>
  								</td>
  								<td width="29%">
 								   <input type="text" name="highschool" class="hs formName">
@@ -309,10 +339,10 @@
  								<td width="17%">
  								   <input type="text" name="hsgradYear" class="hsgradForm formName">
  								</td>
-                                   </tr>
+ 							</tr>
  							</table><br><br><br>
- 
- 						   <h2>HIGHER EDUCATION</h2> 
+
+ 							<h2>HIGHER EDUCATION</h2> 
  						   <!--<input type="hidden" name="higherEd" value="0">
  						   <input type="checkbox" name="higherEd" value="1">
  						   <label class="higherEd">Yes</label>
@@ -323,7 +353,7 @@
  					       <input type="text" name="university" class="gradForm formName"><br><br>
  					       <label class="higherEd">Degree:</label>
  					       <input type="text" name="degree" class="gradForm formName"><br><br>
-                  <label class="higherEd">Graduation Year:</label>
+ 						   <label class="higherEd">Graduation Year:</label>
  					       <input type="text" name="hegradYear" class="gradForm formName">
  					       <h2>MOST RECENT WORK EXPERIENCE</h2>
  					  <label class="expText">Company Name:</label>
@@ -357,7 +387,7 @@
  	  				  	<input type="checkbox" class="licenseBox" name="PC" value="P&C">
 						  <label class="licenseText">P&C</label>
 						  <select name="PCState" class="stateLicense">
-                              <option value="None">-- Please select a state --</option>
+						  	<option value="None">-- Please select a state --</option>
 						    <option value="AL">AL</option>
 							<option value="AK">AK</option>
 							<option value="AZ">AZ</option>
@@ -411,10 +441,10 @@
 						  </select><br>
 
 		  				  <!--<input type="hidden" class="licenseBox" name="series12" value="0"> -->
-		  				  <input type="checkbox" class="licenseBox" name="series12" value=" Series 12">
+		  				  <input type="checkbox" class="licenseBox" name="series12" value="Series 12">
 		  				  <label class="licenseText">Series 12</label>
 		  				  <select name="series12State" class="stateLicense">
-                              <option value="None">-- Please select a state --</option>
+		  				  	<option value="None">-- Please select a state --</option>
 						    <option value="AL">AL</option>
 							<option value="AK">AK</option>
 							<option value="AZ">AZ</option>
@@ -471,7 +501,7 @@
 		  				  <input type="checkbox" class="licenseBox" name="health" value="Health">
 		  				  <label class="licenseText">Health</label>
 		  				  <select name="healthState" class="stateLicense">
-                              <option value="None">-- Please select a state --</option>
+		  				  	<option value="None">-- Please select a state --</option>
 						    <option value="AL">AL</option>
 							<option value="AK">AK</option>
 							<option value="AZ">AZ</option>
@@ -527,7 +557,7 @@
 		  				  <input type="checkbox" class="licenseBox" name="life" value="Life">
 		  				  <label class="licenseText">Life</label>
 		  				  <select name="lifeState" class="stateLicense">
-                            <option value="None">-- Please select a state --</option>
+		  				  	<option value="None">-- Please select a state --</option>
 						    <option value="AL">AL</option>
 							<option value="AK">AK</option>
 							<option value="AZ">AZ</option>
@@ -583,7 +613,7 @@
 		  				  <input type="checkbox" class="licenseBox" name="accident" value="Accident">
 		  				  <label class="licenseText">Accident</label>
 		  				  <select name="accidentState" class="stateLicense">
-                              <option value="None">-- Please select a state --</option>
+		  				  	<option value="None">-- Please select a state --</option>
 						    <option value="AL">AL</option>
 							<option value="AK">AK</option>
 							<option value="AZ">AZ</option>
@@ -637,20 +667,24 @@
 						  </select><br>
 		  				  <br><br><br>
 
-		  				  <h2>DOCUMENTS</H2>
+		  			  <!--
+		  			  <h2>DOCUMENTS</H2>
 					  <label class="resume">Resume:</label>
 					  <input type="file" name="resume" class="resumeBtn" accept="file_extension">
 					  <br><br>
 					  <label class="coverLetter">Cover Letter:</label>
 					  <input type="file" name="coverLetter" class="cvBtn" accept="file_extension">
 					  <br><br><br>
-	    		<h2>SOURCE</h2>
+					  -->
+
+
+	    			<h2>SOURCE</h2>
   					 <label class="leadSource">Source of Lead:</label>
   	  				  	<input type="text" class="lead" name="sourceOfLead">
   	  				  	<br><br><br>
   	  				  	<table width="85%">
  	  				  		<tr>
- 	  				  		<td width="10%">
+ 	  				  		<td width="50%">
  	  						 <label class="nom">Nominator:</label>
  	  					</td>
  	  						<td width="15%">
@@ -658,18 +692,21 @@
   	  				 	<input type="checkbox" name="noNominator" value="1">
   	  				 	<label class="noNom">None</label>
 	  				 </td>
+	  				 	<!--
  	  				 	<td width="15%">
  	  				 	<input type="hidden" name="abc" value="0">
  	  				 	<input type="checkbox" name="abc" value="1">
  	  				 	<label>ABC</label></td>
+ 	  				 	-->
  	  				 	<td width="20%">
   	  				 	<input type="hidden" name="yesNominator" value="0">
   	  				 	<input type="checkbox" name="yesNominator" value="1">
   	  				 	<label class="yesNom">Yes</label>
   	  				 	 </td>
+
  	  				</tr></table><br>
  	  				<table width="84%">
-                        <tr>
+ 	  					<tr>
  	  					<td width="47%"><label>If Yes:</label></td>
  	  					<td width="19%"><input type="text" class="yesNomName" name="nomfirstName" placeholder="First name"></td>
  	  					<td width="19%"><input type="text" class="yesNomName" name="nomlastName" placeholder="Last name"></td>
@@ -683,32 +720,34 @@
   	  				 	<br><br><br>
   	  				 	<label class="lblProcess">Position:</label>
  	  				 	 <select name="position" class="positionApplied">
-						    <option value="None">-- Any --</option>
-                            <option value="Business Consultant">Business Consultant</option>
-                            <option value="District Manager">District Manager</option>
-                            <option value="Broker Consultant">Broker Consultant</option>
-                            <option value="Intern - Business Development">Intern - Business Development</option>
-                            <option value="Intern - Human Resources">Intern - Human Resources</option>
-                            <option value="Intern - Web Development">Intern - Web Development</option>
-                            <option value="Intern - Graphic Design">Intern - Graphic Design</option>
-                            <option value="Intern - PR & Marketing">Intern - PR & Marketing</option>
-                            <option value="Intern - Sales">Intern - Sales</option>
+ 	  				 	 	<option value="None">-- Any --</option>
+						    <option value="Business Consultant">Business Consultant</option>
+							<option value="District Manager">District Manager</option>
+							<option value="Broker Consultant">Broker Consultant</option>
+							<option value="Intern - Business Development">Intern - Business Development</option>
+							<option value="Intern - Human Resources">Intern - Human Resources</option>
+							<option value="Intern - Web Development">Intern - Web Development</option>
+							<option value="Intern - Graphic Design">Intern - Graphic Design</option>
+							<option value="Intern - PR & Marketing">Intern - PR & Marketing</option>
+							<option value="Intern - Sales">Intern - Sales</option>
 						</select><br><br>
 
 						<h2>PROCESS LEVEL</h2>
-			    <label class="lblProcess">Process Level: </label>
- 	  				 	<input type="text" class="assDist" name="process">
-                        <select name="process" class="processLevel">
-                            <option value="None">-- Any --</option>
-                            <option value="1st Interview">1st Interview</option>
-                            <option value="2nd Interview">2nd Interview</option>
-                            <option value="Disqualified">Disqualified</option>
-                        </select>
-                        <br><br>
+			    		<label class="lblProcess">Process Level: </label>
+			    		<input type="text" class="assDist" name="process">
+			    		<!--
+ 	  				 	<select name="process" class="processLevel">
+ 	  				 		<option value="None">-- Any --</option>
+						    <option value="1st Interview">1st Interview</option>
+							<option value="2nd Interview">2nd Interview</option>
+							<option value="Disqualified">Disqualified</option>
+						</select>
+						-->
+						<br><br>
  
  	  				 	<label>If Disqualified, State Reason:</label>
  	  				 	<input type="text" class="disqualifyReason formName" name="disqualifyReason" placeholder="Reason for Disqualification"><br><br><BR>
- 		<h2>1ST INTERVIEW</h2>
+ 						<h2>1ST INTERVIEW</h2>
  	  				 	<label>Interviewer Name:</label>
  	  				 	<input type="text" class="interviewerName formName" name="interviewerName1" placeholder="">
  	  				 	<br><br>
@@ -718,7 +757,7 @@
  	  				 	<input type="time" class="interviewTime" name="interviewTime1"></div><br><br>
  	  				 	<label class="lblInterviewGrade">Interview Grade:</label>
  	  				 	<select name="grade1" class="interviewGrade">
-                            <option value="None">-- Any --</option>
+ 	  				 		<option value="None">-- Any --</option>
 						    <option value="A">A</option>
 							<option value="B">B</option>
 							<option value="C">C</option>
@@ -735,17 +774,18 @@
  	  				 	<input type="time" class="interviewTime" name="interviewTime2"></div><br><br>
  	  				 	<label class="lblInterviewGrade">Interview Grade:</label>
  	  				 	<select name="grade2" class="interviewGrade">
-                            <option value="None">-- Any --</option>
+ 	  				 		<option value="None">-- Any --</option>
 						    <option value="A">A</option>
 							<option value="B">B</option>
 							<option value="C">C</option>
 							<option value="D">D</option>
 							<option value="N/A">N/A</option>
 						</select><br><br>
+ 						
  
  					<div class="submit">
  		 						<input type="submit" name="submit" value="Submit">
- 		 					</div>
+ 		 			</div>
 
 
 			    <!-- <p>First Name: 
@@ -826,8 +866,8 @@
 			</div>
 
 	
-
-			<div id="lightbox" class="lightbox" style="display:none" onclick="document.getElementById('lightbox').style.display='none';">
+			
+			<div id="lightbox" class="lightbox" style="display:none">
 			   <table class="lightbox_table">
 			   <tr>
 			   <td class="lightbox_table_cell" align="center">
@@ -852,7 +892,7 @@
 								  <option value="email">Email</option>
 								  <option value="contact">Contact</option>
 								</select>  
-				 			</form>
+				 			</form>							
 					      <input type="button" name="cancel" value="Cancel" onClick="closebox()">							
 						</p><br><br>
 			      </div>

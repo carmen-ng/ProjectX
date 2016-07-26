@@ -1,170 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-	<title>SearchAdv</title>
-	<link rel="stylesheet" href="normalize.css">
-	<link rel="stylesheet" href="se.css">
-	<script type="text/javascript">var hide_awf_Form = true;</script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>SearchAdv</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="se.css">
+    <script type="text/javascript">var hide_awf_Form = true;</script>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
-	<script>
- 		$(document).ready(function(){
-  	 		$('table.revTable tr td#bcard').click(function(){
-          	//alert($(this).closest('tr').find('td:first').text());
-          	var varid = $(this).closest('tr').find('td:first').text();
-          	//alert(varid); 
+    <script>
+        $(document).ready(function(){
+            $('table.revTable tr td#bcard').click(function(){
+            //alert($(this).closest('tr').find('td:first').text());
+            var varid = $(this).closest('tr').find('td:first').text();
+            //alert(varid); 
            showUser(varid);
-          	//document.getElementById('lightbox1').style.display='inline';
-    		});
-  		});
-  		function showUser(varid)
-  		{
-  			//alert(varid); 
-    		if (varid == "") 
-    		{
-        		document.getElementById("txtHint").innerHTML = "";
-        		return;
-    		} 
-    		else 
-    		{ 
-        		if (window.XMLHttpRequest) 
-        		{
-            		// code for IE7+, Firefox, Chrome, Opera, Safari
-            		xmlhttp = new XMLHttpRequest();
-        		} 
-        		else 
-        		{
-            		// code for IE6, IE5
-            		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        		}
-        		xmlhttp.onreadystatechange = function() {
-            		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
-            		{
-                		document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-            		}
-        		};
-        		xmlhttp.open("GET","getuser.php?q="+varid,true);
-        		xmlhttp.send();
-    		}
-		}
+            //document.getElementById('lightbox1').style.display='inline';
+            });
+        });
+        function showUser(varid)
+        {
+            //alert(varid); 
+            if (varid == "") 
+            {
+                document.getElementById("txtHint").innerHTML = "";
+                return;
+            } 
+            else 
+            { 
+                if (window.XMLHttpRequest) 
+                {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } 
+                else 
+                {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+                    {
+                        document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+                    }
+                };
+                xmlhttp.open("GET","getuser.php?q="+varid,true);
+                xmlhttp.send();
+            }
+        }
  
-  	</script>
+    </script>
 
 </head>
 <body class="cbp-spmenu-push">
-	<div class="container">
-		<div class="header">
-			<div class="nav">
-				<div class="nav-left">
-					<li><a href="#"><img class="ham" id="showLeft"src="images/ham.png" alt=""></a></li>
-					<li><a href="#"><img class="face" src="images/face.png" alt=""></a></li>
-					<li><a href="#"><h1>Asc Name</h1></a></li>
-					<li><a href="#"><h1>Position</h1></a></li>
-					<li><a href="#"><h1>Writing #</h1></a></li>
-					<!-- codrop nav -->
-					
-					<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-						<h3>Recruitment</h3>
-						<a href="createRec.html">Create a Lead Profile</a>
-						<a href="#">Search Recruit Leads</a>
-						<a href="ReviewLeads.html" class="active">View Recruit Leads</a>
-						<a href="#">Menu Item</a>
-					</nav>
-					<!-- end codrop -->
-					<!-- end .nav-left -->
-				</div>
-				<div class="nav-right">
-					<li><a href="../home.html"><img class="nav-logo" src="../images/icon-home.png" alt=""></a></li>
-					<li><a href="#"><img class="nav-logo" src="../images/icon-cal.png" alt=""></a></li>
-					<li><a href="dashRec.html" class="active"><img class="nav-logo" src="../images/icon-rec.png" alt=""></a></li>
-					<li><a href="#"><img class="nav-logo" src="../images/icon-hr.png" alt=""></a></li>
-					<li><a href="#"><img class="nav-logo" src="../images/icon-leads.png" alt=""></a></li>
-					<li><a href="#"><img class="nav-logo" src="../images/icon-sales.png" alt=""></a></li>
-					<li><a href="#"><img class="nav-logo" src="../images/icon-accounts-temp.png" alt=""></a></li>
-					<li><a href="#"><img class="logo-last nav-logo " src="../images/logo.png" alt=""></a></li>
-					<!-- end .nav-right -->
-				</div>
-				<!-- end .nav -->
-			</div>
-		<!-- end header -->
-		</div>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <div class="nav-left">
+                    <li><a href="#"><img class="ham" id="showLeft"src="images/ham.png" alt=""></a></li>
+                    <li><a href="#"><img class="face" src="images/face.png" alt=""></a></li>
+                    <li><a href="#"><h1>Asc Name</h1></a></li>
+                    <li><a href="#"><h1>Position</h1></a></li>
+                    <li><a href="#"><h1>Writing #</h1></a></li>
+                    <!-- codrop nav -->
+                    
+                    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+                        <h3>Recruitment</h3>
+                        <a href="createRec.html">Create a Lead Profile</a>
+                        <a href="#">Search Recruit Leads</a>
+                        <a href="ReviewLeads.html" class="active">View Recruit Leads</a>
+                        <a href="#">Menu Item</a>
+                    </nav>
+                    <!-- end codrop -->
+                    <!-- end .nav-left -->
+                </div>
+                <div class="nav-right">
+                    <li><a href="../home.html"><img class="nav-logo" src="../images/icon-home.png" alt=""></a></li>
+                    <li><a href="#"><img class="nav-logo" src="../images/icon-cal.png" alt=""></a></li>
+                    <li><a href="dashRec.html" class="active"><img class="nav-logo" src="../images/icon-rec.png" alt=""></a></li>
+                    <li><a href="#"><img class="nav-logo" src="../images/icon-hr.png" alt=""></a></li>
+                    <li><a href="#"><img class="nav-logo" src="../images/icon-leads.png" alt=""></a></li>
+                    <li><a href="#"><img class="nav-logo" src="../images/icon-sales.png" alt=""></a></li>
+                    <li><a href="#"><img class="nav-logo" src="../images/icon-accounts-temp.png" alt=""></a></li>
+                    <li><a href="#"><img class="logo-last nav-logo " src="../images/logo.png" alt=""></a></li>
+                    <!-- end .nav-right -->
+                </div>
+                <!-- end .nav -->
+            </div>
+        <!-- end header -->
+        </div>
 
-		<div class="body revBody">
+        <div class="body revBody">
             <!--begin buttons-->
-			<header>
-			<h1>More Results : <?php echo $_POST[searchOption] ?></h1>
-			</header>
+            <header>
+            <h1>More Results : <?php echo $_POST[searchOption] ?></h1>
+            </header>
 
-		
+        
 
             <!--end buttons>
-		<!-- end container -->
+        <!-- end container -->
 
-			<?php
-			$servername = "localhost";
-			$username = "root";
-			$password = "root";
-			//$dbname = "rec";
+            <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "root";
+            //$dbname = "rec";
             $dbname = "recruiter2";
-			// Create connection
-			$conn = new mysqli($servername, $username, $password, $dbname);
-			// Check connection
-			if ($conn->connect_error) 
-			{
-     			die("Connection failed: " . $conn->connect_error);
-			} 
-			$fromvar = 'rec r';
-			echo "hi";
-			/*
-			echo $_POST['streetAddress'];
-			echo "hi";
-			echo $_POST['firstName'];
-			echo $_POST['recState'];
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) 
+            {
+                die("Connection failed: " . $conn->connect_error);
+            } 
+            $fromvar = 'rec r';
+            echo "hi";
+            /*
+            echo $_POST['streetAddress'];
+            echo "hi";
+            echo $_POST['firstName'];
+            echo $_POST['recState'];
 
-			echo $_POST['phone'];
-			echo $_POST['lang'];
-			echo $_POST['lang2'];
-			echo $_POST['proficiency2'];
-			echo $_POST['proficiency3'];
-			
-			echo $_POST['ged'];
-			
-			echo $_POST['diploma'];
-			echo $_POST['highschool'];
-			echo $_POST['gradYear'];
-			echo $_POST['university'];
-			echo $_POST['degree'];
-			echo $_POST['gradYear'];
-			echo $_POST['title'];
-			echo $_POST['PCState'];
-			echo $_POST['series12'];
+            echo $_POST['phone'];
+            echo $_POST['lang'];
+            echo $_POST['lang2'];
+            echo $_POST['proficiency2'];
+            echo $_POST['proficiency3'];
+            
+            echo $_POST['ged'];
+            
+            echo $_POST['diploma'];
+            echo $_POST['highschool'];
+            echo $_POST['gradYear'];
+            echo $_POST['university'];
+            echo $_POST['degree'];
+            echo $_POST['gradYear'];
+            echo $_POST['title'];
+            echo $_POST['PCState'];
+            echo $_POST['series12'];
 
-			echo $_POST['series12'];
-			echo $_POST['series12State'];
-			echo $_POST['licenseBox'];
-			echo $_POST['healthState'];
-			echo $_POST['life'];
-			echo $_POST['lifeState'];
-			echo $_POST['accident'];
-			echo $_POST['accidentState'];
-			echo $_POST['sourceOfLead'];
-			echo $_POST['noNominator'];
-			echo $_POST['abc'];
-			echo $_POST['yesNominator'];
-			echo $_POST['district'];
-			echo $_POST['position'];
-			echo $_POST['process'];
-			echo $_POST['disqualifyReason'];
-			echo $_POST['interviewerName1'];
-			echo $_POST['interviewDate1'];
-			echo $_POST['interviewTime1'];
-			echo $_POST['grade1'];
-			echo $_POST['interviewDate2'];
-			echo $_POST['grade2'];
-			*/
+            echo $_POST['series12'];
+            echo $_POST['series12State'];
+            echo $_POST['licenseBox'];
+            echo $_POST['healthState'];
+            echo $_POST['life'];
+            echo $_POST['lifeState'];
+            echo $_POST['accident'];
+            echo $_POST['accidentState'];
+            echo $_POST['sourceOfLead'];
+            echo $_POST['noNominator'];
+            echo $_POST['abc'];
+            echo $_POST['yesNominator'];
+            echo $_POST['district'];
+            echo $_POST['position'];
+            echo $_POST['process'];
+            echo $_POST['disqualifyReason'];
+            echo $_POST['interviewerName1'];
+            echo $_POST['interviewDate1'];
+            echo $_POST['interviewTime1'];
+            echo $_POST['grade1'];
+            echo $_POST['interviewDate2'];
+            echo $_POST['grade2'];
+            */
 
             
             
@@ -174,135 +174,135 @@
             $wherevar = " ";
             if(!empty($_POST[firstName1]))
             {
-            	echo "ert";
-            	$wherevar = "r.firstName LIKE '%{$_POST[firstName1]}%'";
-        		//	$fromvar = $fromvar1;	
+                echo "ert";
+                $wherevar = "r.firstName LIKE '%{$_POST[firstName1]}%'";
+                //  $fromvar = $fromvar1;   
             }
 
             if(!empty($_POST[middleInitial]))
             {
-            	if ($wherevar != " ")
-            	{
-            		$wherevar = $wherevar . " and "	;
-            	}
+                if ($wherevar != " ")
+                {
+                    $wherevar = $wherevar . " and " ;
+                }
 
-            	$wherevar = $wherevar . " r.middleInitial LIKE '%{$_POST[middleInitial]}%'";
-        		//	$fromvar = $fromvar1;
+                $wherevar = $wherevar . " r.middleInitial LIKE '%{$_POST[middleInitial]}%'";
+                //  $fromvar = $fromvar1;
          
             }
 
             if(!empty($_POST[lastName1]))
             {
-            	if ($wherevar != " ")
-            	{
-            		$wherevar = $wherevar . " and "	;
-            	}
-            	$wherevar = $wherevar . " r.lastName LIKE '%{$_POST[lastName1]}%'";
-        		//	$fromvar = $fromvar1;	
+                if ($wherevar != " ")
+                {
+                    $wherevar = $wherevar . " and " ;
+                }
+                $wherevar = $wherevar . " r.lastName LIKE '%{$_POST[lastName1]}%'";
+                //  $fromvar = $fromvar1;   
             }
 
             if(!empty($_POST[streetAddress1]))
             {
-            	if ($wherevar != " ")
-            	{
-            		$wherevar = $wherevar . " and "	;
-            	}
-            	$wherevar = $wherevar . " r.streetAddress LIKE '%{$_POST[streetAddress1]}%'";
-        		//	$fromvar = $fromvar1;	
+                if ($wherevar != " ")
+                {
+                    $wherevar = $wherevar . " and " ;
+                }
+                $wherevar = $wherevar . " r.streetAddress LIKE '%{$_POST[streetAddress1]}%'";
+                //  $fromvar = $fromvar1;   
             }
 
             if(!empty($_POST[streetAddress2]))
             {
-            	if ($wherevar != " ")
-            	{
-            		$wherevar = $wherevar . " and "	;
-            	}
-            	$wherevar = $wherevar . " r.streetAddress2 LIKE '%{$_POST[streetAddress2]}%'";
-        		//	$fromvar = $fromvar1;	
+                if ($wherevar != " ")
+                {
+                    $wherevar = $wherevar . " and " ;
+                }
+                $wherevar = $wherevar . " r.streetAddress2 LIKE '%{$_POST[streetAddress2]}%'";
+                //  $fromvar = $fromvar1;   
             }
 
             if(!empty($_POST[city]))
             {
-            	if ($wherevar != " ")
-            	{
-            		$wherevar = $wherevar . " and "	;
-            	}
-            	$wherevar = $wherevar . " r.city LIKE '%{$_POST[city]}%'";
-        		//	$fromvar = $fromvar1;	
+                if ($wherevar != " ")
+                {
+                    $wherevar = $wherevar . " and " ;
+                }
+                $wherevar = $wherevar . " r.city LIKE '%{$_POST[city]}%'";
+                //  $fromvar = $fromvar1;   
             }
 
             if(!empty($_POST[zip]))
             {
-            	if ($wherevar != " ")
-            	{
-            		$wherevar = $wherevar . " and "	;
-            	}
-            	$wherevar = $wherevar . " r.zip LIKE '%{$_POST[zip]}%'";
-        		//	$fromvar = $fromvar1;	
+                if ($wherevar != " ")
+                {
+                    $wherevar = $wherevar . " and " ;
+                }
+                $wherevar = $wherevar . " r.zip LIKE '%{$_POST[zip]}%'";
+                //  $fromvar = $fromvar1;   
             }
 
             if(isset($_POST[recState]))
             {
-            	if($_POST[recState] != 'None') 
-            	{
-	            	if ($wherevar != " ")
-	            	{
-	            		$wherevar = $wherevar . " and "	;
-	            	}
-	            	$wherevar = $wherevar . " r.state LIKE '%{$_POST[recState]}%'";
-	        		//	$fromvar = $fromvar1;	
+                if($_POST[recState] != 'None') 
+                {
+                    if ($wherevar != " ")
+                    {
+                        $wherevar = $wherevar . " and " ;
+                    }
+                    $wherevar = $wherevar . " r.state LIKE '%{$_POST[recState]}%'";
+                    //  $fromvar = $fromvar1;   
 
-	        	}	
+                }   
             }
 
             if(!empty($_POST[phone]))
             {
-            	if ($wherevar != " ")
-            	{
-            		$wherevar = $wherevar . " and "	;
-            	}
-            	$wherevar = $wherevar . " r.phone LIKE '%{$_POST[phone]}%'";
-        		//	$fromvar = $fromvar1;	
+                if ($wherevar != " ")
+                {
+                    $wherevar = $wherevar . " and " ;
+                }
+                $wherevar = $wherevar . " r.phone LIKE '%{$_POST[phone]}%'";
+                //  $fromvar = $fromvar1;   
             }
 
             if(!empty($_POST[phone2]))
             {
-            	if ($wherevar != " ")
-            	{
-            		$wherevar = $wherevar . " and "	;
-            	}
-            	$wherevar = $wherevar . " r.secondPhone LIKE '%{$_POST[phone2]}%'";
-        		//    $fromvar = $fromvar1;	
+                if ($wherevar != " ")
+                {
+                    $wherevar = $wherevar . " and " ;
+                }
+                $wherevar = $wherevar . " r.secondPhone LIKE '%{$_POST[phone2]}%'";
+                //    $fromvar = $fromvar1; 
             }
 
             if(!empty($_POST[email]))
             {
-            	if ($wherevar != " ")
-            	{
-            		$wherevar = $wherevar . " and "	;
-            	}
-            	$wherevar = $wherevar . " r.email LIKE '%{$_POST[email]}%'";
-        		//    $fromvar = $fromvar1;	
+                if ($wherevar != " ")
+                {
+                    $wherevar = $wherevar . " and " ;
+                }
+                $wherevar = $wherevar . " r.email LIKE '%{$_POST[email]}%'";
+                //    $fromvar = $fromvar1; 
             }
 
             if(!empty($_POST[email2]))
             {
-            	if ($wherevar != " ")
-            	{
-            		$wherevar = $wherevar . " and "	;
-            	}
-            	$wherevar = $wherevar . " r.secondEmail LIKE '%{$_POST[email2]}%'";
-        		//    $fromvar = $fromvar1;	
+                if ($wherevar != " ")
+                {
+                    $wherevar = $wherevar . " and " ;
+                }
+                $wherevar = $wherevar . " r.secondEmail LIKE '%{$_POST[email2]}%'";
+                //    $fromvar = $fromvar1; 
             }
 
             if(!empty($_POST[lang]))
             {
-            	if ($wherevar != " ")
-            	{
-            		$wherevar = $wherevar . " and "	;
-            	}
-            	$wherevar = $wherevar . " r.firstLang LIKE '%{$_POST[lang]}%'";
-        		//    $fromvar = $fromvar1;	
+                if ($wherevar != " ")
+                {
+                    $wherevar = $wherevar . " and " ;
+                }
+                $wherevar = $wherevar . " r.firstLang LIKE '%{$_POST[lang]}%'";
+                //    $fromvar = $fromvar1; 
             }
 
 
@@ -340,7 +340,7 @@
             }
 
             
-			if(!empty($_POST[lang2]))
+            if(!empty($_POST[lang2]))
             {
                 
                 if ($wherevar != " ")
@@ -1478,15 +1478,15 @@
                 }
             }
 
-			*/
+            */
 
-			if ($wherevar != " ")
-			{
+            if ($wherevar != " ")
+            {
                 $sql = "SELECT Distinct r.recID, r.firstName, r.lastName, r.streetAddress, 
                         r.city, r.state, r.zip, r.phone, r.email, r.resume, r.firstLang, r.ged,
-            		    r.process, r.districtID, r.sourceOfLeadID, r.nominatorID
-            		    FROM " . $fromvar .
-            		    " where " . $wherevar;
+                        r.process, r.districtID, r.sourceOfLeadID, r.nominatorID
+                        FROM " . $fromvar .
+                        " where " . $wherevar;
             }
             else
             {
@@ -1497,7 +1497,7 @@
                         
             }
 
-        	echo $sql;
+            echo $sql;
             $result = $conn->query($sql);
             if ($result->num_rows > 0) 
             {

@@ -412,10 +412,13 @@ if(isset($_POST["submit"])) {
 		echo "Sorry, resume already exists.<br>";
 		$uploadOk = 0;
 	}
-	if (file_exists($target_file2)) {
-		echo "Sorry, coverLetter already exists.<br>";
-		$uploadOk = 0;
+	if($_POST['coverLetter']!= "temp_uploadedFiles/"){
+		if (file_exists($target_file2)) {
+			echo "Sorry, coverLetter already exists.<br>";
+			$uploadOk = 0;
+		}
 	}
+
 
 	// Check file size
 	/*
@@ -434,7 +437,7 @@ if(isset($_POST["submit"])) {
 		echo "Sorry, only doc, docx, txt, and pdf files are allowed.<br>";
 		$uploadOk = 0;
 	}
-	if(!empty($_POST['coverLetter'])){
+	if($_POST['coverLetter']!= "temp_uploadedFiles/"){
 		if($coverLetterType != "txt" && $coverLetterType != "doc" && $coverLetterType != "docx" && $coverLetterType != "pdf") {
 			echo "Sorry, only doc, docx, txt, and pdf files are allowed.<br>";
 			$uploadOk = 0;
@@ -450,14 +453,18 @@ if(isset($_POST["submit"])) {
 		//rename($_POST['resume'], $target_file1);
 		//rename($_POST['coverLetter'], $target_file2);
 		rename($_POST['resume'], $target_dir . $recID . "-Resume" . "." . $resumeType);
-		rename($_POST['coverLetter'], $target_dir . $recID . "-CL" . "." . $coverLetterType);
+		
+		if($_POST['coverLetter']!= "temp_uploadedFiles/"){
+			rename($_POST['coverLetter'], $target_dir . $recID . "-CL" . "." . $coverLetterType);
+		}
+
 		if (file_exists($target_dir . $recID . "-Resume" . "." . $resumeType)) {
 			echo "Resume has been stored on disk.<br>";
-			$uploadOk = 0;
+			$uploadOk = 1;
 		}
 		if (file_exists($target_dir . $recID . "-CL" . "." . $coverLetterType)) {
 			echo "Cover Letter has been stored on disk.<br>";
-			$uploadOk = 0;
+			$uploadOk = 1;
 		}
 	}
 }
@@ -466,7 +473,7 @@ if(isset($_POST["submit"])) {
 //////////////////////////////
 if ($sourceResult and $recResult and $lang2Result and $recLang2Result and $lang3Result and $recLang3Result and
  $distResult and $disqualifyResult and $recLicenseResult and $recLicense2Result and $recLicense3Result and $recLicense4Result and
-  $recLicense5Result and $highschoolResult and $recHighschoolResult and $heResult and $recHEResult ) {
+  $recLicense5Result and $highschoolResult and $recHighschoolResult and $heResult and $recHEResult and $uploadOk == 1) {
    commit($conn); // transaction is committed
     echo "<br> New record created successfully <br> Database transaction was successful"; 
 }

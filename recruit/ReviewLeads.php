@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -928,63 +928,63 @@
 	                    <th>More Results</th>          
 	                  </tr>
 	                <!--end header-->
-	                <!--begin first row-->
-	                  <tr>
-	                      <td>John</td>
-	                      <td>Smith</td>
-	                      <td>Pasadena</td>
-	                      <td>91709</td>
-	                      <td>johnsmith@gmail.com</td>
-	                      <td>(555)555-5555</td>
-	                      <td>1st Interview</td>
-	                      <td>
-							<a href="#profile1" onclick="document.getElementById('lightbox1').style.display='inline';">
-							<img src="../images/icon-profile-small-teal.png">
-							</button>
-						</td>
-	                  </tr>
-	                <!--end first row-->
-	                <!--begin second row-->
-	                  <tr>
-	                      <td>Jane</td>
-	                      <td>Doe</td>
-	                      <td>Chino</td>
-	                      <td>91710</td>
-	                      <td>janedoe@gmail.com</td>
-	                      <td>(555)555-5555</td>
-	                      <td>2nd Interview</td>
-	                      <td>
-	                      	<a href="#profile2" onclick="document.getElementById('lightbox2').style.display='inline';">
-							<img src="../images/icon-profile-small-teal.png">
-							</button>
-							</td>
-	                  </tr>
-	                <!--end second row-->
+
+	                <?php
+						$host = '127.0.0.1';
+						$user = 'root';
+						$pass = '';
+						$db = 'recruiter2';
+						//$db = 'recruiter';
+
+						error_reporting(E_ALL ^ E_NOTICE);
+						// Create connection
+						$conn = mysqli_connect($host, $user, $pass, $db);
+						// Check connection
+						if (!$conn) {
+						    die("Connection failed: " . mysqli_connect_error());
+						}
+						$rows = $conn->query("SELECT firstName,lastName,city,zip,email,phone,process FROM rec ORDER BY recID DESC LIMIT 50");
+						// check first if there's an error in your query
+						if ($mysqli->error) {
+						    die($mysqli->error);
+						}
+						while(list($firstName,$lastName,$city,$zip,$email,$phone,$process)=$rows->fetch_row()) {
+							$_SESSION['nombre']="$firstName";
+							echo "<tr>";	
+							echo "<td>$firstName</td>";
+							echo "<td>$lastName</td>";
+							echo "<td>$city</td>";
+							echo "<td>$zip</td>";
+							echo "<td>$email</td>";
+							echo "<td>$phone</td>";
+							echo "<td>$process</td>";
+							echo "<td><a href='#profile1' onclick=\"document.getElementById('lightbox1').style.display='inline';\"><img src='../images/icon-profile-small-teal.png'></button></td>";
+							echo "</tr>";
+						}
+					?>
 	             </table>
              </div>
 
 	</div>
-
 		<!-- MORE RESULTS LIGHTBOX1 CODE BEGINS -->
 
 			<div id="lightbox1" class="lightbox" style="display:none"
-
-			      onclick="document.getElementById('lightbox1').style.display='none';">
-			   <table class="lightbox_table">
-			   <tr>
-			   <td class="lightbox_table_cell" align="center">
-			      <div id="lightbox_content" style=
+			    onclick="document.getElementById('lightbox1').style.display='none';">
+			    <table class="lightbox_table">
+			    <tr>
+			    <td class="lightbox_table_cell" align="center">
+			      	<div id="lightbox_content" style=
 			            "width:60%; 
 			            background-color:#008080; 
 			            border:5px solid #008080; 
 			            margin:auto;">
-			         <p>
+			        <p>
 
 			         	<!--Begin table within lightbox-->
 			         
 			         	
 			    <table border="1" align="center" class="litTable">
-			         <h1> Carmen Ng </h1>
+			         <h1> Carmen </h1>
 			         <tr>
 			         	<td>Position:</td>
 			         	<td>Intern</td>

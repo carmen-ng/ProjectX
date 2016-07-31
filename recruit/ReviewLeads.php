@@ -943,7 +943,7 @@
 						if (!$conn) {
 						    die("Connection failed: " . mysqli_connect_error());
 						}
-						$rows = $conn->query("SELECT firstName,lastName,city,zip,email,phone,process FROM rec ORDER BY recID DESC LIMIT 50");
+						$rows = $conn->query("SELECT firstName,lastName,city,zip,email,phone,process FROM rec ORDER BY recID DESC LIMIT 10");
 						// check first if there's an error in your query
 						if ($mysqli->error) {
 						    die($mysqli->error);

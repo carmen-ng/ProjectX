@@ -399,6 +399,7 @@ div.datesWorkedToFrom {
     width: 42%;
     display: inline-block;
     height: 25px;
+    text-indent: 8px;
 }
 
 .licenseText {
@@ -429,6 +430,7 @@ div.datesWorkedToFrom {
         width: 100%;
         display: inline-block;
         height: 25px;
+        text-indent: 8px;
     }
 
 
@@ -1088,5 +1090,9 @@ html.fp-enabled,
     display: inline;
     position: relative;
     text-align: left;
-    margin-left: -1%;
+/*    margin-left: -1%;*/
+}
+
+.inputtext{
+    text-indent: 40px;
 }

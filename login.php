@@ -1,9 +1,10 @@
 <?php
 /////////////// Get login credentials///////////////
-$host = '127.0.0.1';
+$host = '127.0.0.1';	
 $user = 'root';
 $pass = '';
-$db = 'rec';
+$db = 'recruiter2';
+
 
 // Create connection
 $conn = mysqli_connect($host, $user, $pass, $db);
@@ -20,78 +21,98 @@ begin($conn);
 
 $submittedUsername = "";
 
-if(!empty($_POST)){
-	$usersQuery = "SELECT userID, username, passwd FROM users WHERE username = :username";
-	$usersParameters = array(':username' => $_POST['useremail']);
+
+if(isset($_POST['username']) and isset($_POST['password'])){
+
+	$username = $_POST['username'];
 
 	try{
-		$usersStatements = $db->prepare($usersQuery);
-		$return = $usersStatements->execute($usersParameters);
+
+		$usersQuery = $conn->prepare("SELECT userID, username, passwd FROM users WHERE username = ?");
+		$usersQuery->bind_param("s", $username);
+		$usersQuery->execute();
+		$usersQuery->bind_result($dbUserID, $dbUsername, $dbPasswdHash);
+		$usersRow = $usersQuery->fetch();
+
+		$loginSuccess = false;
+
+		if($usersRow){
+			$hash = hash('sha256', $_POST['password']);
+
+			if ($hash == $dbPasswdHash) {
+				$loginSuccess = true;
+			}
+
+			else {
+				die('<script type="text/javascript">alert("Passwords don\'t match");window.location=\'login.html\';</script>');
+			}
+		}
 	}
 
 	catch(PDOException $exception){
 		die("Query failed: " . $exception->getMessage());
 	}
 
-	$loginSuccess = false;
-	$usersRow = $usersStatements->fetch();
-
-		if($usersRow){
-			$hash = hash('sha256', $_POST['password']);
-
-			if ($hash == $usersRow['passwd']) {
-				$loginSuccess = true;
-			}
-		}
-
 		if($loginSuccess){
+
+			$_SESSION['userID'] = $dbUserID;
+			$_SESSION['username'] = $dbUsername;
+
 			unset($usersRow['passwd']);
-			$_SESSION['user'] = $usersRow;
+			unset($dbPasswdHash);
+			unset($usersQuery);
 
-			//Query the user's access level
-			$users_x_alQuery = "SELECT userID, accessLevelID FROM users_x_accessLevel WHERE userID = :userID";
-			$users_x_alParameters = array(':userID' => $usersRow['userID']);
 
-			try{
-				$users_x_alStatements = $db->prepare($users_x_alQuery);
-				$return2 = $users_x_alStatements->execute($users_x_alParameters);
-			}
+		// 	//Query the user's access level
+		// 	$users_x_accessLevelQuery = "SELECT userID, accessLevelID FROM users_x_accessLevel WHERE userID = :userID";
+		// 	$users_x_accessLevelParameters = array(':userID' => $dbUserID);
 
-			catch(PDOException $exception){
-				die("Query failed: " . $exception->getMessage());
-			}
+		// 	try{
+		// 		$users_x_accessLevelStatements = $conn->prepare($users_x_accessLevelQuery);
+		// 		$return2 = $users_x_accessLevelStatements->execute($users_x_accessLevelParameters);
+		// 	}
 
-			$users_x_alRow = $users_x_alStatements->fetch();
-			$_SESSION['access_level'] = $users_x_alRow['accessLevelID'];
+		// 	catch(PDOException $exception){
+		// 		die("Query failed: " . $exception->getMessage());
+		// 	}
 
-			//If the access level is district, then the district table should be queried
-			if($users_x_alRow['accessLevelID'] == 2){
-				$users_x_distQuery = "SELECT userID, districtID FROM users_x_district WHERE userID = :userID";
-				$users_x_distParameters = array(':userID' => $usersRow['userID']);
+		// 	$users_x_accessLevelRow = $users_x_accessLevelStatements->fetch();
+		// 	$_SESSION['access_level'] = $users_x_accessLevelRow['accessLevelID'];
 
-				try{
+		// 	//If the access level is district, then the district table should be queried
+		// 	if($users_x_accessLevelRow['accessLevelID'] == 2){
+		// 		$users_x_districtsQuery = "SELECT userID, districtID FROM users_x_district WHERE userID = :userID";
+		// 		$users_x_districtsParameters = array(':userID' => $usersRow['userID']);
 
-					$users_x_distStatements = $db->prepare($users_x_distQuery);
-					$return3 = $users_x_distStatements->execute($users_x_distParameters);
-				}
+		// 		try{
 
-				catch(PDOException $exception){
-					die("Query failed: " . $exception->getMessage());
-				}
+		// 			$users_x_districtsStatements = $conn->prepare($users_x_districtsQuery);
+		// 			$return3 = $users_x_districtsStatements->execute($users_x_districtsParameters);
+		// 		}
 
-				$users_x_distRow = $users_x_distStatements->fetch();
-				$_SESSION['userDistrictID'] = $users_x_distRow['districtID'];
-			}
+		// 		catch(PDOException $exception){
+		// 			die("Query failed: " . $exception->getMessage());
+		// 		}
 
-			//header("Location: home.html")
+		// 		$users_x_distRow = $users_x_districtsStatements->fetch();
+		// 		$_SESSION['userDistrictID'] = $users_x_distRow['districtID'];
+		// 	}
+
+			redirect("home.html");
+			exit();
 		}
-
-		else{
-			print("Login Failed")
-			$submittedUsername = htmlentities($_POST['useremail'], ENT_QUOTES, 'UTF-8'); 
-		}
-
 	}
 
 mysqli_close($conn);
+
+function redirect($url){
+    if (headers_sent()){
+      die('<script type="text/javascript">window.location=\''. $url .'\';</script>');
+    }
+    else {
+      header('Location: ' . $url);
+      die();
+    }    
+}
+
 ?>

@@ -17,11 +17,13 @@ function begin($conn){
     mysqli_query($conn,"BEGIN");
 }
 
+session_start();
+
 begin($conn);
 
 $submittedUsername = "";
 
-
+//HIC SUNT DRACONES
 if(isset($_POST['username']) and isset($_POST['password'])){
 
 	$username = $_POST['username'];
@@ -64,41 +66,52 @@ if(isset($_POST['username']) and isset($_POST['password'])){
 
 
 		// 	//Query the user's access level
-		// 	$users_x_accessLevelQuery = "SELECT userID, accessLevelID FROM users_x_accessLevel WHERE userID = :userID";
-		// 	$users_x_accessLevelParameters = array(':userID' => $dbUserID);
+			try{
+				$users_x_accessLevelQuery = $conn->prepare("SELECT accessLevelID FROM users_x_accessLevel WHERE userID = ?");
+				$users_x_accessLevelQuery->bind_param("s", $_SESSION['userID']);
+				$users_x_accessLevelQuery->execute();
+				$users_x_accessLevelQuery->bind_result($dbUserAccessLevel);
+				$users_x_accessLevelQuery->fetch();
+			}
 
-		// 	try{
-		// 		$users_x_accessLevelStatements = $conn->prepare($users_x_accessLevelQuery);
-		// 		$return2 = $users_x_accessLevelStatements->execute($users_x_accessLevelParameters);
-		// 	}
+			catch(PDOException $exception){
+				die("Query failed: " . $exception->getMessage());
+			}
 
-		// 	catch(PDOException $exception){
-		// 		die("Query failed: " . $exception->getMessage());
-		// 	}
+			$_SESSION['userAccessLevel'] = $dbUserAccessLevel;
 
-		// 	$users_x_accessLevelRow = $users_x_accessLevelStatements->fetch();
-		// 	$_SESSION['access_level'] = $users_x_accessLevelRow['accessLevelID'];
+			echo("Access Level: " . $_SESSION['userAccessLevel']);
+			
+			unset($dbUserAccessLevel);
 
-		// 	//If the access level is district, then the district table should be queried
-		// 	if($users_x_accessLevelRow['accessLevelID'] == 2){
-		// 		$users_x_districtsQuery = "SELECT userID, districtID FROM users_x_district WHERE userID = :userID";
-		// 		$users_x_districtsParameters = array(':userID' => $usersRow['userID']);
+			// IT'S NECESSARY TO UNSET THE QUERY VARIABLE IN ORDER TO FREE THE BINDED SESSION VARIABLE ($_SESSION['userID'])!!!
+			unset($users_x_accessLevelQuery);
 
-		// 		try{
+			//If the access level is district, then the district table should be queried
+			if($_SESSION['userAccessLevel'] == 2){
+				try{
 
-		// 			$users_x_districtsStatements = $conn->prepare($users_x_districtsQuery);
-		// 			$return3 = $users_x_districtsStatements->execute($users_x_districtsParameters);
-		// 		}
+					$users_x_districtsQuery = $conn->prepare("SELECT districtID FROM users_x_district WHERE userID = ?");
+					$users_x_districtsQuery->bind_param("s", $_SESSION['userID']);
+					$users_x_districtsQuery->execute();
+					$users_x_districtsQuery->bind_result($dbDistrictIDs);
 
-		// 		catch(PDOException $exception){
-		// 			die("Query failed: " . $exception->getMessage());
-		// 		}
+					$users_x_districtRows = $users_x_districtsQuery->fetch();
+					$_SESSION['userDistricts'] = array();
 
-		// 		$users_x_distRow = $users_x_districtsStatements->fetch();
-		// 		$_SESSION['userDistrictID'] = $users_x_distRow['districtID'];
-		// 	}
+					while($users_x_districtsQuery->fetch()){
+						array_push($_SESSION['userDistricts'], $dbDistrictIDs);
+					}
 
-			redirect("home.html");
+				}
+
+				catch(PDOException $exception){
+					die("Query failed: " . $exception->getMessage());
+				}
+
+			}
+
+			redirect("home.php");
 			exit();
 		}
 	}

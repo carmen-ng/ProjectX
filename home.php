@@ -8,6 +8,9 @@
 	<link rel="stylesheet" href="home.css">
 </head>
 <body class="cbp-spmenu-push">
+	<?php
+	session_start();
+	?>
 	<div class="container">
 		<div class="header">
 			<div class="nav">
@@ -15,7 +18,7 @@
 					<li><a href="#"><img class="face" src="images/face.png" alt=""></a></li>
 					<li><h1>John Smith</h1></li>
 					<li><h1>Recruitment Director</h1></li>
-					<li><h1>#AY53N6</h1></li>
+					<li><h1>#<?php echo($_SESSION['userID']);?></h1></li>
 					<!-- codrop nav -->
 					
 					<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
@@ -29,9 +32,9 @@
 					<!-- end .nav-left -->
 				</div>
 				<div class="nav-right">
-					<li><a href="home.html" class="active"><img class="nav-logo" src="images/icon-home.png" alt=""></a></li>
+					<li><a href="home.php" class="active"><img class="nav-logo" src="images/icon-home.png" alt=""></a></li>
 					<li><a href="#"><img class="nav-logo" src="images/icon-cal.png" alt=""></a></li>
-					<li><a href="recruit/dashRec.html"><img class="nav-logo" src="images/icon-rec.png" alt=""></a></li>
+					<li><a href="recruit/dashRec.php"><img class="nav-logo" src="images/icon-rec.png" alt=""></a></li>
 					<li><a href="#"><img class="nav-logo" src="images/icon-hr.png" alt=""></a></li>
 					<li><a href="#"><img class="nav-logo" src="images/icon-leads.png" alt=""></a></li>
 					<li><a href="#"><img class="nav-logo" src="images/icon-sales.png" alt=""></a></li>

@@ -68,18 +68,18 @@
                     
                     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
                         <h3>Recruitment</h3>
-                        <a href="createRec.html">Create a Lead Profile</a>
+                        <a href="createRec.php">Create a Lead Profile</a>
                         <a href="#">Search Recruit Leads</a>
-                        <a href="ReviewLeads.html" class="active">View Recruit Leads</a>
+                        <a href="ReviewLeads.php" class="active">View Recruit Leads</a>
                         <a href="#">Menu Item</a>
                     </nav>
                     <!-- end codrop -->
                     <!-- end .nav-left -->
                 </div>
                 <div class="nav-right">
-                    <li><a href="../home.html"><img class="nav-logo" src="../images/icon-home.png" alt=""></a></li>
+                    <li><a href="../home.php"><img class="nav-logo" src="../images/icon-home.png" alt=""></a></li>
                     <li><a href="#"><img class="nav-logo" src="../images/icon-cal.png" alt=""></a></li>
-                    <li><a href="dashRec.html" class="active"><img class="nav-logo" src="../images/icon-rec.png" alt=""></a></li>
+                    <li><a href="dashRec.php" class="active"><img class="nav-logo" src="../images/icon-rec.png" alt=""></a></li>
                     <li><a href="#"><img class="nav-logo" src="../images/icon-hr.png" alt=""></a></li>
                     <li><a href="#"><img class="nav-logo" src="../images/icon-leads.png" alt=""></a></li>
                     <li><a href="#"><img class="nav-logo" src="../images/icon-sales.png" alt=""></a></li>
@@ -104,9 +104,9 @@
         <!-- end container -->
 
             <?php
-            $servername = "localhost";
+            $servername = "127.0.0.1";
             $username = "root";
-            $password = "root";
+            $password = "";
             //$dbname = "rec";
             $dbname = "recruiter2";
             // Create connection
@@ -117,7 +117,7 @@
                 die("Connection failed: " . $conn->connect_error);
             } 
             $fromvar = 'rec r';
-            echo "hi";
+            echo "<br>";
             /*
             echo $_POST['streetAddress'];
             echo "hi";
@@ -166,15 +166,11 @@
             echo $_POST['grade2'];
             */
 
-            
-            
-
             $selectvar = $_POST['streetAddress']; 
 
             $wherevar = " ";
             if(!empty($_POST[firstName1]))
             {
-                echo "ert";
                 $wherevar = "r.firstName LIKE '%{$_POST[firstName1]}%'";
                 //  $fromvar = $fromvar1;   
             }
@@ -335,7 +331,7 @@
                 {
                     $wherevar = $wherevar . " and " ;
                 }
-                $wherevar = $wherevar . " r.process LIKE '%{$_POST[process]}%'";
+                $wherevar = $wherevar . " r.process = '{$_POST[process]}'";
                 //  $fromvar = $fromvar1;   
             }
 
@@ -993,7 +989,7 @@
                 if(($_POST[noNominator]) == 1 && ($_POST[yesNominator]) == 0)
                 {
 
-                    echo "yes";
+                    // echo "yes";
 
                     if ($wherevar != " ")
                     {
@@ -1009,7 +1005,7 @@
                 else if(($_POST[yesNominator]) == 1 && ($_POST[noNominator]) == 0)
                 {
 
-                    echo "yes";
+                    // echo "yes";
 
                     if ($wherevar != " ")
                     {
@@ -1497,7 +1493,7 @@
                         
             }
 
-            echo $sql;
+            // echo $sql;
             $result = $conn->query($sql);
             if ($result->num_rows > 0) 
             {

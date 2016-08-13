@@ -50,18 +50,18 @@
 					
 					<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
 						<h3>Recruitment</h3>
-						<a href="createRec.html">Create a Lead Profile</a>
+						<a href="createRec.php">Create a Lead Profile</a>
 						<a href="#">Search Recruit Leads</a>
-						<a href="ReviewLeads.html" class="active">View Recruit Leads</a>
+						<a href="ReviewLeads.php" class="active">View Recruit Leads</a>
 						<a href="#">Menu Item</a>
 					</nav>
 					<!-- end codrop -->
 					<!-- end .nav-left -->
 				</div>
 				<div class="nav-right">
-					<li><a href="../home.html"><img class="nav-logo" src="../images/icon-home.png" alt=""></a></li>
+					<li><a href="../home.php"><img class="nav-logo" src="../images/icon-home.png" alt=""></a></li>
 					<li><a href="#"><img class="nav-logo" src="../images/icon-cal.png" alt=""></a></li>
-					<li><a href="dashRec.html" class="active"><img class="nav-logo" src="../images/icon-rec.png" alt=""></a></li>
+					<li><a href="dashRec.php" class="active"><img class="nav-logo" src="../images/icon-rec.png" alt=""></a></li>
 					<li><a href="#"><img class="nav-logo" src="../images/icon-hr.png" alt=""></a></li>
 					<li><a href="#"><img class="nav-logo" src="../images/icon-leads.png" alt=""></a></li>
 					<li><a href="#"><img class="nav-logo" src="../images/icon-sales.png" alt=""></a></li>
@@ -734,15 +734,14 @@
 
 						<h2>PROCESS LEVEL</h2>
 			    		<label class="lblProcess">Process Level: </label>
-			    		<input type="text" class="assDist" name="process">
-			    		<!--
+			    		
  	  				 	<select name="process" class="processLevel">
- 	  				 		<option value="None">-- Any --</option>
+ 	  				 		<option value="">-- Any --</option>
 						    <option value="1st Interview">1st Interview</option>
 							<option value="2nd Interview">2nd Interview</option>
 							<option value="Disqualified">Disqualified</option>
 						</select>
-						-->
+
 						<br><br>
  
  	  				 	<label>If Disqualified, State Reason:</label>
@@ -829,7 +828,7 @@
 			<div id="shadowing"></div>
 			<div id="box">
 			  <span id="boxtitle"></span>
-			  <form method="GET" action="SearchLeads.html" target="_parent">
+			  <form method="GET" action="SearchLeads.php" target="_parent">
 			      
 			    <p>First Name: 
 			      <input type="text" name="email" value="First Name" maxlength="60" size="60">

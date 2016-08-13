@@ -614,37 +614,37 @@
                                 <!-- <input type="text" class="lead" name="sourceOfLead" required> -->
                                 <input type="text" class="lead" name="sourceOfLead" >
                                 <br><br><br>
-								<script type="text/javascript">
-								function yesnoCheck2() {
-									if (document.getElementById('none').checked) {
-										document.getElementById('ifYesNominator').style.display = 'none';
-									}
-									else document.getElementById('ifYesNominator').style.display = 'block';
-								}
-								</script>
-								<table width="85%">
+                                <script type="text/javascript">
+                                function yesnoCheck2() {
+                                    if (document.getElementById('none').checked) {
+                                        document.getElementById('ifYesNominator').style.display = 'none';
+                                    }
+                                    else document.getElementById('ifYesNominator').style.display = 'block';
+                                }
+                                </script>
+                                <table width="85%">
                                     <tr>
                                         <td width="70%">
                                             <span class="requiredSign">* </span><label>Nominator:</label><span class="requiredFieldError" style="display: none;">Required Field</span>
                                         </td>
                                         <td width="50%">
-											<span class = "requiredSign">No</span><input type="radio" onclick="javascript:yesnoCheck2();" name="nominator" value="none" id="none"> 
-											<span class = "requiredSign">Yes</span><input type="radio" onclick="javascript:yesnoCheck2();" name="nominator" value="yes" id="yes"><br>
+                                            <span class = "requiredSign">No</span><input type="radio" onclick="javascript:yesnoCheck2();" name="nominator" value="none" id="none"> 
+                                            <span class = "requiredSign">Yes</span><input type="radio" onclick="javascript:yesnoCheck2();" name="nominator" value="yes" id="yes"><br>
                                         </td>
                                     </tr>
                                 </table>
                                 <br>
                                 <table width="84%" >
-								    <td>
-										<div id="ifYesNominator" style="display:none">
-											If Yes:<br>
-											First Name: <input type='text' id='nomfirstName' name='nomfirstName'><br>
-											Last Name:<input type='text'   id='nomlastName' name='nomlastName'>
-											Writing#:<input type='text'   id='writingNo' name='writingNo'>
-										</div>
-									</td>
+                                    <td>
+                                        <div id="ifYesNominator" style="display:none">
+                                            If Yes:<br>
+                                            First Name: <input type='text' id='nomfirstName' name='nomfirstName'><br>
+                                            Last Name:<input type='text'   id='nomlastName' name='nomlastName'>
+                                            Writing#:<input type='text'   id='writingNo' name='writingNo'>
+                                        </div>
+                                    </td>
                                 </table>
-								<br><br>
+                                <br><br>
                                 <h2>APPLIED FOR</h2>
                                 <span class="requiredSign">* </span><label>Assigned District:</label><span class="requiredFieldMessage" style="display: none;">Required Field</span>
                                 <!-- <input type="text" class="assDist" name="district" required> -->

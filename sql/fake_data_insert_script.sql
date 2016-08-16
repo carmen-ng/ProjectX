@@ -1,5 +1,7 @@
 -- SCRIPT TO INSERT FAKE DATA TO THE DATABASE
 
+USE recruiter2;
+
 -- district
 
 INSERT INTO district (`districtName`) VALUES ('First District');
@@ -21,18 +23,6 @@ INSERT INTO accessLevel VALUES (NULL, 'Limited Supervisor Access', 'Access to th
 
 INSERT INTO users VALUES (NULL, 'user', '54de7f606f2523cba8efac173fab42fb7f59d56ceff974c8fdb7342cf2cfe345');
 
--- recExperience
-
-INSERT INTO recExperience (`recID`, `experienceID`, `priority`, `company`, `startDate`,`endDate`) VALUES (1, 1, 1, 'Google', '11/1/2015', '8/6/2015');
-INSERT INTO recExperience (`recID`, `experienceID`, `priority`, `company`, `startDate`,`endDate`) VALUES (2, 1, 1, 'Google', '11/1/2015', '8/6/2015');
-INSERT INTO recExperience (`recID`, `experienceID`, `priority`, `company`, `startDate`,`endDate`) VALUES (3, 1, 1, 'Google', '11/1/2015', '8/6/2015');
-
--- recPositions
-
-INSERT INTO recPositions (`recID`,`positionID`,`priority`) VALUES (1, 1, 'High');
-INSERT INTO recPositions (`recID`,`positionID`,`priority`) VALUES (2, 1, 'Normal');
-INSERT INTO recPositions (`recID`,`positionID`,`priority`) VALUES (3, 1, 'Low');
-
 -- whyDisquilify
 
 INSERT INTO whyDisqualify (`explanation`) VALUES ('Do not fill requirements');
@@ -52,6 +42,21 @@ INSERT INTO rec (`firstName`, `middleInitial`, `lastName`, `streetAddress`, `str
 INSERT INTO rec (`firstName`, `middleInitial`, `lastName`, `streetAddress`, `streetAddress2`, `city`, `state`, `zip`, `phone`, `secondPhone`, `email`, `secondEmail`, `resume`, `coverLetter`, `firstLang`, `ged`, `process`, `districtID`, `sourceOfLeadID`, `intern`, `disqualified`, `whyDisqualifyID`, `nominatorID`, `positionName`, `resumeFileName`) values ('nisi', 'F', 'Gonzalez', 'Blackbird', 'American Ash', 'Sacramento', 'California', '95865', '1-(916)504-4523', '1-(915)907-9365', 'mgonzalez4@ibm.com', 'mgonzalez4@oaic.gov.au', 'sociis', 'diam', 'consequat',1, '2nd Interview', 1, 'nulla', 1, 1, 1, 1, 'Intern', 'resume5.pdf');
 INSERT INTO rec (`firstName`, `middleInitial`, `lastName`, `streetAddress`, `streetAddress2`, `city`, `state`, `zip`, `phone`, `secondPhone`, `email`, `secondEmail`, `resume`, `coverLetter`, `firstLang`, `ged`, `process`, `districtID`, `sourceOfLeadID`, `intern`, `disqualified`, `whyDisqualifyID`, `nominatorID`, `positionName`, `resumeFileName`) values ('maecenas', 'F', 'Crawford', 'Corry', 'Steensland', 'Boulder', 'Colorado', '80328', '1-(303)417-0658', '1-(843)295-6487', 'dcrawford5@ow.ly', 'dcrawford5@123-reg.co.uk', 'fermentum', 'quisque', 'feugiat',1, '1st Interview', 1, 'in', 1, 1, 1, 1, 'Intern', 'resume6.pdf');
 
+-- workExperience
+INSERT INTO workExperience (`experienceID`,`title`) VALUES (1,'Recruiter Manager');
+
+-- recExperience
+
+INSERT INTO recExperience (`recID`, `experienceID`, `priority`, `company`, `startDate`,`endDate`) VALUES (1, 1, 1, 'Google', '11/1/2015', '8/6/2015');
+INSERT INTO recExperience (`recID`, `experienceID`, `priority`, `company`, `startDate`,`endDate`) VALUES (2, 1, 1, 'Google', '11/1/2015', '8/6/2015');
+INSERT INTO recExperience (`recID`, `experienceID`, `priority`, `company`, `startDate`,`endDate`) VALUES (3, 1, 1, 'Google', '11/1/2015', '8/6/2015');
+
+-- recPositions
+
+INSERT INTO recPositions (`recID`,`positionID`,`priority`) VALUES (1, 1, 'High');
+INSERT INTO recPositions (`recID`,`positionID`,`priority`) VALUES (2, 1, 'Normal');
+INSERT INTO recPositions (`recID`,`positionID`,`priority`) VALUES (3, 1, 'Low');
+
 
 -- users_x_accessLevel
 
@@ -62,4 +67,3 @@ INSERT INTO users_x_accessLevel (`userID`,`accessLevelID`) VALUES (1,2);
 INSERT INTO users_x_district (`userID`,`districtID`) VALUES (1,1);
 INSERT INTO users_x_district (`userID`,`districtID`) VALUES (1,2);
 INSERT INTO users_x_district (`userID`,`districtID`) VALUES (1,3);
-INSERT INTO users_x_district (`userID`,`districtID`) VALUES (1,5);

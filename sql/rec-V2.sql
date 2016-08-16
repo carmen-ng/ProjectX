@@ -1,9 +1,12 @@
 Create database recruiter2;
 
+USE recruiter2;
+
 CREATE TABLE district (
 	districtID INT(11) NOT NULL AUTO_INCREMENT,
 	districtName VARCHAR(25) NOT NULL,
 	PRIMARY KEY(districtID));
+
 CREATE TABLE sourceOfLead (
 	sourceOfLeadID INT(11) NOT NULL AUTO_INCREMENT,
 	sourceOfLead VARCHAR(100) NOT NULL,
@@ -21,10 +24,7 @@ CREATE TABLE nominator (
 	writingNo VARCHAR(8),
 	PRIMARY KEY(nominatorID));
 
-
-CREATE TABLE rec
-
-(
+CREATE TABLE rec(
 	recID int(11) NOT NULL AUTO_INCREMENT,
 	firstName varchar(25) NOT NULL,
 	middleInitial char(1),

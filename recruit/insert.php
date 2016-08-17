@@ -98,7 +98,7 @@ if ($_POST[email] and $_POST[email2] and $_POST[email]!=$_POST[email2]) {
 	$email = filter_var($_POST[email], FILTER_SANITIZE_EMAIL);
 	$email2 = filter_var($_POST[email2], FILTER_SANITIZE_EMAIL);
     // check if e-mail address is well-formed
-    if (!filter_var($email1, FILTER_VALIDATE_EMAIL) === false or !filter_var($email2, FILTER_VALIDATE_EMAIL) === false) {
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false or !filter_var($email2, FILTER_VALIDATE_EMAIL) === false) {
 		$recResult = mysqli_query($conn, $recSql);
 		if (!$recResult) {
 			rollback($conn); // transaction rolls back
@@ -110,6 +110,22 @@ if ($_POST[email] and $_POST[email2] and $_POST[email]!=$_POST[email2]) {
 	else{
 		echo "Invalid email format<br>"; 
 	} 
+}
+else if($_POST[email] and !$_POST[email2]){
+	$email = filter_var($_POST[email], FILTER_SANITIZE_EMAIL);
+    // check if e-mail address is well-formed
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+		$recResult = mysqli_query($conn, $recSql);
+		if (!$recResult) {
+			rollback($conn); // transaction rolls back
+			echo "<br>rec transaction rolled back(Basic Info) <br> Error: " . $recSql . "<br>" . mysqli_error($conn);  
+		} 
+		$recID= mysqli_insert_id($conn);
+
+    }
+	else{
+		echo "Invalid email format<br>"; 
+	} 	
 }
 else{
     echo "Both emails cannot be empty or same!<br> "; 

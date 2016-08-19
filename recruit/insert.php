@@ -490,8 +490,9 @@ if(isset($_POST["submit"])) {
 if ($sourceResult and $recResult and $lang2Result and $recLang2Result and $lang3Result and $recLang3Result and
  $distResult and $disqualifyResult and $recLicenseResult and $recLicense2Result and $recLicense3Result and $recLicense4Result and
   $recLicense5Result and $highschoolResult and $recHighschoolResult and $heResult and $recHEResult and $uploadOk == 1) {
-   commit($conn); // transaction is committed
-    echo "<br> New record created successfully <br> Database transaction was successful"; 
+	commit($conn); // transaction is committed
+ 
+	redirect('ReviewLeads.php');
 }
 
 else{
@@ -511,6 +512,17 @@ else{
     echo "<br> Transaction rolled back <br>" ;
 }
 */
+
+function redirect($url){
+    if (headers_sent()){
+      die('<script type="text/javascript">window.location=\''. $url .'\';</script>');
+    }
+    else {
+      header('Location: ' . $url);
+      die();
+    }    
+}
+
 mysqli_close($conn);
 ?>
 

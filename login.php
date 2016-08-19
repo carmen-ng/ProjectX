@@ -65,7 +65,7 @@ if(isset($_POST['username']) and isset($_POST['password'])){
 			unset($usersQuery);
 
 
-		// 	//Query the user's access level
+		//Query the user's access level
 			try{
 				$users_x_accessLevelQuery = $conn->prepare("SELECT accessLevelID FROM users_x_accessLevel WHERE userID = ?");
 				$users_x_accessLevelQuery->bind_param("s", $_SESSION['userID']);
@@ -80,7 +80,6 @@ if(isset($_POST['username']) and isset($_POST['password'])){
 
 			$_SESSION['userAccessLevel'] = $dbUserAccessLevel;
 
-			echo("Access Level: " . $_SESSION['userAccessLevel']);
 			
 			unset($dbUserAccessLevel);
 
@@ -103,6 +102,8 @@ if(isset($_POST['username']) and isset($_POST['password'])){
 						array_push($_SESSION['userDistricts'], $dbDistrictIDs);
 					}
 
+					unset($users_x_districtsQuery);
+
 				}
 
 				catch(PDOException $exception){
@@ -110,6 +111,35 @@ if(isset($_POST['username']) and isset($_POST['password'])){
 				}
 
 			}
+
+			try{
+
+					$users_x_personQuery = $conn->prepare("SELECT personID FROM users_x_person WHERE userID = ?");
+					$users_x_personQuery->bind_param("s", $_SESSION['userID']);
+					$users_x_personQuery->execute();
+					$users_x_personQuery->bind_result($dbPersonID);
+
+					$users_x_personQuery->fetch();
+
+					unset($users_x_personQuery);
+
+					$personQuery = $conn->prepare("SELECT firstName, lastName, position FROM person WHERE personID = ?");
+					$personQuery->bind_param("s", $dbPersonID);
+					$personQuery->execute();
+					$personQuery->bind_result($dbPersonFirstName, $dbPersonLastName, $dbPersonPosition);
+
+					$personQuery->fetch();
+
+					$_SESSION['personFirstName'] = $dbPersonFirstName;
+					$_SESSION['personLastName'] = $dbPersonLastName;
+					$_SESSION['personPosition'] = $dbPersonPosition;
+					
+					unset($personQuery);
+				}
+
+				catch(PDOException $exception){
+					die("Query failed: " . $exception->getMessage());
+				}
 
 			redirect("home.php");
 			exit();

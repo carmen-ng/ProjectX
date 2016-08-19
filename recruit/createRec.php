@@ -36,7 +36,8 @@
                             <!-- codrop nav -->
                             <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left bounceInDown" id="cbp-spmenu-s1">
                                 <h3>Recruitment</h3>
-                                <a class="animsition-link" href="slide.html" class="active">Create a Lead Profile</a>
+                                <a class="animsition-link" href="createRec.php" class="active">Create a Lead Profile</a>
+                                <a class="animsition-link" href="createUser.php">Create an User</a>
                                 <a class="animsition-link" href="#">Search Recruit Leads</a>
                                 <a class="animsition-link" href="ReviewLeads.html">View Recruit Leads</a>
                                 <a class="animsition-link" href="#">Menu Item</a>

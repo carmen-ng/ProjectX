@@ -197,6 +197,26 @@ CREATE TABLE users_x_accessLevel (
     FOREIGN KEY (accessLevelID) REFERENCES accessLevel(accessLevelID)
 );
 
+CREATE TABLE person (
+    personID int (11) NOT NULL AUTO_INCREMENT,
+    userID int (11),
+    firstName varchar (25),
+    lastName varchar (25),
+    gender varchar (1),
+    position varchar (25),
+    PRIMARY KEY (personID),
+    FOREIGN KEY (userID) REFERENCES users(userID)
+);
+
+CREATE TABLE users_x_person (
+    users_x_personID int (11) NOT NULL AUTO_INCREMENT,
+    personID int (11),
+    userID int (11),
+    PRIMARY KEY (users_x_personID),
+    FOREIGN KEY (userID) REFERENCES users(userID),
+    FOREIGN KEY (personID) REFERENCES person(personID)
+);
+
 ALTER TABLE reclanguage
 ADD FOREIGN KEY (recID)
 REFERENCES rec(recID);

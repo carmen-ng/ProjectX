@@ -67,3 +67,14 @@ INSERT INTO users_x_accessLevel (`userID`,`accessLevelID`) VALUES (1,2);
 INSERT INTO users_x_district (`userID`,`districtID`) VALUES (1,1);
 INSERT INTO users_x_district (`userID`,`districtID`) VALUES (1,2);
 INSERT INTO users_x_district (`userID`,`districtID`) VALUES (1,3);
+
+-- person
+
+INSERT INTO person (`userID`, `firstName`, `lastName`, `gender`, `position`) VALUES (1, 'John', 'Doe', 'M', 'Recruiter Manager');
+
+-- users_x_person
+
+INSERT INTO users_x_person (`personID`, `userID`) VALUES (1,1);
+
+
+

@@ -51,6 +51,7 @@
 					<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
 						<h3>Recruitment</h3>
 						<a href="createRec.php">Create a Lead Profile</a>
+						<a href="createUser.php">Create an User</a>
 						<a href="#">Search Recruit Leads</a>
 						<a href="ReviewLeads.php" class="active">View Recruit Leads</a>
 						<a href="#">Menu Item</a>

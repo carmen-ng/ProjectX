@@ -16,8 +16,8 @@
 			<div class="nav">
 				<div class="nav-left">
 					<li><a href="#"><img class="face" src="images/face.png" alt=""></a></li>
-					<li><h1>John Smith</h1></li>
-					<li><h1>Recruitment Director</h1></li>
+					<li><h1><?php echo($_SESSION['personFirstName']);?><?php echo(" " .$_SESSION['personLastName']);?></h1></li>
+					<li><h1><?php echo($_SESSION['personPosition']);?></h1></li>
 					<li><h1>#<?php echo($_SESSION['userID']);?></h1></li>
 					<!-- codrop nav -->
 					

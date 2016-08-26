@@ -918,6 +918,7 @@
 
 	                <!--begin header of table-->  
 	                <tr>
+						<th>ID</th>
 	                    <th>First Name</th>
 	                    <th>Last Name</th> 
 	                    <th>City</th>
@@ -935,7 +936,14 @@
 						$pass = '';
 						$db = 'recruiter2';
 						//$db = 'recruiter';
-
+						
+						$page = $_GET["page"];
+						if($page=="" or $page==1){
+							$page1=0;
+						}
+						else{
+							$page1=$page*10-10;
+						}
 						error_reporting(E_ALL ^ E_NOTICE);
 						// Create connection
 						$conn = mysqli_connect($host, $user, $pass, $db);
@@ -943,14 +951,21 @@
 						if (!$conn) {
 						    die("Connection failed: " . mysqli_connect_error());
 						}
-						$rows = $conn->query("SELECT firstName,lastName,city,zip,email,phone,process FROM rec ORDER BY recID DESC LIMIT 10");
+						//$rows = mysqli_query("SELECT firstName,lastName,city,zip,email,phone,process FROM rec ORDER BY recID DESC");
+						$rows = $conn->query("SELECT recID, firstName,lastName,city,zip,email,phone,process FROM rec ORDER BY recID ASC LIMIT $page1,10");
 						// check first if there's an error in your query
 						if ($mysqli->error) {
 						    die($mysqli->error);
-						}
-						while(list($firstName,$lastName,$city,$zip,$email,$phone,$process)=$rows->fetch_row()) {
+						}						
+						//this is for counting number of rows:
+						$rows1 = $conn->query("SELECT firstName,lastName,city,zip,email,phone,process FROM rec ORDER BY recID DESC");
+						$count=$rows1->num_rows;														
+						$count = $count/10;
+						$count = ceil($count);
+						while(list($recID,$firstName,$lastName,$city,$zip,$email,$phone,$process)=$rows->fetch_row()) {
 							$_SESSION['nombre']="$firstName";
 							echo "<tr>";	
+							echo "<td>$recID</td>";
 							echo "<td>$firstName</td>";
 							echo "<td>$lastName</td>";
 							echo "<td>$city</td>";
@@ -961,8 +976,13 @@
 							echo "<td><a href='#profile1' onclick=\"document.getElementById('lightbox1').style.display='inline';\"><img src='../images/icon-profile-small-teal.png'></button></td>";
 							echo "</tr>";
 						}
-					?>
-	             </table>
+					
+	            echo "</table>";
+				for($b=1;$b<=$count;$b++){
+					?><a href="ReviewLeads.php?page=<?php echo $b; ?>" style="text-decoration:none "><?php echo $b." "; ?><?php
+					
+				}
+				?>
              </div>
 
 	</div>
